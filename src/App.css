@@ -1,1 +1,4 @@
 @import "leaflet/dist/leaflet.css";
+.message{
+  z-index:10000;
+}

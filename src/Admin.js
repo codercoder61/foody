@@ -1499,7 +1499,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                 </div>
                 <div id='top'>
-                  <div style={{border:'1px solid #eee',padding:'20px',margin:'10px',width:'100%',backgroundColor:'white'}}>
+                  <div className='sau'>
                     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                       <h3>Top Restaurants</h3>
                       <span style={{color:'#888',fontSize:'0.8'}}>By Orders</span>
@@ -1511,7 +1511,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                     ))}
                   </div>
-                  <div style={{border:'1px solid #eee',padding:'20px',margin:'10px',width:'100%',backgroundColor:'white'}}>
+                  <div className='sau'>
                      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                       <h3>Most Popular</h3>
                       <span style={{color:'#888',fontSize:'0.8'}}>By Favorites</span>
@@ -1523,7 +1523,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                     ))}
                   </div>
-                  <div style={{border:'1px solid #eee',padding:'20px',margin:'10px',width:'100%',backgroundColor:'white'}}>
+                  <div className='sau'>
                      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                       <h3>Top Users</h3>
                       <span style={{color:'#888',fontSize:'0.8'}}>By Orders</span>

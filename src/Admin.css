@@ -13,6 +13,13 @@
     width:100%;
     background-color:white;
 }
+#fm{
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
 #pal{
     margin-top:40px;
     width:100%;
@@ -230,6 +237,9 @@
     display: none;
 }
 @media screen and (max-width:400px){
+    #fm{
+    padding-right:0px;
+    }
     #pal{
         width:90%;
         padding-right:0;

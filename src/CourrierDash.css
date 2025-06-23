@@ -1,0 +1,220 @@
+.customs-file-upload{
+    border: 2px dashed #999;
+    border-radius: 8px;
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+    transition: background-color 0.2s ease;
+}
+
+#slam{
+    display:flex;
+    padding-top:30px;
+    align-items:center;
+    flex-direction:column;
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:20%;
+    height:100vh;
+    background-color:#fff;
+    box-shadow:0 0 2px #ddd;
+    z-index: 1510;
+}
+#ff{
+    display:flex;
+}
+.orde{
+    text-align:right;
+    align-self:flex-end;
+    background-color:#ffecd1;
+    color:#222;
+    padding:5px 10px;
+    border-radius:15px;
+}
+#gen{
+    height:fit-content;border:1px solid #ddd;outline:none;padding-left:20px;margin:30px 20px 0 0;padding:20px;background-color:white;width:45%;
+}
+#yui{
+    margin-left:20%;
+    padding-top:50px;
+    padding-left:50px;
+}
+#jj{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
+#haj{
+    display:flex;
+}
+.abc{
+    border:1px solid #ddd;padding:15px;display:flex;align-items:center;width:30%;background-color:white;margin:10px;
+}
+#fla{
+    margin-top:20px;
+    display:flex;
+}
+#ko{
+    border:1px solid #ddd;box-shadow:0 0 5px #ddd;padding:20px;margin-right:20px;background-color:white;width: 50%;height: 400px; 
+}
+#kll{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ddd;
+    box-shadow:0 0 5px #ddd;
+    padding:20px;
+    background-color:white; 
+    width: 50%;
+    height:400px;
+}
+#jjj{
+    border:1px solid #ddd;
+    outline:none;
+    padding-left:20px;
+    margin:30px 0;
+    height:fit-content;
+    padding:20px;
+    background-color:white;
+    width:45%;
+}
+#hfg{
+    display:flex;
+    flex-direction:column;
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
+.span{
+    cursor:pointer;
+        margin-right:10px;
+}
+.fd{
+    text-align:center;align-self:center;width:50%;margin:auto;
+}
+
+.deli2{
+    display:flex;width: 100%;flex-direction:column;padding:30px;margin-top: 20px;background-color: white;border-radius:15px;justify-content:space-between;align-items:space-between;
+}
+.deli{
+     display: flex;padding:30px;border-radius:15px;justify-content:space-between;width: 100%; margin: 20px 30px;background-color: white;
+}
+#man{
+    display:flex;flex-wrap:wrap;margin-top:40px;width:100%;padding-right:30px;
+}
+#fran{
+    border:1px solid #ddd;outline:none;padding-left:20px;margin:30px auto;padding:20px;background-color:white;width:90%;
+}
+.dl{
+margin-right: 20px;
+ text-align: center; display: flex; flex-direction: column; justify-content: center; 
+ align-items: center;
+}
+.dlll{
+    display: flex;padding:30px;border-radius:15px;
+      justify-content:space-between;
+      width: 100%;
+       margin: 20px 30px 0 30px;
+}
+.pickUp{
+    background-color:#00aec8;
+    color:#fff;
+    padding:15px 50px;
+    cursor:pointer;
+    border-radius:15px;
+}
+.pickUpp{
+    background-color:green;
+    color:#fff;
+    padding:15px 50px;
+    cursor:pointer;
+    border-radius:15px;
+}
+.fff{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+@media screen and (max-width:400px){
+    .fff{
+        margin: 10px 0;
+    }
+    .pickUpp,.pickUp{
+        text-align: center;
+        padding: 5px;
+    }
+    .dlll{
+        padding: 0;
+        margin:0;
+    }
+    .dl{
+        margin-right: 0;
+    }
+    .deli,.deli2{
+        margin:10px auto;
+        width: 100%;
+        font-size: 0.8em;
+    }
+    #man{
+        justify-content: center;
+    }
+    .fd img{
+        width: 200px;
+    }
+    .span{
+        margin-right: 5px;
+    }
+    #hfg{
+        padding-left: 0;
+        width: 100%;
+        padding-right: 0;
+    }
+    .orde{
+        text-align: center;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    #gen,#jjj{
+        width: 90%;
+        margin: 20px auto;
+    }
+    #ff{
+        flex-direction: column;
+    }
+    #ko,#kll{
+        width: 90%;
+        margin: 10px auto;
+        height: fit-content;
+    }
+    #fla{
+        flex-direction: column;
+    }
+    .abc{
+        width: 100%;
+        margin: 10px 0;
+    }
+    #slam{
+        width:300px;
+    display: none;
+    }
+    #jj{
+        padding-right: 0;
+    }
+    #yui{
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .gh{
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    #haj{
+        flex-direction: column;
+    }
+}

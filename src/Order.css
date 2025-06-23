@@ -1,0 +1,105 @@
+
+
+
+
+
+
+
+#order{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
+
+
+@media all and (max-width:400px){
+    .hide{
+        display: none;
+    }
+    #order{
+        padding-right: 0;
+    }
+}
+@media all and (max-width:400px){
+    #iop{
+        margin-top: 0;
+        padding: 10px;
+    }
+    .lop{
+        flex-direction: column;
+        align-items: center;
+    }
+    .form{
+        position: fixed;
+    }
+    #close3{
+        top:20px;
+    }
+    #lo{
+        width: 100%;
+        margin: 20px 0;
+        height: fit-content;
+    }
+    #po{
+        width: 100%;
+        margin: 20px 0;
+    }
+    leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom{
+        height: 350px;
+    }
+    #op{
+        flex-direction: column;
+    }
+    
+    #imgFall{
+        width: 150px;
+    }
+    
+    .meal{
+        margin: 10px;
+    }
+    #near{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    select{
+    outline: none;
+    border: none;
+    font-size: 0.8em;
+    border-radius: 40px;
+    }
+    #select{
+        text-align:center;
+        padding:50px 0;
+        height:170px;
+        background-color:#ffecd1;
+    }
+    .form{
+        height: fit-content;
+        width: 90%;
+    }
+    #close1{
+        cursor:pointer;
+        position:absolute;
+        right:40px;
+        top:20px;
+    }
+    body{
+        overflow-y:unset ;
+    }
+    #cate{
+        padding:10px;
+        text-align: center;
+    }
+    #restaurants #no{
+        width:200px;
+    }
+    #header img{
+        margin:0px;
+    }
+    #header{
+        padding: 15px;
+    }
+}

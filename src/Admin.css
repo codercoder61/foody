@@ -1,0 +1,339 @@
+.close.fa-solid.fa-xmark{
+    color:#5b696e;
+}
+
+#porte{
+    display:flex;
+    padding-top:30px;
+    align-items:center;
+    flex-direction:column;
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:20%;
+    height:100%;
+    background-color:#fff;
+    box-shadow:0 0 2px #ddd;
+    z-index: 100;
+}
+#lop{
+    display:flex;
+    width: 100%;
+}
+#ma{
+    margin-left:20%;
+    padding-top:100px;
+    padding-left:50px;
+}
+#lop > div{
+    border:1px solid #ddd;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    width:30%;
+    background-color:white;
+    margin:10px;
+}
+#ok{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#canvas1{
+    border:1px solid #ddd;
+    box-shadow:0 0 5px #ddd;
+    padding:20px;
+    margin-right:20px;
+    background-color:white;
+    width:100%;
+    height:400px; 
+}
+#canvas2{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ddd;
+    box-shadow:0 0 5px #ddd;
+    padding:20px;
+    background-color:white;
+    width: 100%;
+    height: 400px;
+}
+#top{
+    display:flex;
+    width:100%;
+    justify-content:space-between;
+}
+#courrier{
+     border:1px solid #eee;
+     padding:20px;
+     margin:0 20px 50px 0;
+     width:100%;
+     background-color:white;
+}
+#ju{
+    display:flex;
+    justify-content:space-between;
+}
+.hid{
+    padding: 10px;
+    border-bottom:1px solid #ddd; 
+}
+.hi{
+    padding: 10px; 
+    display:flex;
+    align-items:center;
+    padding: 10px 10px; 
+}
+.hdi{
+    padding: 10px;
+}
+#pod{
+    margin-top:70px;
+    padding:40px;
+}
+#lm{
+    background-color:#ffecd1;
+    text-align:right;
+    border-radius:20px;
+    padding:10px;
+    margin:20px;
+}
+#lk{
+    margin-top:0px;
+    width:100%;
+    padding-right:30px;
+}
+.fb{
+    padding: 10px;
+    display:flex;
+    align-items:center;
+    padding: 10px 10px; 
+}
+
+#ju > #lm >span{
+        margin-right: 20px;
+        cursor:pointer;
+
+    }
+.hidd{
+    padding: 10px ;
+    display:flex;
+    align-items:center;
+    padding: 10px 10px;
+        cursor:pointer;
+
+}
+.closed{
+    cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:45px;
+    display: none;
+}
+#his{
+    display:flex;
+    justify-content:space-between;
+}
+#has{
+    margin-top:70px;
+    padding:40px;
+    width: 100%;
+}
+.pi{
+     padding: 10px;
+     border-bottom: 1px solid #ddd;
+     text-align: center;
+     
+}
+#cool{
+    margin-top:70px;
+    padding:40px;
+}
+.pis{
+    padding: 10px; 
+    display:flex;
+    align-items:center;
+    padding: 10px 10px; 
+}
+.ti{
+    word-wrap:break-word;
+    margin:10px;
+    position:relative;
+    width:30%;
+    box-shadow:0 0 2px #eee;
+    padding:15px;
+    border-radius:15px;
+    height:200px;
+    z-index:50;
+}
+.sn{
+    cursor:pointer;
+    position:absolute;
+    bottom:10px;
+    right:50px;color:white;
+    background-color:#fb9300;
+    padding:10px 20px;
+}
+.addticketpopup textarea{
+    margin:50px 0;
+    outline:none;
+    font-size:1.3em;
+    padding:10px;
+    width:100%;
+    height:20%;
+}
+#sett{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.name{
+    background-color:#fff;padding:20px;border:1px solid #ddd;width:50%;margin:20px;
+}
+.fe{
+    width:50%;
+    margin:20px;
+}
+.ef{
+    display:flex;
+    justify-content:space-between;
+}
+#fd{
+    font-size:2.5em;
+    position:absolute;
+    top:15px;
+    left:25px;
+    display: none;
+}
+@media screen and (max-width:400px){
+    #links p{
+        margin-bottom: 0;
+    }
+    #fd{
+        display: block;
+    }
+    .ef{
+        flex-direction: column;
+    }
+    .fe{
+        width: 100%;
+        margin: 0;
+    }
+    #sett{
+        flex-direction: column;
+    }
+    #sett>div{
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .addticketpopup {
+        width: 90%;
+        overflow-y: unset;
+    }
+    .addticketpopup textarea{
+        margin:0;
+        height: fit-content;
+    }
+    .ti{
+        width: 90%;
+    }
+    #cool{
+        padding: 0;
+        width: 100%;
+    }
+    .form23{
+        position: fixed;
+        top:50%;
+        width: 90%;
+    }
+    .pi,.pis{
+        display: none;
+    }
+    #has{
+        padding: 0;
+        margin-top: 0;
+    }
+    #his{
+        flex-direction: column;
+    }
+    .fb,.hidd{
+        display: none;
+        cursor:pointer;
+    }
+    .closed{
+        display: block;
+    }
+    #lk{
+        padding-right: 0px;
+    }
+    #ju > div{
+        margin:0;
+    }
+    #ju{
+        margin-bottom: 10px;
+    }
+    #lm{
+        text-align: unset;
+        margin: 20px 0;
+    }
+    #ju > #lm >span{
+        margin-right: 10px;
+    }
+    #pod{
+    padding:0px;
+
+    margin-top:70px;    
+}
+    #ju{
+        flex-direction: column;
+    }
+    .hid,.hi,.hdi{
+        display: none;
+    }
+    #courrier{
+        margin: 5px 0 10px 10px;
+    }
+    #lopp{
+        margin-bottom:20px;
+        margin-left: 10px;
+    }
+    #porte{
+        display: none;
+        overflow-y: auto;
+    }
+    #porte{
+    padding-top:30px;
+    width:300px;
+    }
+    #ma{
+        margin-left: 0px;
+        padding-left: 15px;
+        display: flex;
+    }
+    #lop{
+        flex-direction: column;
+    }
+    #lop > div{
+        width: 100%;
+        margin: 10px 0;
+    }
+    #ok{
+        flex-direction: column;
+    }
+    #ok > div{
+        width: 100%;
+    }
+    #top{
+        flex-direction: column;
+    }
+    #canvas1{
+        margin-right: 0;
+        height: fit-content;
+        margin-bottom: 10px;
+    }
+    
+}

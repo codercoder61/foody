@@ -1,0 +1,47 @@
+
+
+#pop{
+    margin-top:70px;
+    display:flex;
+    align-items:center;
+    padding:40px;
+}
+
+#com{
+    text-align:right;
+    padding:40px 100px;
+}
+
+#fo{
+    font-size:1.3em;
+}
+
+#meals> div{
+    background-color:white;
+    display:flex;
+    margin:20px;
+    flex-direction:column;
+    position:relative;
+    padding: 5px;
+}
+@media screen and (max-width:400px) {
+    #pop{
+        flex-direction: column;
+    }  
+    #fo{
+        text-align: center;
+    }  
+    #com{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .pad{
+        padding:5px;
+    }
+    #meals> div{
+        margin: 0;
+    }
+    
+}
+

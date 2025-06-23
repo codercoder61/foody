@@ -1,0 +1,51 @@
+.form2 input{
+    height: 30px;
+}
+
+.form2 textarea{
+    width:100%;
+    height: 90px;
+    border:1px solid #ddd;
+    font-size: 1.6em;
+    padding: 8px;
+}
+
+.form2 textarea:hover,.form2 textarea:focus{
+    outline:1px solid #fb9300;
+}
+
+
+.form2 textarea:focus{
+    outline:none;
+}
+
+.form2 input[type='submit']{
+    margin: 10px 0 ;
+    color:white;
+    background-color: #fb9300;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    height: 60px;
+    font-size: 1.5em;
+}
+.food{
+    width:40%;
+}
+#lama{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    margin-top:0px;
+}
+@media screen and (max-width:400px) {
+    #lama{
+        flex-direction: column;
+    }
+    .food{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+}

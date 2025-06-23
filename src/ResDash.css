@@ -1,0 +1,430 @@
+#links p{
+    margin-bottom: 30px;
+    color: #666;
+    padding: 10px 40px;
+}
+
+#links p i {
+    margin-right: 15px;
+}
+
+#links p:hover{
+    cursor: pointer;
+    color:#fb9300;
+}
+
+#profile{
+    margin-top:10px;
+    display:inline-block;
+    cursor:pointer;
+    color:#00aec8;
+    opacity: 0.7;
+}
+#profile:hover{
+    opacity: 1;
+}
+#add{
+    text-align:right;
+    color:#fb9300;
+    padding-right:40px;
+}
+#add:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table{
+    border-collapse: separate;
+    border:1px solid #ddd;
+    border-radius:10px;
+    width:100%;
+    font-weight: 500;
+    border-spacing: 0;
+    overflow: hidden;
+}
+tr{
+    border-radius:10px;
+}
+
+
+
+.message{
+    animation: fadeIn 3s ease-in-out forwards;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0;
+  }
+}
+
+.overlay{
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index:510;
+    position: fixed;
+    top:0;
+    bottom:0;
+}
+
+.addmealpopup{
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    width: 60%;
+    height: 70%;
+    z-index:2000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+}
+
+.updateOrderpopup{
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    width: 70%;
+    height: 40%;
+    z-index:3000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+}
+.addticketpopup{
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    width: 60%;
+    height:70%;
+    z-index:2000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    overflow-y: hidden;
+}
+.addticketpopupp{
+background-color: rgb(255, 255, 255);
+    opacity: 1;
+    width: 60%;
+    z-index:2000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    overflow-y: hidden;
+}
+select:hover{
+    border:1px solid #fb9300;
+}
+
+select,select:focus{
+    border: 1px solid #fb9300;
+}
+
+#mn{
+    display:flex;
+    padding-top:30px;
+    align-items:center;
+    flex-direction:column;
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:20%;
+    height:100vh;
+    background-color:#fff;
+    box-shadow:0 0 2px #ddd;
+    z-index: 1400;
+}
+#dio{
+    display: flex;
+}
+#dio>div{
+    border:1px solid #ddd;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    width:30%;
+    background-color:white;
+    margin:10px;
+}
+#jk{
+    margin-left:20%;
+    padding-top:50px;
+    padding-left:50px;
+}
+#lapa{
+    margin-top:20px;
+    display:flex;
+}
+#kakp{
+    border:1px solid #ddd;
+    box-shadow:0 0 5px #ddd;
+    padding:20px;
+    margin-right:20px;
+    background-color:white;
+    width: 50%;
+    height: 400px;
+}
+#klp{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ddd;
+    box-shadow:0 0 5px #ddd;
+    padding:20px;
+    background-color:white;
+    width:50%; 
+    height:400px;
+}
+#jk{
+    margin-top:40px;
+    padding-right:30px;
+}
+#gf{
+    display:flex;
+}
+#loo{
+    border:1px solid #ddd;
+    outline:none;
+    padding-left:20px;
+    margin:30px 20px 0 0;
+    padding:20px;
+    background-color:white;
+    width:45%;
+    height: fit-content;
+}
+#io{
+    border:1px solid #ddd;
+    outline:none;
+    padding-left:20px;
+    margin:30px 0;
+    height:fit-content;
+    padding:20px;
+    background-color:white;
+    width:45%;
+}
+.fr{
+    padding:20px;
+    border-bottom: 1px solid #ddd;
+}
+.fra{
+    padding: 10px 10px;
+}
+#ch{
+    display:flex;
+    align-items:center;
+    padding: 10px 10px;
+}
+td{
+    padding: 10px;
+}
+#ord{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
+#fg{
+     margin-top:40px;
+     width:100%;
+     padding-right:30px;
+}
+#mp{
+    margin:50px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+#ing{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.kolo,.nv{
+    cursor:pointer;
+    position:absolute;
+    bottom:50px;
+    right:50px;
+    color:white;
+    background-color:#fb9300;
+    padding:10px 20px;
+    z-index: 900;
+}
+
+
+#haha{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+#hama{
+    margin:50px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+#pol{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
+.sh{
+    cursor:pointer;position:absolute;bottom:50px;right:50px;color:white;background-color:#fb9300;padding:10px 20px;
+}
+.gj{
+    word-wrap:break-word;margin:10px;position:relative;width:30%;box-shadow:0 0 12 rgb(156, 255, 204);padding:15px;border-radius:15px;height:200px;
+}
+#ooo{
+    display:flex;flex-wrap:wrap;margin-top:40px;width:100%;padding-right:30px;
+}
+#ll{
+    margin-top:30px;
+}
+.ggf{
+    margin:50px 0;outline:none;font-size:1.3em;padding:10px;width:100%;height:20%;
+}
+#lala{
+    height:50%;overflow-y:scroll;
+}
+#gd{
+    border:1px solid #ddd;
+    outline:none;
+    padding-left:20px;
+    margin:30px 20px 0 0;
+    padding:20px;
+    background-color:white;
+    width:90%;
+}
+@media screen and (max-width:400px){
+    .updateOrderpopup{
+        height: fit-content;
+    }
+    #gd{
+        margin: auto;
+    }
+    #lala{
+        max-height: 200px;
+        overflow-y: scroll;
+    }
+    .ggf{
+        margin-bottom: 10px;
+    }
+    #ll{
+        margin-top: 10px;
+    }
+    #ooo{
+        align-items: center;
+        justify-content: center;
+        padding-right: 0;
+    }
+    .addticketpopup{
+        max-height:500px;
+        height: fit-content;
+    }
+    .sh{
+        position: static;
+    }
+    .gj{
+        width: 90%;
+    }
+    .addticketpopupp{
+        width: 90%;
+    }
+    #pol{
+        margin: 20px auto;
+        width: 90%;
+        padding-right: 0;
+    }
+    .comment{
+        display: none;
+    }
+    .kolo,.nv{
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        width: fit-content;
+    }
+    
+    #mp,#ing,#haha,#hama{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .addmealpopup{
+        width:95%;
+        height: fit-content;
+        overflow-y: scroll;
+        max-height: 90%;
+    }
+    #fg{
+        margin: 40px auto;
+        width: 90%;
+        padding-right: 0;
+    }
+    .hii{
+        display: none;
+    }
+    #ord{
+        width: 90%;
+        margin: 20px auto;
+        padding-right: 0;
+    }
+    .fra,#ch{
+        display: none;
+    }
+    #ch{
+        display: none;
+    }
+    .fr{
+        display: none;
+    }
+    #loo,#io{
+        width: 100%;
+        margin: 20px auto;
+    }
+    #gf{
+        flex-direction: column;
+    }
+    
+    #jk{
+        padding-right: 0;
+    }
+    #kakp,#klp{
+        width: 90%;
+        height: fit-content;
+        margin: 20px auto;
+    }
+    #lapa{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #jk{
+        padding-left: 0;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .gh{
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    #mn{
+        width: 300px;
+        display: none;
+    }
+    #dio{
+        flex-direction: column;
+        width: 100%;
+    }
+    #dio>div{
+        width:90%;
+        margin: 10px auto;
+    }
+}

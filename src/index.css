@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+body{
+  font-family: "Poppins", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width:4px;
+  border-radius: 10px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(251, 147, 0); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(251, 147, 0); 
+  opacity: 0.5;
+}

@@ -13,6 +13,11 @@
     width:100%;
     background-color:white;
 }
+#pal{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
 #fga{
     margin-top:40px;
     width:100%;
@@ -225,6 +230,11 @@
     display: none;
 }
 @media screen and (max-width:400px){
+    #pal{
+        width:90%;
+        padding-right:0;
+        margin:auto;
+    }
     #fga{
     padding-right:0px;
     }

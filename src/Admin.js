@@ -943,9 +943,9 @@ const getStats= async()=>{
           }
         });
 
-        const result = await response.text();
-        console.log(result); // { success: true, message: "..." }
-       setnumber_customers(result.number_customers)
+        const result = await response.json();
+        //console.log(result); // { success: true, message: "..." }
+        setnumber_customers(result.number_customers)
         setnumber_restaurants(result.number_restaurants)
         setnumber_courrier(result.number_courriers)
         setuserpermonth(result.users_per_month)

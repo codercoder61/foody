@@ -1382,7 +1382,7 @@ orders_per_month && orders_per_month.forEach(element => {
         </div>}
 
         {credentials && <div>
-            <h2>User Credentials</h2>
+            <h2 className='gh'>User Credentials</h2>
             <div style={{display:'flex'}}>
                 <div style={{border:'1px solid #ddd',outline:'none',paddingLeft:'20px',margin:'30px 20px 0 0',padding:'20px',backgroundColor:'white',width:'90%'}}>
                     <h5 style={{margin:'10px 0'}}>Current Password</h5>
@@ -1396,7 +1396,7 @@ orders_per_month && orders_per_month.forEach(element => {
             </div>
         </div>}
           {settings && <div id='lk'>
-              <h2>Settings</h2>
+              <h2 className='gh'>Settings</h2>
               <div id='sett'>
                 <div className='name'>
                   <div style={{marginBottom:'30px',display:'flex',justifyContent:'space-between',alignItems:'center'}}><h2>App Commission</h2><span>{range}% per order</span></div>

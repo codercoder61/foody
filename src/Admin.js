@@ -1309,9 +1309,9 @@ orders_per_month && orders_per_month.forEach(element => {
 
           {reports &&  <div id='cool'>
                 
-                  <h1 style={{fontSize:'1.3em'}}>Review Reports</h1>
+                  <h1 className='gh'>Review Reports</h1>
                  
-               <div style={{marginTop:'40px',width:'100%',paddingRight:'30px'}}>
+               <div id='pal'>
                <table>
                 <thead>
                 <tr style={{padding:'10px'}}>

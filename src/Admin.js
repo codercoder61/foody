@@ -1348,7 +1348,7 @@ orders_per_month && orders_per_month.forEach(element => {
             </div>}
         
 
-            {tickets && <div>
+            {tickets && <div id='gjk'>
   
             <h2 className='gh'>Tickets</h2>
             

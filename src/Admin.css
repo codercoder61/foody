@@ -13,6 +13,11 @@
     width:100%;
     background-color:white;
 }
+#fga{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
 #porte{
     display:flex;
     padding-top:30px;
@@ -220,6 +225,9 @@
     display: none;
 }
 @media screen and (max-width:400px){
+    #fga{
+    padding-right:0px;
+    }
     .sau{
         margin:10px 0;
     }

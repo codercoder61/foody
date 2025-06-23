@@ -412,8 +412,8 @@ const fetchAllUsers = async () => {
       }
     });
 
-    const data = await response.text();
-    console.log(data)
+    const data = await response.json();
+    //console.log(data)
     setUsersInfo(data.users)
     
   } catch (error) {

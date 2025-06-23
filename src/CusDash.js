@@ -404,6 +404,7 @@ const removeFromCart = (index) => {
     },[])
 
     const addToCart = (index,id_resto) => {
+      console.log(index,id_resto)
           let cart = JSON.parse(localStorage.getItem("cart")) || [];
         if(cart.length===0){
           localStorage.removeItem("allowedResto")

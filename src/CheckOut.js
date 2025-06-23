@@ -307,7 +307,7 @@ function CheckOut() {
         if(email!=="" && name!=="" && phone!=="" && addressInput!=="" ){
 
   console.log( {
-              id:localStorage.getItem('userId'),
+              id:parseInt(localStorage.getItem('userId')),
               cart:cartBuy,
               email:email,
               name:name,

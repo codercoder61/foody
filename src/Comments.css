@@ -1,67 +1,71 @@
-
-
-#pop{
-    margin-top:70px;
-    display:flex;
-    align-items:center;
-    padding:40px;
+#pop {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    padding: 40px;
 }
 
-#com{
-    text-align:right;
-    padding:40px 100px;
+#com {
+    text-align: right;
+    padding: 40px 100px;
 }
 
-#fo{
-    font-size:1.3em;
+#fo {
+    font-size: 1.3em;
 }
 
-#meals> div{
-    background-color:white;
-    display:flex;
-    margin:20px;
-    flex-direction:column;
-    position:relative;
+#meals > div {
+    background-color: white;
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+    position: relative;
     padding: 5px;
 }
-#codar{
-color:#fb9300;
-    fontSize:1.3em;
-}// 
-#coo{
-    width:100%;
-    padding-right:20px,
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+#codar {
+    color: #fb9300;
+    font-size: 1.3em;
 }
-@media screen and (max-width:400px) {
-    
-    #codar{
-    margin:auto;
-    width:80%;
-    }// 
-    #coo{
-        width:80%;
-        margin:auto;
+
+#coo {
+    width: 100%;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 400px) {
+    #codar {
+        margin: auto;
+        width: 80%;
     }
-    #pop{
+
+    #coo {
+        width: 80%;
+        margin: auto;
+    }
+
+    #pop {
         flex-direction: column;
-    }  
-    #fo{
+    }
+
+    #fo {
         text-align: center;
-    }  
-    #com{
+    }
+
+    #com {
         width: 100%;
         display: flex;
         justify-content: center;
     }
-    .pad{
-        padding:5px;
+
+    .pad {
+        padding: 5px;
     }
-    #meals> div{
+
+    #meals > div {
         margin: 0;
     }
-    
 }
-

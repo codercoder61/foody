@@ -1250,7 +1250,7 @@ function barreaux(data){
   return (
     <div>
       <i onClick={handleClick} id='fd' class="fa-solid fa-bars"></i>
-      {success8 && <p ref={message8} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Order status successfully updated!</p>}
+      {success8 && <p ref={message8} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Order status successfully updated!</p>}
       {overlay && <div className='overlay'></div>}
       {updateOrder && <div className='updateOrderpopup'>
       <div style={{display:'flex',justifyContent:'space-between'}}><h1>Change order status</h1><i style={{cursor:'pointer',fontSize:'1.2em'}} onClick={()=>{document.body.style.overflow='unset';setOverlay(false);setUpdateOrder(false)}} className="fa-solid fa-xmark"></i></div>  
@@ -1479,19 +1479,19 @@ function barreaux(data){
 
       
 
-{success6 && <p ref={message6} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>A new ticket successfully created!</p>}
+{success6 && <p ref={message6} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>A new ticket successfully created!</p>}
 
 
-{success7 && <p ref={message7} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Success!</p>}
+{success7 && <p ref={message7} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Success!</p>}
       
-      {success2 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal successfully added to your menu!!</p>}
-      {success3 && <p ref={message4} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal successfully updated to your menu!!</p>}
+      {success2 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal successfully added to your menu!!</p>}
+      {success3 && <p ref={message4} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal successfully updated to your menu!!</p>}
 
 
-      {success5 && <p ref={message5} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal successfully deleted!!</p>}
+      {success5 && <p ref={message5} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal successfully deleted!!</p>}
 
-      {success && <p ref={message} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Changes are successfully saved!</p>}
-      {fail && <p ref={message2} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'rgba(255,0,0,0.5)',border:'1px solid red'}}>Changes were not successfully saved!</p>}
+      {success && <p ref={message} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Changes are successfully saved!</p>}
+      {fail && <p ref={message2} className='message' style={{textAlign:'center',zIndex:'50000',position:'fixed',top:'0',width:'100%',backgroundColor:'rgba(255,0,0,0.5)',border:'1px solid red'}}>Changes were not successfully saved!</p>}
       <div ref={menu} id='mn'>
             <img width='150' style={{margin:'0 20px 20px 20px'}} src="https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=,h=,f=auto,dpr=1,fit=contain/f1646061273072x552344553851359800/Component%202%20%282%29%20%281%29.png" alt="logo"/>
             <i onClick={handleClick2} className="closed fa-solid fa-xmark"></i>

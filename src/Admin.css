@@ -6,6 +6,13 @@
     width:100%;
     padding-right:30px;
 }
+.sau{
+    border:1px solid #eee;
+    padding:20px;
+    margin:10px;
+    width:100%;
+    background-color:white;
+}
 #porte{
     display:flex;
     padding-top:30px;
@@ -213,6 +220,9 @@
     display: none;
 }
 @media screen and (max-width:400px){
+    .sau{
+        margin:10px 0;
+    }
     #kop{
     padding-right:0px;
     }

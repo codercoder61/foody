@@ -724,14 +724,14 @@ useEffect(()=>{
         </div>
         <div id='com'>
           <Link to={`/restoinfo/${id}`}><span style={{fontSize:'1.3em',marginRight:'40px'}}>Menu</span></Link>
-          <Link to={`/comments/${id}`}><span style={{color:'#fb9300',fontSize:'1.3em'}}>Comments({numComments})</span></Link>
+          <Link to={`/comments/${id}`}><span id='codar'>Comments({numComments})</span></Link>
         </div>
             <div className='pad'>
            <h1 id='fo'>Comments From Customers ({numComments})</h1>
             <div style={{marginTop:'20px'}}>
                 {commentsOnMeals && commentsOnMeals.length>0 && commentsOnMeals.map((elm,index)=>(
                     <div key={index}>
-                    <div style={{width:'100%',paddingRight:'20px',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                    <div className='coo'>
                         <div style={{display:'flex',alignItems:'center'}}>
                             <img width='60' style={{borderRadius:'50%'}} height='60' src={elm.user.photo!=null?`https://soc-net.info/foody/${elm.user.photo}`:'https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=96,h=96,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png'}/>
                                 <div style={{marginLeft:'10px'}}>

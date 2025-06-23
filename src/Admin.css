@@ -272,7 +272,8 @@
     }
     #has{
         padding: 0;
-        margin-top: 0;
+        margin: auto;
+        width:90%;
     }
     #his{
         flex-direction: column;

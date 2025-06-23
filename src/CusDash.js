@@ -502,8 +502,8 @@ const removeFromCart = (index) => {
           ),
         });
 
-        const result = await response.json();
-        //result)
+        const result = await response.text();
+        console.log(result)
         if(result.locations[0]){
         setUserPostion({
           lat:result.locations[0].latitude,

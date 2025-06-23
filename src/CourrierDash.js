@@ -967,10 +967,10 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
         <textarea value={messageTicket} onChange={handleMessageChange} placeholder='Type your message here...' className='ggf' style={{border:errorTicket?"1px solid red":"1px solid #fb9300"}}></textarea>
         <div className='kolo' style={{marginTop:'30px'}}><span onClick={addMessageToTicket}>Send</span></div>
       </div>}
-{success6 && <p ref={message6} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>A new ticket successfully created!</p>}
-{success7 && <p ref={message7} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Success!</p>}
-      {success && <p ref={message} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Changes are successfully saved!</p>}
-      {fail && <p ref={message2} className='message' style={{textAlign:'center',zIndex:'5',position:'fixed',top:'0',width:'100%',backgroundColor:'rgba(255,0,0,0.5)',border:'1px solid red'}}>Changes were not successfully saved!</p>}
+{success6 && <p ref={message6} className='message' style={{textAlign:'center',zIndex:'10005',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>A new ticket successfully created!</p>}
+{success7 && <p ref={message7} className='message' style={{textAlign:'center',zIndex:'10005',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Success!</p>}
+      {success && <p ref={message} className='message' style={{textAlign:'center',zIndex:'10005',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Changes are successfully saved!</p>}
+      {fail && <p ref={message2} className='message' style={{textAlign:'center',zIndex:'10005',position:'fixed',top:'0',width:'100%',backgroundColor:'rgba(255,0,0,0.5)',border:'1px solid red'}}>Changes were not successfully saved!</p>}
       <div ref={menu} id='slam'>
             <img width='150' style={{margin:'0 20px 20px 20px'}} src="https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=,h=,f=auto,dpr=1,fit=contain/f1646061273072x552344553851359800/Component%202%20%282%29%20%281%29.png" alt="logo"/>
             <i onClick={handleClick2} className="closed fa-solid fa-xmark"></i>

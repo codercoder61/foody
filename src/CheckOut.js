@@ -337,7 +337,7 @@ function CheckOut() {
         });
         
 
-        const result = await response.text();
+        const result = await response.json();
         if(result.status==1){
           navigate(`/cusdash/${localStorage.getItem('userId')}/1`)
         }

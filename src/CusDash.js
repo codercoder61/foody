@@ -748,7 +748,7 @@ const removeCategory = (elm) => {
 
         const result = await response.json();
         setMeals(result.info)
-        //result)
+        console.log(result)
     } catch (error) {
         console.error("Error:", error);
       }

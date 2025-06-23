@@ -488,41 +488,49 @@ const removeFromCart = (index) => {
     },[])
     const [email,setEmail] = useState("")
     const [userPostion,setUserPostion] = useState([])
-    const fetchData= async()=>{
-      try {
-        const response = await fetch("https://soc-net.info/foody/getcus.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(
-            {
-              id:id
-            }
-          ),
-        });
+    const fetchData = async () => {
+  try {
+    const response = await fetch("https://soc-net.info/foody/getcus.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+      }),
+    });
 
-        const result = await response.text();
-        console.log(result)
-        if(result.locations[0]){
-        setUserPostion({
-          lat:result.locations[0].latitude,
-          lng:result.locations[0].longitude
-        })
-        }
-        setName(result.userData.name)
-        setSurname(result.userData.surname)
-        setNameSurname(result.userData.name)
-        setEmailForm(result.userData.email)
-        setPhone(result.userData.phone)
-        setLocations(result.locations)
-        setEmail(result.userData.email)
-        if(result.userData.photo!==null)
-          setSrc2(`https://soc-net.info/foody/${result.userData.photo}`)
-      } catch (error) {
-        console.error("Error:", error);
-      }
+    // Parse the JSON response
+    const result = await response.json();  // Use .json() instead of .text()
+
+    console.log(result);
+
+    // Make sure the result contains locations before accessing them
+    if (result.locations && result.locations[0]) {
+      setUserPostion({
+        lat: result.locations[0].latitude,
+        lng: result.locations[0].longitude,
+      });
     }
+
+    // Update state with user data
+    setName(result.userData.name);
+    setSurname(result.userData.surname);
+    setNameSurname(result.userData.name);
+    setEmailForm(result.userData.email);
+    setPhone(result.userData.phone);
+    setLocations(result.locations);
+    setEmail(result.userData.email);
+
+    // Set the photo if available
+    if (result.userData.photo !== null) {
+      setSrc2(`https://soc-net.info/foody/${result.userData.photo}`);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 
 
     const flag= async(id)=>{

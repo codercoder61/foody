@@ -23,13 +23,16 @@
     padding: 5px;
 }
 
+
 #codar {
+        margin: auto;
+        width: 80%;
     color: #fb9300;
     font-size: 1.3em;
-}
-
+    }
 .coo {
-    width: 100%;
+    width: 80%;
+    margin: auto;
     padding-right: 20px;
     display: flex;
     justify-content: space-between;
@@ -37,15 +40,7 @@
 }
 
 @media screen and (max-width: 400px) {
-    #codar {
-        margin: auto;
-        width: 80%;
-    }
-
-    .coo {
-        width: 80%;
-        margin: auto;
-    }
+    
 
     #pop {
         flex-direction: column;

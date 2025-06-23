@@ -268,6 +268,7 @@ useEffect(() => {
             <p style={{fontSize: '1.2em',fontWeight: 'unset',marginBottom:'50px'}}>One last step left</p>
             </div>
             <div style={{ padding: "20px",width:'100%' }}>
+  <label>Enter Your address:</label>
              <SelectLocationMap
   position={position}
   setPosition={setPosition}

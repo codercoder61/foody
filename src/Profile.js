@@ -348,7 +348,7 @@ const handleMessageChangeForm = (e)=>{
       }
 const fetchNotifications= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/getNotifications.php", {
+        const response = await fetch("https://soc-net.info/foody/getNotifications.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -374,7 +374,7 @@ const fetchNotifications= async()=>{
     }
      const flag= async(id)=>{
       try {
-        const response = await fetch("http://localhost/foody/flag.php", {
+        const response = await fetch("https://soc-net.info/foody/flag.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -398,7 +398,7 @@ const fetchNotifications= async()=>{
 
     const clear= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/clear.php", {
+        const response = await fetch("https://soc-net.info/foody/clear.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -428,7 +428,7 @@ const fetchNotifications= async()=>{
         }
 
           try {
-        const response = await fetch("http://localhost/foody/sendMessage.php", {
+        const response = await fetch("https://soc-net.info/foody/sendMessage.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -470,7 +470,7 @@ const fetchNotifications= async()=>{
 },[])
     const fetchData= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/getcus.php", {
+        const response = await fetch("https://soc-net.info/foody/getcus.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -491,7 +491,7 @@ const fetchNotifications= async()=>{
         setNameSurname(result.userData.name)
         setLocations(result.locations)
         if(result.userData.photo!==null)
-          setSrc2(`http://localhost/foody/${result.userData.photo}`)
+          setSrc2(`https://soc-net.info/foody/${result.userData.photo}`)
       } catch (error) {
         console.error("Error:", error);
       }
@@ -500,7 +500,7 @@ const fetchNotifications= async()=>{
     const deleteLocation = async(id)=>{
       const idLocation = id
       try {
-        const response = await fetch("http://localhost/foody/deleteCusLocation.php", {
+        const response = await fetch("https://soc-net.info/foody/deleteCusLocation.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -529,7 +529,7 @@ const fetchNotifications= async()=>{
     const addLocation = async()=>{
         setLocation('')
       try {
-        const response = await fetch("http://localhost/foody/addLocation.php", {
+        const response = await fetch("https://soc-net.info/foody/addLocation.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -615,7 +615,7 @@ const removeCategory = (elm) => {
 
     const fetchData2= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/getCategories.php", {
+        const response = await fetch("https://soc-net.info/foody/getCategories.php", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -632,7 +632,7 @@ const removeCategory = (elm) => {
 
     const fetchRestaurants= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/getRestaurants.php", {
+        const response = await fetch("https://soc-net.info/foody/getRestaurants.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -654,7 +654,7 @@ const removeCategory = (elm) => {
 
     const fetchMeals= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/getAllMeals.php", {
+        const response = await fetch("https://soc-net.info/foody/getAllMeals.php", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -714,7 +714,7 @@ const formData = new FormData();
 
 if(!error2 && !error3 && !error4){
     try {
-      const res = await fetch("http://localhost/foody/updateCusInfo.php", {
+      const res = await fetch("https://soc-net.info/foody/updateCusInfo.php", {
         method: "POST",
         body: formData,
       });
@@ -832,7 +832,7 @@ if(!error2 && !error3 && !error4){
               width="50"
               height="50"
               style={{ objectFit: 'cover' }}
-              src={`http://localhost/foody/${elm.mealPhoto}`}
+              src={`https://soc-net.info/foody/${elm.mealPhoto}`}
               alt=""
             />
             <div

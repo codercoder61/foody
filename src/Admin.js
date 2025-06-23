@@ -1206,7 +1206,7 @@ orders_per_month && orders_per_month.forEach(element => {
                   <h1 style={{fontSize:'1.3em'}}>Order History</h1>
                   <input placeholder='Search by order ID' style={{marginRight:'30px',width:'unset'}}type='text' value={search} onChange={handleSearchChange}/>
                 </div>
-               <div style={{marginTop:'40px',width:'100%',paddingRight:'30px'}}>
+               <div id='fga'>
                <table>
                 <thead>
                 <tr style={{padding:'10px'}}>

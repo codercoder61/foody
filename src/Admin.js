@@ -1350,9 +1350,9 @@ orders_per_month && orders_per_month.forEach(element => {
 
             {tickets && <div>
   
-            <h2>Tickets</h2>
+            <h2 className='gh'>Tickets</h2>
             
-            <div style={{display:'flex',flexWrap:'wrap',marginTop:'40px',width:'100%',paddingRight:'30px'}}>
+            <div id='fm'>
               {ticketsMessages && ticketsMessages.map((elm,index)=>(
                   <div key={elm.info.id} className='ti' style={{backgroundColor:elm.stateTicket==='Closed'?'#9cffcc':elm.stateTicket==='Pending'?'#ffecd1':'#bdf6ff'}}>
                     <div>

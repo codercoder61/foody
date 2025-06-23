@@ -1,7 +1,11 @@
 .close.fa-solid.fa-xmark{
     color:#5b696e;
 }
-
+#kop{
+    margin-top:40px;
+    width:100%;
+    padding-right:30px;
+}
 #porte{
     display:flex;
     padding-top:30px;
@@ -209,6 +213,9 @@
     display: none;
 }
 @media screen and (max-width:400px){
+    #kop{
+    padding-right:0px;
+    }
     #links p{
         margin-bottom: 0;
     }

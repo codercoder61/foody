@@ -461,8 +461,8 @@ const removeFromCart = (index) => {
                 quantity: 1,
                 mealPrice: meals[meals.findIndex(meal => meal.meal.id === index)].meal.price,
                 mealId: meals[meals.findIndex(meal => meal.meal.id === index)].meal.id,
-                restaurantId:meals[meals.findIndex(meal => meal.meal.id === index)].owner.id,
-                restaurantName:meals[meals.findIndex(meal => meal.meal.id === index)].owner.restaurantName
+                restaurantId:meals[meals.findIndex(meal => meal.meal.id === index)].id_restaurantOwner,
+                restaurantName:meals[meals.findIndex(meal => meal.meal.id === index)].info.restaurantName
             });
         }
         localStorage.setItem("cart", JSON.stringify(cart));

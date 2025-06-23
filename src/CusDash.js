@@ -503,7 +503,7 @@ const removeFromCart = (index) => {
     // Parse the JSON response
     const result = await response.json();  // Use .json() instead of .text()
 
-    console.log(result);
+    
 
     // Make sure the result contains locations before accessing them
     if (result.locations && result.locations[0]) {

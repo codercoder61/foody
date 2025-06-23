@@ -311,8 +311,11 @@
     }
     #ma{
         margin-left: 0px;
-        padding-left: 15px;
+       padding-left: 0px;
         display: flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
     }
     #lop{
         flex-direction: column;

@@ -93,7 +93,7 @@ function isValidPhoneNumber(phone) {
         };
         if(!errorTicket){
         try {
-          const res = await fetch("http://localhost/foody/createTicketAdmin.php", {
+          const res = await fetch("https://soc-net.info/foody/createTicketAdmin.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -127,7 +127,7 @@ function isValidPhoneNumber(phone) {
         };
         if(!errorTicket){
         try {
-          const res = await fetch("http://localhost/foody/addMessageToTicketAdmin.php", {
+          const res = await fetch("https://soc-net.info/foody/addMessageToTicketAdmin.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -150,7 +150,7 @@ function isValidPhoneNumber(phone) {
           ticketId: ticketId
         };
         try {
-          const res = await fetch("http://localhost/foody/getTicketMessages2.php", {
+          const res = await fetch("https://soc-net.info/foody/getTicketMessages2.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -170,7 +170,7 @@ function isValidPhoneNumber(phone) {
           ticketId:ticketId
         };
         try {
-          const res = await fetch("http://localhost/foody/closeTicket.php", {
+          const res = await fetch("https://soc-net.info/foody/closeTicket.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -278,7 +278,7 @@ function isValidPhoneNumber(phone) {
   //payload)
   if(!errorEmail && password!=="" && newPassword!==""){
   try {
-    const res = await fetch("http://localhost/foody/updateAdminInfo.php", {
+    const res = await fetch("https://soc-net.info/foody/updateAdminInfo.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -345,7 +345,7 @@ const handleAddressChange = (e)=>{
    
 const fetchTickets = async () => {
   try {
-    const response = await fetch("http://localhost/foody/getAllTickets.php", {
+    const response = await fetch("https://soc-net.info/foody/getAllTickets.php", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -363,7 +363,7 @@ const fetchTickets = async () => {
 const [reportedComments,setReportedComments] = useState(null)
 const fetchReportedComments = async () => {
   try {
-    const response = await fetch("http://localhost/foody/getReportedComments.php", {
+    const response = await fetch("https://soc-net.info/foody/getReportedComments.php", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -387,7 +387,7 @@ const [allOrders,setAllOrders] = useState(null)
 
 const fetchAllOrders = async () => {
   try {
-    const response = await fetch("http://localhost/foody/getAllOrders.php", {
+    const response = await fetch("https://soc-net.info/foody/getAllOrders.php", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -405,7 +405,7 @@ const fetchAllOrders = async () => {
 
 const fetchAllUsers = async () => {
   try {
-    const response = await fetch("http://localhost/foody/getUsers.php", {
+    const response = await fetch("https://soc-net.info/foody/getUsers.php", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -428,7 +428,7 @@ useEffect(()=>{
 const [admin,setAdmin] = useState(null)
 const getAdminInfo = async () => {
   try {
-    const response = await fetch("http://localhost/foody/getAdminInfo.php", {
+    const response = await fetch("https://soc-net.info/foody/getAdminInfo.php", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -561,7 +561,7 @@ const getAdminInfo = async () => {
     const saveChanges1 = async ()=>{
       
     try {
-      const res = await fetch("http://localhost/foody/updateAppCommissionInfo.php",  {
+      const res = await fetch("https://soc-net.info/foody/updateAppCommissionInfo.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -587,7 +587,7 @@ const getAdminInfo = async () => {
     const [successDelete,setSuccessDelete]=useState(false)
  const deleteComment = async(id)=>{
   try {
-      const res = await fetch("http://localhost/foody/deleteComment.php",  {
+      const res = await fetch("https://soc-net.info/foody/deleteComment.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -612,7 +612,7 @@ const getAdminInfo = async () => {
    const saveChanges2 = async ()=>{
       
     try {
-      const res = await fetch("http://localhost/foody/updateCourrierCommissionInfo.php",  {
+      const res = await fetch("https://soc-net.info/foody/updateCourrierCommissionInfo.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -719,7 +719,7 @@ const getAdminInfo = async () => {
       }
       if(emailAdmin!=="" && facebookAdmin!=="" && twitterAdmin!=="" && phoneAdmin!=="" && instagramAdmin!=="" && linkedinAdmin!==""){
     try {
-      const res = await fetch("http://localhost/foody/updateCompanyInfo.php",  {
+      const res = await fetch("https://soc-net.info/foody/updateCompanyInfo.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -809,7 +809,7 @@ const setReviewInfo = (id_customer,orderId,id_restaurant)=>{
 
     const blockCustomer = async (id)=>{
 try {
-      const res = await fetch("http://localhost/foody/blockCustomer.php",  {
+      const res = await fetch("https://soc-net.info/foody/blockCustomer.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -829,7 +829,7 @@ try {
 
     const blockResto = async (id)=>{
 try {
-      const res = await fetch("http://localhost/foody/blockResto.php",  {
+      const res = await fetch("https://soc-net.info/foody/blockResto.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -849,7 +849,7 @@ try {
 
     const blockCourrier = async (id)=>{
 try {
-      const res = await fetch("http://localhost/foody/blockCourrier.php",  {
+      const res = await fetch("https://soc-net.info/foody/blockCourrier.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -869,7 +869,7 @@ try {
 
     const unBlockCustomer = async (id)=>{
 try {
-      const res = await fetch("http://localhost/foody/unBlockCustomer.php",  {
+      const res = await fetch("https://soc-net.info/foody/unBlockCustomer.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -889,7 +889,7 @@ try {
 
 const unBlockCourrier = async (id)=>{
 try {
-      const res = await fetch("http://localhost/foody/unBlockCourrier.php",  {
+      const res = await fetch("https://soc-net.info/foody/unBlockCourrier.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -909,7 +909,7 @@ try {
 
     const unBlockResto = async (id)=>{
 try {
-      const res = await fetch("http://localhost/foody/unBlockResto.php",  {
+      const res = await fetch("https://soc-net.info/foody/unBlockResto.php",  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -936,7 +936,7 @@ fetchAllUsers()
 
 const getStats= async()=>{
       try {
-        const response = await fetch("http://localhost/foody/statsAdmin.php", {
+        const response = await fetch("https://soc-net.info/foody/statsAdmin.php", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -1143,7 +1143,7 @@ orders_per_month && orders_per_month.forEach(element => {
         <div id='lala' style={{height:'50%',overflowY:'scroll'}}>
         {messages && messages.map((elm,index)=>(
           <div key={index}  style={{wordBreak:'break-word',display:'flex',fontSize:'0.8em'}}>
-          <img width='70' height='70' style={{borderRadius:'50%',objectFit:'cover',margin:'0px 20px 20px 0'}} src={elm.info.isAdmin==0?elm.userInfo.photo ?`http://localhost/foody/${elm.userInfo.photo}`:elm.userInfo.logo ?`http://localhost/foody/${elm.userInfo.logo}`:'https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png':"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=1,fit=contain/f1646061270754x888289544466858600/Component%203%20%282%29%20%281%29.png"} alt={`${index}`} />
+          <img width='70' height='70' style={{borderRadius:'50%',objectFit:'cover',margin:'0px 20px 20px 0'}} src={elm.info.isAdmin==0?elm.userInfo.photo ?`https://soc-net.info/foody/${elm.userInfo.photo}`:elm.userInfo.logo ?`https://soc-net.info/foody/${elm.userInfo.logo}`:'https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png':"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=1,fit=contain/f1646061270754x888289544466858600/Component%203%20%282%29%20%281%29.png"} alt={`${index}`} />
             <div>
               <p style={{fontWeight:'bold',fontSize:'1.3em'}}>{elm.info.isAdmin==0 ? elm.userInfo.name :"Admin"}</p>
               <p style={{wwordBreak: 'break-word',color:'gray',fontSize:'0.9em'}}>{elm.info.content}</p>
@@ -1506,7 +1506,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                     {topRestaurants && topRestaurants.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
-                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.restoInfo.logo!=null?`http://localhost/foody/${elm.restoInfo.logo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.restoInfo.restaurantName}</span></div>
+                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.restoInfo.logo!=null?`https://soc-net.info/foody/${elm.restoInfo.logo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.restoInfo.restaurantName}</span></div>
                       <span style={{color:'#888',fontSize:'0.8'}}>{elm.orderInfo.times_ordered}</span>
                     </div>
                     ))}
@@ -1518,7 +1518,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                     {mostpopularRestaurants && mostpopularRestaurants.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
-                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.restoInfo.logo!=null?`http://localhost/foody/${elm.restoInfo.logo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.restoInfo.restaurantName}</span></div>
+                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.restoInfo.logo!=null?`https://soc-net.info/foody/${elm.restoInfo.logo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.restoInfo.restaurantName}</span></div>
                       <span style={{color:'#888',fontSize:'0.8'}}>{elm.mostPopularInfo.number_favorites}</span>
                     </div>
                     ))}
@@ -1530,7 +1530,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                      {mostUsers && mostUsers.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
-                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo.photo!=null?`http://localhost/foody/${elm.userInfo.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>
+                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo.photo!=null?`https://soc-net.info/foody/${elm.userInfo.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>
   {(elm.userInfo.name).trim()}
 </span>
 </div>
@@ -1545,7 +1545,7 @@ orders_per_month && orders_per_month.forEach(element => {
                     </div>
                      {mostCourriers && mostCourriers.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
-                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo.photo!=null?`http://localhost/foody/${elm.userInfo.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.userInfo.name} {elm.userInfo.surname}</span></div>
+                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo.photo!=null?`https://soc-net.info/foody/${elm.userInfo.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.userInfo.name} {elm.userInfo.surname}</span></div>
                       <span style={{color:'#888',fontSize:'0.8'}}>{elm.mostCourriersInfo.number_orders}</span>
                     </div>
                     ))}</div>

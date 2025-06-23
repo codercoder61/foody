@@ -1460,7 +1460,7 @@ orders_per_month && orders_per_month.forEach(element => {
 
         {analytics && <div>
             <h2>Analytics</h2>
-            <div style={{marginTop:'40px',width:'100%',paddingRight:'30px'}}>
+            <div id='kop'>
                <div id='lop'>
                     <div>
                         <i style={{borderRadius:'10px',fontSize:'2.2em',padding:'20px',backgroundColor:'#ffecd1'}}

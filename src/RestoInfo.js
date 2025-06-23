@@ -540,7 +540,7 @@ const [contact,setContact] = useState(false)
             {toggle && <div ref={profile} id='perso' style={{padding:'10px',backgroundColor:'white',boxShadow:'0 0 5px gray',position:'absolute',right:'50px',top:'65px'}}>
                 <Link to='/order'><span>Order History</span></Link>
                 <Link to='/favorites'><span>Favorite Restaurants</span></Link>
-                <Link to={`/profile/${id}`}><span onClick={()=>{setToggle(false);}}>My Profile</span></Link>
+                <Link to={`/profile/${localStorage.getItem('userId')}`}><span onClick={()=>{setToggle(false);}}>My Profile</span></Link>
                 <span onClick={()=>{document.body.style.overflow='hidden';setContact(true);setOverlay(true)}}>Contact From</span>
                 <Link to='/'><span onClick={()=>{
                                   if(Cookies.get('stayLogged')){

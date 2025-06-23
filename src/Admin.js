@@ -157,8 +157,8 @@ function isValidPhoneNumber(phone) {
             },
             body: JSON.stringify(payload),
           });
-          const result = await res.text(); // assuming backend echoes JSON
-          console.log(result)
+          const result = await res.json(); // assuming backend echoes JSON
+          //console.log(result)
           setMessages(result.messages)
         } catch (error) {
           console.error("Upload error:", error);

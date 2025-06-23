@@ -1190,7 +1190,7 @@ if(!error2 && !error3 && !error4){
                   <span style={{margin:'0px 20px 5px 10px ',fontSize:'0.8em',fontWeight:'500',color:'#999'}}>{elm.meal.ingredients.split(' ').join(',')}</span>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                     <span style={{margin:'10px 20px 0px 10px ',fontSize:'1.9em',fontWeight:'500'}}>${elm.meal.price}</span>
-                    <i onClick={()=>addToCart(elm.meal.id,elm.meal.id_restaurantOwner)} className="buy fa-solid fa-plus"></i>
+                    <i onClick={()=>{addToCart(elm.meal.id,elm.meal.id_restaurantOwner);navigate(`/restoinfo/${elm.meal.id_restaurantOwner}`)}} className="buy fa-solid fa-plus"></i>
                   </div>
                 </div>
               ))}

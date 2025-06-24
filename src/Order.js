@@ -455,7 +455,7 @@ const handleMessageChangeForm = (e)=>{
                                   }
                                 }} style={{color:'red'}}>Sign Out</span></Link>
             </div>}
-            {toggle2 && <div ref={notif} style={{width:'300px',overflowY:'auto',height:'fit-content',backgroundColor:'white',boxShadow:'0 0 5px gray',position:'absolute',right:'50px',top:'65px'}}>
+            {toggle2 && <div ref={notif} style={{width:'300px',overflowY:'auto',maxHeight:'400px',height:'fit-content',backgroundColor:'white',boxShadow:'0 0 5px gray',position:'absolute',right:'50px',top:'65px'}}>
               {(notifications && notifications.length>0) && <div style={{display:'flex',justifyContent:'flex-end'}}><span onClick={clear} style={{padding:'0',cursor:'pointer',margin:'10px',fontSize:'0.9em',backgroundColor:'#fff',color:'#f9920b',boxShadow:'none'}}>Clear</span></div>}
             {(notifications && notifications.length>0) ? notifications.map((elm,index)=>(
               <div style={{display:'flex',backgroundColor:elm.flag==1?'#f2e0c8':'#fff',alignItems:'center'}}>

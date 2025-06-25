@@ -227,7 +227,7 @@ useEffect(()=>{
                 quantity: 1,
                 mealPrice: meals[meals.findIndex(meal => meal.id === index)].price,
                 mealId: meals[meals.findIndex(meal => meal.id === index)].id,
-                restaurantId:meals[meals.findIndex(meal => meal.id === index)].meal.id_restaurantOwner,
+                restaurantId:meals[meals.findIndex(meal => meal.id === index)].id_restaurantOwner,
                 restaurantName:res.restaurantName
             });
         }
@@ -416,7 +416,7 @@ useEffect(()=>{
           ),
         });
         const result = await response.json();
-        //result.meals)
+        console.log(result.meals)
         setMeals(result.meals)
       } catch (error) {
         console.error("Error:", error);

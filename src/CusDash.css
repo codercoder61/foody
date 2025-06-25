@@ -270,7 +270,9 @@
     .form{
         position: fixed;
     }
-    
+    select{
+        width!100%;
+    }
     #close3{
         top:20px;
     }

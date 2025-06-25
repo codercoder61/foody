@@ -9,7 +9,9 @@
     color: #999;
     transition: background-color 0.2s ease;
 }
-
+.overlay {
+    z-index:1511;
+}
 #slam{
     display:flex;
     padding-top:30px;

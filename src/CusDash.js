@@ -890,16 +890,16 @@ if(!error2 && !error3 && !error4){
 }, [userPostion, restaurants]);
   return (
     <div id='main'>
-      {success3 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal added to cart!</p>}
+      {success3 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal added to cart!</p>}
 
-      {success34 && <p ref={message34} className='message' style={{textAlign:'center',zIndex:'100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Email sent!</p>}
-
-
-        {success && <p ref={message} className='message' style={{textAlign:'center',zIndex:'100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>A new address successfully added!</p>}
-            {success2 && <p ref={message2} className='message' style={{textAlign:'center',zIndex:'100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Profile successfully updated!</p>}
+      {success34 && <p ref={message34} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Email sent!</p>}
 
 
-            {success6 && <p ref={message6} className='message' style={{textAlign:'center',zIndex:'100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Location successfully deleted!</p>}
+        {success && <p ref={message} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>A new address successfully added!</p>}
+            {success2 && <p ref={message2} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Profile successfully updated!</p>}
+
+
+            {success6 && <p ref={message6} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Location successfully deleted!</p>}
 
 
         {overlay && <div className='overlay'></div>}

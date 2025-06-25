@@ -6,6 +6,9 @@
     width:100%;
     padding-right:30px;
 }
+.message{
+    z-index:9000;
+}
 .sau{
     border:1px solid #eee;
     padding:20px;

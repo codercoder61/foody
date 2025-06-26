@@ -219,8 +219,6 @@ select,select:focus{
     padding: 10px 10px;
 }
 #ch{
-    display:flex;
-    align-items:center;
     padding: 10px 10px;
 }
 td{

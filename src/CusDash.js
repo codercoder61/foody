@@ -186,6 +186,15 @@ function CusDash() {
       setSearch(e.target.value)
     }
 const [nearbyRestaurants, setNearbyRestaurants] = useState([]);
+  const [filteredMeals, setFilteredMeals] = useState([]); // filtered meals
+useEffect(() => {
+  // When filteredCategoryIds or meals change, re-filter
+  const filtered = meals.filter(entry =>
+    filteredCategories2.includes(Number(entry.meal.category))
+  );
+
+  setFilteredMeals(filtered);
+}, [filteredCategories2, meals]);
    function getDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Earth radius in kilometers
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -499,7 +508,9 @@ const removeFromCart = (index) => {
         fetchData2()
         fetchRestaurants()
         fetchMeals()
-    },[])
+        if(meals)
+          setFilteredMeals(meals)
+    },[meals])
     const [email,setEmail] = useState("")
     const [userPostion,setUserPostion] = useState([])
     const fetchData = async () => {

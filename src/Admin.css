@@ -16,6 +16,15 @@
     width:100%;
     background-color:white;
 }
+#hh5{
+    border:1px solid #ddd;
+    outline:none;
+    paddingLeft:20px;
+    margin:30px 20px 0 0;
+    padding:20px;
+    backgroundColor:white;
+    width:90%;
+}
 #userr{
 display:flex;
 }
@@ -243,6 +252,9 @@ display:flex;
     display: none;
 }
 @media screen and (max-width:400px){
+    #hh5{
+        margin:auto;
+    }
     #userr{
 justify-content:center;
 }

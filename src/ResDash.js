@@ -1429,7 +1429,7 @@ function barreaux(data){
         setPreviewUrl(null);
         setFile2(null);document.body.style.overflow='unset';
         setSrc2("https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png")
-        setPrice("");setOverlay(false);setUpdateMealPopUp(false)}} className="fa-solid fa-xmark"></i></div>  
+        setPrice("");document.body.style.overflow='unset';setOverlay(false);setUpdateMealPopUp(false)}} className="fa-solid fa-xmark"></i></div>  
         <h2 style={{margin:'20px 0'}}>Photo</h2>
         {!previewUrl2 && <img onClick={handleImageClick2} style={{padding:'2px', cursor: 'pointer',border:error1? '2px dashed red':'2px dashed #ccc', borderRadius: '10px'}} width='120' src={src2} alt="Click to upload"/>}
         <input

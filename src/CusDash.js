@@ -187,15 +187,7 @@ function CusDash() {
     }
 const [nearbyRestaurants, setNearbyRestaurants] = useState([]);
   const [filteredMeals, setFilteredMeals] = useState([]); // filtered meals
-useEffect(() => {
-  // When filteredCategoryIds or meals change, re-filter
-  if(meals){
-      const filtered = meals.filter(entry =>
-        filteredCategories2.includes(Number(entry.meal.category))
-      );
-      setFilteredMeals(filtered);  
-  }
-}, [filteredCategories2, meals]);
+
    function getDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Earth radius in kilometers
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -945,7 +937,15 @@ if(!error2 && !error3 && !error4){
   setNearbyRestaurants(filteredRestaurants);
 }
 }, [userPostion, restaurants, meals]);
-
+useEffect(() => {
+  // When filteredCategoryIds or meals change, re-filter
+  if(meals){
+      const filtered = meals.filter(entry =>
+        filteredCategories2.includes(Number(entry.meal.category))
+      );
+      setFilteredMeals(filtered);  
+  }
+}, [filteredCategories2, meals]);
   return (
     <div id='main'>
       {success3 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal added to cart!</p>}

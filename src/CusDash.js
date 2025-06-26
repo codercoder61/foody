@@ -511,6 +511,13 @@ useEffect(() => {
     console.log(filteredMeals)
   }
 }, [meals]);
+
+
+  useEffect(() => {
+    console.log(filteredMeals)
+}, [filteredMeals]);
+
+  
     const [email,setEmail] = useState("")
     const [userPostion,setUserPostion] = useState([])
     const fetchData = async () => {

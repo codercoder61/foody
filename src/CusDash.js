@@ -900,7 +900,8 @@ if(!error2 && !error3 && !error4){
   };
 
   // ✅ Filter meals by service range
-  meals &&  const filteredMeals = meals.filter((item) => {
+  if(meals){
+    const filteredMeals = meals.filter((item) => {
     const restaurant = item.restoInfo;
     const distance = getDistance(
       userPostion.lat,
@@ -912,9 +913,10 @@ if(!error2 && !error3 && !error4){
   });
 
   setFilteredMeals(filteredMeals); // <-- this was missing
-
-  // ✅ Filter and sort restaurants by distance
- restaurants &&  const filteredRestaurants = restaurants
+}
+  
+       if(restaurants ){// ✅ Filter and sort restaurants by distance
+ const filteredRestaurants = restaurants
     .map((r) => {
       const distance = getDistance(
         userPostion.lat,
@@ -928,7 +930,7 @@ if(!error2 && !error3 && !error4){
     .sort((a, b) => a.distance - b.distance);
 
   setNearbyRestaurants(filteredRestaurants);
-
+}
 }, [userPostion, restaurants, meals]);
 
   return (

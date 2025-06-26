@@ -903,22 +903,14 @@ if(!error2 && !error3 && !error4){
       }
 
    useEffect(() => {
-  // ✅ Only run if both meals and restaurants are available
-  if (meals && Array.isArray(meals) && filteredCategories2) {
-    console.log(filteredCategories2)
-    const selectedCategoryIds = filteredCategories2?.map(c => c.id) ?? [];
-    const filteredMeals =
-      selectedCategoryIds.length > 0
-        ? meals.filter((item) =>
-            selectedCategoryIds.includes(Number(item.meal.category))
-          )
-        : meals; // Show all meals if no filters selected
-  
-    setFilteredMeals(filteredMeals);
-  }
-
-  if (restaurants && Array.isArray(restaurants) && userPostion) {
-    // Calculate distance and filter restaurants within service range
+  if (
+    meals &&
+    Array.isArray(meals) &&
+    restaurants &&
+    Array.isArray(restaurants) &&
+    userPostion
+  ) {
+    // 1. Filter nearby restaurants
     const filteredRestaurants = restaurants
       .map((r) => {
         const distance = getDistance(
@@ -933,19 +925,23 @@ if(!error2 && !error3 && !error4){
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyRestaurants(filteredRestaurants);
-    console.log(nearbyRestaurants)
-    const nearbyRestaurantIds = filteredRestaurants.map(r => r.id);
 
-    // 3. Filter meals whose restaurant is in the nearby list
-    if(meals){
-    const mealsFromNearbyRestaurants = meals.filter(
-      (item) => nearbyRestaurantIds.includes(item.restoInfo.id)
-    );
+    const nearbyRestaurantIds = filteredRestaurants.map((r) => r.id);
+    const selectedCategoryIds = filteredCategories2?.map((c) => c.id) ?? [];
 
-    setFilteredMeals(mealsFromNearbyRestaurants);
+    // 2. Filter meals by restaurant + category
+    const filteredMeals = meals.filter((item) => {
+      const fromNearby = nearbyRestaurantIds.includes(item.restoInfo.id);
+      const categoryMatch =
+        selectedCategoryIds.length === 0 ||
+        selectedCategoryIds.includes(Number(item.meal.category));
+      return fromNearby && categoryMatch;
+    });
+
+    setFilteredMeals(filteredMeals);
   }
-    }
 }, [userPostion, filteredCategories2, restaurants, meals]);
+
 
 
   return (

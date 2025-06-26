@@ -1156,7 +1156,7 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
     const difference = Math.floor((new Date() - new Date(elm.order.dateOrder)) / (1000 * 60 * 60 * 24));
 
     return (
-      <div key={index} className='deli2'>
+      <div key={index} className='deli22'>
         <div className='dl'>
           <i style={{ color: 'red', fontSize: '3em' }} className="fa-solid fa-location-dot"></i>
           <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.restaurant.restaurantName}</span>
@@ -1189,7 +1189,7 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
     const difference = Math.floor((new Date() - new Date(elm.order.dateOrder)) / (1000 * 60 * 60 * 24));
 
     return (
-      <div key={index} className='deli2'>
+      <div key={index} className='deli22'>
       <div key={index} className='dlll'>
       <div style={{ display: 'flex',justifyContent:'space-between',width:'100%', backgroundColor: 'white' }}>
         <div style={{ marginRight: '20px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -1240,7 +1240,7 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
     const difference = Math.floor((new Date() - new Date(elm.order.dateOrder)) / (1000 * 60 * 60 * 24));
 
     return (
-      <div key={index} className='deli2'>
+      <div key={index} className='deli22'>
       <div key={index} className='dlll'>
       <div style={{ display: 'flex',justifyContent:'space-between',width:'100%', backgroundColor: 'white' }}>
         <div style={{ marginRight: '20px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>

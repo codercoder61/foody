@@ -881,9 +881,10 @@ if(!error2 && !error3 && !error4){
         console.error("Error:", error);
       }
       }
+  const [filteredMeals,setFilteredMeals]=useState(null)
       useEffect(() => {
   //userPostion);
-meals.filter((item) => {
+meals && meals.filter((item) => {
     const restaurant = item.restoInfo;
     const distance = getDistance(userPostion.lat, userPostion.lng, restaurant.latitude, restaurant.longitude);
     return distance <= restaurant.serviceRange;
@@ -903,8 +904,9 @@ meals.filter((item) => {
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyRestaurants(filtered);
+    setFilteredMeals(meals)
   }
-}, [userPostion, restaurants]);
+}, [userPostion, restaurants,meals]);
   return (
     <div id='main'>
       {success3 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal added to cart!</p>}
@@ -1201,7 +1203,7 @@ meals.filter((item) => {
             <div style={{marginTop:'20px'}}>
                 <h1 style={{fontSize:'1.3em'}}>Most Ordered Meals 🤩</h1>
                  <div id="meals">
-              {meals && meals.map((elm) => (
+              {filteredMeals && filteredMeals.map((elm) => (
   <div key={elm.meal.id} className="meal">
     <img
       style={{

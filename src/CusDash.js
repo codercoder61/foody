@@ -905,11 +905,14 @@ if(!error2 && !error3 && !error4){
    useEffect(() => {
   // ✅ Only run if both meals and restaurants are available
   if (meals && Array.isArray(meals) && filteredCategories2) {
-   const selectedCategoryIds = filteredCategories2.map(c => c.id);
-    console.log(selectedCategoryIds)
-    const filteredMeals = meals.filter((item) =>
-      selectedCategoryIds.includes(Number(item.meal.category))
-    );
+    const selectedCategoryIds = filteredCategories2?.map(c => c.id) ?? [];
+    const filteredMeals =
+      selectedCategoryIds.length > 0
+        ? meals.filter((item) =>
+            selectedCategoryIds.includes(Number(item.meal.category))
+          )
+        : meals; // Show all meals if no filters selected
+  
     setFilteredMeals(filteredMeals);
   }
 

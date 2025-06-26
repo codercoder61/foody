@@ -721,6 +721,7 @@ const removeCategory = (elm) => {
 
         const result = await response.json();
         setCategories(result.cate)
+        console.log(result.cate)
         setFilterdCategories1(result.cate) 
     } catch (error) {
         console.error("Error:", error);

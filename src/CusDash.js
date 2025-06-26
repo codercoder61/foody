@@ -497,13 +497,19 @@ const removeFromCart = (index) => {
         } 
   };
 
-    useEffect(()=>{
-        fetchData2()
-        fetchRestaurants()
-        fetchMeals()
-        if(meals)
-          setFilteredMeals(meals)
-    },[meals])
+    // 1️⃣ Fetch data only once (on mount)
+useEffect(() => {
+  fetchData2();
+  fetchRestaurants();
+  fetchMeals();
+}, []); // empty dependency array: runs only once
+
+// 2️⃣ Set filtered meals when meals data updates
+useEffect(() => {
+  if (meals && meals.length > 0) {
+    setFilteredMeals(meals);
+  }
+}, [meals]);
     const [email,setEmail] = useState("")
     const [userPostion,setUserPostion] = useState([])
     const fetchData = async () => {

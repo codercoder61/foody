@@ -302,6 +302,9 @@ td{
 }
 @media screen and (max-width:400px){
     .updateOrderpopup{
+    width: 90%;
+}
+    .updateOrderpopup{
         height: fit-content;
     }
     #gd{

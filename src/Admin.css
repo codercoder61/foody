@@ -16,6 +16,9 @@
     width:100%;
     background-color:white;
 }
+#userr{
+display:flex;
+}
 #fm{
     display:flex;
     flex-wrap:wrap;
@@ -240,6 +243,9 @@
     display: none;
 }
 @media screen and (max-width:400px){
+    #userr{
+justify-content:center;
+}
     #gjk{
         width:100%;
     }

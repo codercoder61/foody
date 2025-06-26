@@ -104,7 +104,7 @@
     display:flex;width: 100%;flex-direction:row;padding:30px;margin-top: 20px;background-color: white;border-radius:15px;justify-content:space-between;align-items:space-between;
 }
 .deli22{
-    display:flex;width: 100%;flex-direction:column;padding:30px;margin-top: 20px;background-color: white;border-radius:15px;justify-content:space-between;align-items:space-between;
+    display:flex;width: 100%;flex-direction:column;padding:30px 0;margin-top: 20px;background-color: white;border-radius:15px;justify-content:space-between;align-items:space-between;
 }
 .deli{
      display: flex;padding:30px;border-radius:15px;justify-content:space-between;width: 100%; margin: 20px 30px;background-color: white;

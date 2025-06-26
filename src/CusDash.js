@@ -932,6 +932,7 @@ if(!error2 && !error3 && !error4){
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyRestaurants(filteredRestaurants);
+    console.log(nearbyRestaurants)
   }
 }, [userPostion, filteredCategories2, restaurants, meals]);
 

@@ -906,7 +906,7 @@ if(!error2 && !error3 && !error4){
   // ✅ Only run if both meals and restaurants are available
   if (meals && Array.isArray(meals) && filteredCategories2) {
    const selectedCategoryIds = filteredCategories2.map(c => c.id);
-    
+    console.log(selectedCategoryIds)
     const filteredMeals = meals.filter((item) =>
       selectedCategoryIds.includes(Number(item.meal.category))
     );

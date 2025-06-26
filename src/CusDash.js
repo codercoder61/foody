@@ -1244,7 +1244,7 @@ if(!error2 && !error3 && !error4){
             <div style={{marginTop:'20px'}}>
                 <h1 style={{fontSize:'1.3em'}}>Most Ordered Meals 🤩</h1>
                  <div id="meals">
-              {filteredMeals && filteredMeals.map((elm) => (
+              {meals && meals.map((elm) => (
   <div key={elm.meal.id} className="meal">
     <img
       style={{

@@ -742,7 +742,7 @@ useEffect(()=>{
                         </div>
                         {elm.commentcontent[0].reported!=1? <span onClick={()=>report(elm.commentcontent[0].id,elm.comment.id_restaurant,elm.comment.id,elm.comment.id_order)} style={{cursor:'pointer'}}>Report</span>:<span style={{cursor:'pointer'}}>Reported</span>}
                     </div>
-                    {elm.commentcontent.length==2 && <div style={{margin:'15px 0 15px 60px',backgroundColor:'#ffecd1',padding:'20px',borderRadius:'15px',display:'flex',alignItems:'center'}}>
+                    {elm.commentcontent.length==2 && <div className='pala'>
                         <div style={{width:'100%',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                              <div  style={{display:'flex',alignItems:'center'}}><img width='60' style={{borderRadius:'50%'}} height='60' src={res.logo!=null?`https://soc-net.info/foody/${res.logo}`:'https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=96,h=96,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png'}/>
                                     <div style={{marginLeft:'10px'}}>

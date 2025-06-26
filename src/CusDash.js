@@ -905,6 +905,7 @@ if(!error2 && !error3 && !error4){
    useEffect(() => {
   // ✅ Only run if both meals and restaurants are available
   if (meals && Array.isArray(meals) && filteredCategories2) {
+    console.log(filteredCategories2)
     const selectedCategoryIds = filteredCategories2?.map(c => c.id) ?? [];
     const filteredMeals =
       selectedCategoryIds.length > 0

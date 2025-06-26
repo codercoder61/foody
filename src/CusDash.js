@@ -904,7 +904,7 @@ if(!error2 && !error3 && !error4){
     return R * c;
   };
 
-  // ✅ Filter meals by both category and service range
+ if(meals){ // ✅ Filter meals by both category and service range
   const filteredMeals = meals.filter((item) => {
     const restaurant = item.restoInfo;
     const distance = getDistance(
@@ -922,7 +922,7 @@ if(!error2 && !error3 && !error4){
   });
 
   setFilteredMeals(filteredMeals);
-
+    }
   // ✅ Filter and sort restaurants by distance and service range
   const filteredRestaurants = restaurants
     .map((r) => {

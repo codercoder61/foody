@@ -508,6 +508,7 @@ useEffect(() => {
 useEffect(() => {
   if (meals && meals.length > 0) {
     setFilteredMeals(meals);
+    console.log(filteredMeals)
   }
 }, [meals]);
     const [email,setEmail] = useState("")
@@ -897,9 +898,10 @@ if(!error2 && !error3 && !error4){
    useEffect(() => {
   // ✅ Only run if both meals and restaurants are available
   if (meals && Array.isArray(meals) && filteredCategories2) {
-    // Filter meals by selected categories
+   const selectedCategoryIds = filteredCategories2.map(c => c.id);
+    
     const filteredMeals = meals.filter((item) =>
-      filteredCategories2.includes(Number(item.meal.category))
+      selectedCategoryIds.includes(Number(item.meal.category))
     );
     setFilteredMeals(filteredMeals);
   }

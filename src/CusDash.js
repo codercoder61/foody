@@ -884,6 +884,15 @@ if(!error2 && !error3 && !error4){
   const [filteredMeals,setFilteredMeals]=useState(null)
       useEffect(() => {
   //userPostion);
+        if(meals.length>0 && userPostion){
+          const filtered = meals.filter((item) => {
+    const restaurant = item.restoInfo;
+    const distance = getDistance(userPostion.lat, userPostion.lng, restaurant.latitude, restaurant.longitude);
+    return distance <= restaurant.serviceRange;
+  });
+          setFilteredMeals(meals)
+        }
+        
 meals && meals.filter((item) => {
     const restaurant = item.restoInfo;
     const distance = getDistance(userPostion.lat, userPostion.lng, restaurant.latitude, restaurant.longitude);
@@ -904,7 +913,7 @@ meals && meals.filter((item) => {
       .sort((a, b) => a.distance - b.distance);
 
     setNearbyRestaurants(filtered);
-    setFilteredMeals(meals)
+    
   }
 }, [userPostion, restaurants,meals]);
   return (

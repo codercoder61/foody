@@ -186,6 +186,19 @@ function CusDash() {
       setSearch(e.target.value)
     }
 const [nearbyRestaurants, setNearbyRestaurants] = useState([]);
+   function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth radius in kilometers
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLon = (lon2 - lon1) * (Math.PI / 180);
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * (Math.PI / 180)) *
+        Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLon / 2) ** 2;
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
       const navigate = useNavigate();
   function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
   const R = 6371; // Radius of the earth in km
@@ -870,7 +883,11 @@ if(!error2 && !error3 && !error4){
       }
       useEffect(() => {
   //userPostion);
-
+meals.filter((item) => {
+    const restaurant = item.restoInfo;
+    const distance = getDistance(userPostion.lat, userPostion.lng, restaurant.latitude, restaurant.longitude);
+    return distance <= restaurant.serviceRange;
+  });
   if (restaurants.length > 0 && userPostion) {
     const filtered = restaurants
       .map((r) => {

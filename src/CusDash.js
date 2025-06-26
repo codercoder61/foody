@@ -888,10 +888,9 @@ if(!error2 && !error3 && !error4){
       }
       }
   
-     useEffect(() => {
+    useEffect(() => {
   if (!userPostion || meals.length === 0 || restaurants.length === 0) return;
 
-  // Haversine formula for consistent usage
   const getDistance = (lat1, lon1, lat2, lon2) => {
     const R = 6371; // Earth radius in km
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -905,26 +904,27 @@ if(!error2 && !error3 && !error4){
     return R * c;
   };
 
-  // ✅ Filter meals by service range
-  if(meals){
-    const filteredMeals = meals.filter((item) => {
+  // ✅ Filter meals by both category and service range
+  const filteredMeals = meals.filter((item) => {
     const restaurant = item.restoInfo;
     const distance = getDistance(
       userPostion.lat,
       userPostion.lng,
       restaurant.latitude,
       restaurant.longitude
-    ).filter(entry =>
-        filteredCategories2.includes(Number(entry.meal.category))
-      );
-    return distance <= restaurant.serviceRange;
+    );
+
+    // Check distance AND category
+    return (
+      distance <= restaurant.serviceRange &&
+      filteredCategories2.includes(Number(item.meal.category))
+    );
   });
 
-  setFilteredMeals(filteredMeals); // <-- this was missing
-}
-  
-       if(restaurants ){// ✅ Filter and sort restaurants by distance
- const filteredRestaurants = restaurants
+  setFilteredMeals(filteredMeals);
+
+  // ✅ Filter and sort restaurants by distance and service range
+  const filteredRestaurants = restaurants
     .map((r) => {
       const distance = getDistance(
         userPostion.lat,
@@ -938,8 +938,7 @@ if(!error2 && !error3 && !error4){
     .sort((a, b) => a.distance - b.distance);
 
   setNearbyRestaurants(filteredRestaurants);
-}
-}, [userPostion, filteredCategories2,restaurants, meals]);
+}, [userPostion, filteredCategories2, restaurants, meals]);
 
   return (
     <div id='main'>

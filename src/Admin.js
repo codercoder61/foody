@@ -1383,7 +1383,7 @@ orders_per_month && orders_per_month.forEach(element => {
 
         {credentials && <div>
             <h2 className='gh'>User Credentials</h2>
-            <div style={{display:'flex'}}>
+            <div id='userr'>
                 <div style={{border:'1px solid #ddd',outline:'none',paddingLeft:'20px',margin:'30px 20px 0 0',padding:'20px',backgroundColor:'white',width:'90%'}}>
                     <h5 style={{margin:'10px 0'}}>Current Password</h5>
                     <input value={password} onChange={handlePasswordChange} placeholder='Type old password here...' type="password"/>

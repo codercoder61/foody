@@ -893,7 +893,7 @@ if(!error2 && !error3 && !error4){
         console.error("Error:", error);
       }
       }
-  const [filteredMeals,setFilteredMeals]=useState(null)
+  
      useEffect(() => {
   if (!userPostion || meals.length === 0 || restaurants.length === 0) return;
 

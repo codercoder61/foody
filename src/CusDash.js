@@ -762,7 +762,7 @@ const removeCategory = (elm) => {
         });
 
         const result = await response.json();
-        //result)
+        console.log(result)
         setNearbyRestaurants(result.restaurants)
         setRestaurants(result.restaurants)
     } catch (error) {

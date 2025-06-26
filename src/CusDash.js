@@ -893,10 +893,6 @@ if(!error2 && !error3 && !error4){
         console.error("Error:", error);
       }
       }
-  
-    useEffect(() => {
-  if (!userPostion || meals.length === 0 || restaurants.length === 0) return;
-
   const getDistance = (lat1, lon1, lat2, lon2) => {
     const R = 6371; // Earth radius in km
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -909,44 +905,35 @@ if(!error2 && !error3 && !error4){
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   };
-
- if(meals){ // ✅ Filter meals by both category and service range
-  const filteredMeals = meals.filter((item) => {
-    const restaurant = item.restoInfo;
-    const distance = getDistance(
-      userPostion.lat,
-      userPostion.lng,
-      restaurant.latitude,
-      restaurant.longitude
-    );
-
-    // Check distance AND category
-    return (
-      distance <= restaurant.serviceRange &&
+   useEffect(() => {
+  // ✅ Only run if both meals and restaurants are available
+  if (meals && Array.isArray(meals) && filteredCategories2) {
+    // Filter meals by selected categories
+    const filteredMeals = meals.filter((item) =>
       filteredCategories2.includes(Number(item.meal.category))
     );
-  });
+    setFilteredMeals(filteredMeals);
+  }
 
-  setFilteredMeals(filteredMeals);
-    }
-  // ✅ Filter and sort restaurants by distance and service range
-      if(restaurants){
-  const filteredRestaurants = restaurants
-    .map((r) => {
-      const distance = getDistance(
-        userPostion.lat,
-        userPostion.lng,
-        r.latitude,
-        r.longitude
-      );
-      return { ...r, distance };
-    })
-    .filter((r) => r.distance <= r.serviceRange)
-    .sort((a, b) => a.distance - b.distance);
+  if (restaurants && Array.isArray(restaurants) && userPostion) {
+    // Calculate distance and filter restaurants within service range
+    const filteredRestaurants = restaurants
+      .map((r) => {
+        const distance = getDistance(
+          userPostion.lat,
+          userPostion.lng,
+          r.latitude,
+          r.longitude
+        );
+        return { ...r, distance };
+      })
+      .filter((r) => r.distance <= r.serviceRange)
+      .sort((a, b) => a.distance - b.distance);
 
-  setNearbyRestaurants(filteredRestaurants);
-        }
+    setNearbyRestaurants(filteredRestaurants);
+  }
 }, [userPostion, filteredCategories2, restaurants, meals]);
+
 
   return (
     <div id='main'>

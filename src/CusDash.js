@@ -882,40 +882,55 @@ if(!error2 && !error3 && !error4){
       }
       }
   const [filteredMeals,setFilteredMeals]=useState(null)
-      useEffect(() => {
-  //userPostion);
-        if(meals.length>0 && userPostion){
-          const filtered = meals.filter((item) => {
-    const restaurant = item.restoInfo;
-    const distance = getDistance(userPostion.lat, userPostion.lng, restaurant.latitude, restaurant.longitude);
-    return distance <= restaurant.serviceRange;
-  });
-          setFilteredMeals(meals)
-        }
-        
-meals && meals.filter((item) => {
-    const restaurant = item.restoInfo;
-    const distance = getDistance(userPostion.lat, userPostion.lng, restaurant.latitude, restaurant.longitude);
-    return distance <= restaurant.serviceRange;
-  });
-  if (restaurants.length > 0 && userPostion) {
-    const filtered = restaurants
-      .map((r) => {
-        const dist = getDistanceFromLatLonInKm(
-          userPostion.lat,
-          userPostion.lng,
-          r.latitude,
-          r.longitude
-        );
-        return { ...r, distance: dist };
-      })
-      .filter((r) => r.distance <= r.serviceRange) // use restaurant's own range
-      .sort((a, b) => a.distance - b.distance);
+     useEffect(() => {
+  if (!userPostion || meals.length === 0 || restaurants.length === 0) return;
 
-    setNearbyRestaurants(filtered);
-    
-  }
-}, [userPostion, restaurants,meals]);
+  // Haversine formula for consistent usage
+  const getDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Earth radius in km
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLon = (lon2 - lon1) * (Math.PI / 180);
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * (Math.PI / 180)) *
+        Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
+  // ✅ Filter meals by service range
+  const filteredMeals = meals.filter((item) => {
+    const restaurant = item.restoInfo;
+    const distance = getDistance(
+      userPostion.lat,
+      userPostion.lng,
+      restaurant.latitude,
+      restaurant.longitude
+    );
+    return distance <= restaurant.serviceRange;
+  });
+
+  setFilteredMeals(filteredMeals); // <-- this was missing
+
+  // ✅ Filter and sort restaurants by distance
+  const filteredRestaurants = restaurants
+    .map((r) => {
+      const distance = getDistance(
+        userPostion.lat,
+        userPostion.lng,
+        r.latitude,
+        r.longitude
+      );
+      return { ...r, distance };
+    })
+    .filter((r) => r.distance <= r.serviceRange)
+    .sort((a, b) => a.distance - b.distance);
+
+  setNearbyRestaurants(filteredRestaurants);
+
+}, [userPostion, restaurants, meals]);
+
   return (
     <div id='main'>
       {success3 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal added to cart!</p>}

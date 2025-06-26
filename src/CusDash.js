@@ -933,6 +933,14 @@ if(!error2 && !error3 && !error4){
 
     setNearbyRestaurants(filteredRestaurants);
     console.log(nearbyRestaurants)
+    const nearbyRestaurantIds = filteredRestaurants.map(r => r.id);
+
+    // 3. Filter meals whose restaurant is in the nearby list
+    const mealsFromNearbyRestaurants = meals.filter(
+      (item) => nearbyRestaurantIds.includes(item.restoInfo.id)
+    );
+
+    setFilteredMeals(mealsFromNearbyRestaurants);
   }
 }, [userPostion, filteredCategories2, restaurants, meals]);
 

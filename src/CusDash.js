@@ -766,6 +766,7 @@ const removeCategory = (elm) => {
         });
 
         const result = await response.json();
+        setFilteredMeals(result.info)
         setMeals(result.info)
         console.log(result)
     } catch (error) {
@@ -913,7 +914,9 @@ if(!error2 && !error3 && !error4){
       userPostion.lng,
       restaurant.latitude,
       restaurant.longitude
-    );
+    ).filter(entry =>
+        filteredCategories2.includes(Number(entry.meal.category))
+      );
     return distance <= restaurant.serviceRange;
   });
 
@@ -936,16 +939,8 @@ if(!error2 && !error3 && !error4){
 
   setNearbyRestaurants(filteredRestaurants);
 }
-}, [userPostion, restaurants, meals]);
-useEffect(() => {
-  // When filteredCategoryIds or meals change, re-filter
-  if(meals){
-      const filtered = meals.filter(entry =>
-        filteredCategories2.includes(Number(entry.meal.category))
-      );
-      setFilteredMeals(filtered);  
-  }
-}, [filteredCategories2, meals]);
+}, [userPostion, filteredCategories2,restaurants, meals]);
+
   return (
     <div id='main'>
       {success3 && <p ref={message3} className='message' style={{textAlign:'center',zIndex:'5100',position:'fixed',top:'0',width:'100%',backgroundColor:'#bfe9d3',border:'1px solid #008d00'}}>Meal added to cart!</p>}

@@ -58,7 +58,7 @@
     width: 60%;
     height: 250px;
     z-index:1520;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -70,7 +70,7 @@
     width: 60%;
     height: fit-content;
     z-index:1600;
-    position: absolute;
+    position: fixed;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);

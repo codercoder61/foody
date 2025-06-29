@@ -231,7 +231,7 @@ useEffect(()=>{
         });
 
         const result = await response.text();
-        console.log(result)
+       
         fetchNotifications()
         setFlagNotification(false)
         

@@ -419,7 +419,6 @@ const removeFromCart = (index) => {
     },[])
 
     const addToCart = (index,id_resto) => {
-      console.log(index,id_resto)
           let cart = JSON.parse(localStorage.getItem("cart")) || [];
         if(cart.length===0){
           localStorage.removeItem("allowedResto")
@@ -508,14 +507,11 @@ useEffect(() => {
 useEffect(() => {
   if (meals && meals.length > 0) {
     setFilteredMeals(meals);
-    console.log(filteredMeals)
   }
 }, [meals]);
 
 
-  useEffect(() => {
-    console.log(filteredMeals)
-}, [filteredMeals]);
+  
 
   
     const [email,setEmail] = useState("")
@@ -739,7 +735,7 @@ const removeCategory = (elm) => {
 
         const result = await response.json();
         setCategories(result.cate)
-        console.log(result.cate)
+        
         setFilterdCategories1(result.cate) 
     } catch (error) {
         console.error("Error:", error);
@@ -762,7 +758,7 @@ const removeCategory = (elm) => {
         });
 
         const result = await response.json();
-        console.log(result)
+        
         setNearbyRestaurants(result.restaurants)
         setRestaurants(result.restaurants)
     } catch (error) {
@@ -782,7 +778,7 @@ const removeCategory = (elm) => {
         const result = await response.json();
         setFilteredMeals(result.info)
         setMeals(result.info)
-        console.log(result)
+       
     } catch (error) {
         console.error("Error:", error);
       }

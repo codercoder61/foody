@@ -416,7 +416,7 @@ useEffect(()=>{
           ),
         });
         const result = await response.json();
-        console.log(result.meals)
+        
         setMeals(result.meals)
       } catch (error) {
         console.error("Error:", error);

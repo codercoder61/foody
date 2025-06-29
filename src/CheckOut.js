@@ -306,16 +306,7 @@ function CheckOut() {
         }
         if(email!=="" && name!=="" && phone!=="" && addressInput!=="" ){
 
-  console.log( {
-              id:parseInt(localStorage.getItem('userId')),
-              cart:cartBuy,
-              email:email,
-              name:name,
-              addresse:addressInput,
-              phone:phone,
-              lat:position.lat,
-              lng:position.lng
-            })
+  
          try {
         const response = await fetch("https://soc-net.info/foody/addOrder.php", {
           method: "POST",

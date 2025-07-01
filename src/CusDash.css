@@ -262,7 +262,19 @@
     #fall{
         text-align: center;
     }
+#ftg{
+    padding:30px;
+    background-color:white;
+    box-shadow:0 0 5px gray;
+    position:absolute;
+    right:100px;
+    top:65px;
+}
 @media all and (max-width:400px){
+    #ftg{
+        right:0px;
+        padding:30px 10px;
+    }
     .lop{
         flex-direction: column;
         align-items: center;

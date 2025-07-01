@@ -378,7 +378,7 @@ const addMessage =async ()=>{
               </div>
             )): <div style={{display:'flex',justifyContent:'center'}}><span style={{padding:'0',margin:'10px',fontSize:'0.9em',backgroundColor:'#fff',color:'black',boxShadow:'none'}}>You have no new notifications</span></div>}
             </div>}
-            {toggle3 && <div ref={cart} style={{padding:'30px',backgroundColor:'white',boxShadow:'0 0 5px gray',position:'absolute',right:'100px',top:'65px'}}>
+            {toggle3 && <div ref={cart} id='ftg'>
                 <div style={{width:'300px',position:'relative',textAlign:'center'}}>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                 <i onClick={()=>setToggle3(false)} style={{position:'absolute',right:'0px',top:'10px'}} className="fa-solid fa-xmark"></i>

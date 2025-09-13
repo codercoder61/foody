@@ -382,7 +382,7 @@ const addMessage =async ()=>{
                 <div style={{width:'300px',position:'relative',textAlign:'center'}}>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                 <i onClick={()=>setToggle3(false)} style={{position:'absolute',right:'0px',top:'10px'}} className="fa-solid fa-xmark"></i>
-                <h2>Order Menu</h2>
+                
               </div>
              {
   cartBuy?.length > 0 ? (

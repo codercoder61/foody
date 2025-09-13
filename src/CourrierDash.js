@@ -1156,7 +1156,7 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
     const difference = Math.floor((new Date() - new Date(elm.order.dateOrder)) / (1000 * 60 * 60 * 24));
 
     return (
-      <div key={index} className='deli22'>
+      <div key={index} className='deli'>
         <div className='dl'>
           <i style={{ color: 'red', fontSize: '3em' }} className="fa-solid fa-location-dot"></i>
           <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.restaurant.restaurantName}</span>

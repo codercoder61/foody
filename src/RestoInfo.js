@@ -575,7 +575,7 @@ const [contact,setContact] = useState(false)
             <img
               width="50"
               height="50"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover',marginRight: '10px' }}
               src={`https://soc-net.info/foody/${elm.mealPhoto}`}
               alt=""
             />
@@ -583,7 +583,6 @@ const [contact,setContact] = useState(false)
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
               }}
             >

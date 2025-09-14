@@ -1046,7 +1046,7 @@ if(!error2 && !error3 && !error4){
             <img
               width="50"
               height="50"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover' , marginRight: '5px'}}
               src={`https://soc-net.info/foody/${elm.mealPhoto}`}
               alt=""
             />
@@ -1054,7 +1054,6 @@ if(!error2 && !error3 && !error4){
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
               }}
             >

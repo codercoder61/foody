@@ -959,7 +959,7 @@ if(!error2 && !error3 && !error4){
             <h1>Add an address</h1>
             <i onClick={()=>{document.body.style.overflow='unset';setLocation("");setOverlay(false);setForm(false)}} id='close1' className="fa-solid fa-xmark"></i>
             <h4 style={{marginBottom:'0px'}}>Your address</h4>
-             <div style={{ padding: "20px",width:'100%' }}>
+             <div style={{ padding: "20px 0",width:'100%' }}>
              <SelectLocationMap
                 position={position}
                 setPosition={setPosition}

@@ -658,7 +658,8 @@ const [contact,setContact] = useState(false)
             color: '#fff',
             boxShadow:'none',
             padding:'10px',
-            cursor:'pointer'
+            cursor:'pointer',
+            marginRight:'0'
           }}
         >
           Checkout ${total}

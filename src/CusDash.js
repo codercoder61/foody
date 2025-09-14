@@ -1129,7 +1129,8 @@ if(!error2 && !error3 && !error4){
             color: '#fff',
             boxShadow:'none',
             padding:'10px',
-            cursor:'pointer'
+            cursor:'pointer',
+            marginRight:'0px'
           }}
         >
           Checkout ${total}

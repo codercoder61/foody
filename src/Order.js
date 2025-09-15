@@ -465,7 +465,7 @@ const handleMessageChangeForm = (e)=>{
             )): <div style={{display:'flex',justifyContent:'center'}}><span style={{padding:'0',margin:'10px',fontSize:'0.9em',backgroundColor:'#fff',color:'black',boxShadow:'none'}}>You have no new notifications</span></div>}
             </div>}
             {toggle3 && <div ref={cart} className='cart'>
-                <div style={{position:'relative',textAlign:'center'}}>
+                <div style={{position:'relative'}}>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                 <i onClick={()=>setToggle3(false)} style={{position:'absolute',right:'0px',top:'10px'}} className="fa-solid fa-xmark"></i>
                 

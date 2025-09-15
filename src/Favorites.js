@@ -379,8 +379,9 @@ const addMessage =async ()=>{
             )): <div style={{display:'flex',justifyContent:'center'}}><span style={{padding:'0',margin:'10px',fontSize:'0.9em',backgroundColor:'#fff',color:'black',boxShadow:'none'}}>You have no new notifications</span></div>}
             </div>}
             {toggle3 && <div ref={cart} id='ftg'>
-                <div style={{width:'300px',position:'relative',textAlign:'center'}}>
+                <div style={{position:'relative'}}>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                  <h2>Order Menu</h2>
                 <i onClick={()=>setToggle3(false)} style={{position:'absolute',right:'0px',top:'10px'}} className="fa-solid fa-xmark"></i>
                 
               </div>
@@ -396,7 +397,7 @@ const addMessage =async ()=>{
             <img
               width="50"
               height="50"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover',marginRight: '5px'}}
               src={`https://soc-net.info/foody/${elm.mealPhoto}`}
               alt=""
             />
@@ -404,7 +405,6 @@ const addMessage =async ()=>{
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
               }}
             >

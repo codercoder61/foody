@@ -465,7 +465,7 @@ const handleMessageChangeForm = (e)=>{
             )): <div style={{display:'flex',justifyContent:'center'}}><span style={{padding:'0',margin:'10px',fontSize:'0.9em',backgroundColor:'#fff',color:'black',boxShadow:'none'}}>You have no new notifications</span></div>}
             </div>}
             {toggle3 && <div ref={cart} className='cart'>
-                <div style={{width:'300px',position:'relative',textAlign:'center'}}>
+                <div style={{position:'relative',textAlign:'center'}}>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                 <i onClick={()=>setToggle3(false)} style={{position:'absolute',right:'0px',top:'10px'}} className="fa-solid fa-xmark"></i>
                 
@@ -483,7 +483,7 @@ const handleMessageChangeForm = (e)=>{
             <img
               width="50"
               height="50"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover',marginRight: '5px' }}
               src={`https://soc-net.info/foody/${elm.mealPhoto}`}
               alt=""
             />
@@ -491,7 +491,6 @@ const handleMessageChangeForm = (e)=>{
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
               }}
             >
@@ -566,6 +565,7 @@ const handleMessageChangeForm = (e)=>{
             color: '#fff',
             boxShadow:'none',
             padding:'10px',
+            marginRight: '0px',
             cursor:'pointer'
           }}
         >

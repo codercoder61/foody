@@ -479,6 +479,7 @@ const addMessage =async ()=>{
             color: '#fff',
             boxShadow:'none',
             padding:'10px',
+            marginRight: '0',
             cursor:'pointer'
           }}
         >

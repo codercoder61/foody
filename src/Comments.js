@@ -608,7 +608,7 @@ useEffect(()=>{
             <img
               width="50"
               height="50"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover',marginRight: '5px'}}
               src={`https://soc-net.info/foody/${elm.mealPhoto}`}
               alt=""
             />
@@ -616,7 +616,6 @@ useEffect(()=>{
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
                 justifyContent: 'center',
               }}
             >

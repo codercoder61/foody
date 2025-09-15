@@ -263,7 +263,7 @@
         text-align: center;
     }
 #ftg{
-    padding:30px;
+    padding:12px;
     background-color:white;
     box-shadow:0 0 5px gray;
     position:absolute;
@@ -273,7 +273,7 @@
 @media all and (max-width:400px){
     #ftg{
         right:30px;
-        padding:30px 10px;
+        padding:12px;
     }
     .lop{
         flex-direction: column;

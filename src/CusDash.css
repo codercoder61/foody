@@ -227,6 +227,7 @@
         box-shadow:0 0 5px gray;
         position:absolute;
         right:100px;
+        width: 300px;
         top:65px;
     }
     #op{

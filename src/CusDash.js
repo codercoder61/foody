@@ -544,7 +544,7 @@ useEffect(() => {
     // Update state with user data
     setName(result.userData.name);
     setSurname(result.userData.surname);
-    setNameSurname(result.userData.name);
+    setNameSurname(`${result.userData.name} ${result.userData.surname}`);
     setEmailForm(result.userData.email);
     setPhone(result.userData.phone);
     setLocations(result.locations);

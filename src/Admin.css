@@ -402,5 +402,7 @@ justify-content:center;
         height: fit-content;
         margin-bottom: 10px;
     }
-    
+    #canvas1,#canvas2{
+        margin:unset;
+    }
 }

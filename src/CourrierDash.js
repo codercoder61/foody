@@ -975,10 +975,12 @@ const fetchOrders = async () => {
 
     useEffect(()=>{
         fetchData()
+        getStats()
+    },[])
+   useEffect(()=>{
       if (position) {
         fetchOrders()
       }
-        getStats()
     },[position, range])
   const menu = useRef(null)
 

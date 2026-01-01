@@ -931,9 +931,18 @@ const fetchOrders = async () => {
     );
     setDelivered(deliveredOrders);
 
-    const readyOrders = result.orders.filter(
-      elm => elm.order.status === "Ready"
-    );
+    const readyOrders = position
+  ? result.orders.filter(elm =>
+      elm.order.status === "Ready" &&
+      isOrderInCourierRange(elm, position, range)
+    )
+  : [];
+
+
+  ;
+
+
+    
     setReady(readyOrders);
 
     const activeOrders = result.orders.filter(

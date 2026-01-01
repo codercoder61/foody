@@ -314,9 +314,7 @@ function AddAddressCourrier() {
         localStorage.setItem('authId',localStorage.getItem('id'))
         localStorage.setItem('auth', JSON.stringify(true));
         navigate(`/courrierdash/${localStorage.getItem('id')}`);
-      } else {
-        alert("Error saving location");
-      }
+      } 
       
     } catch (err) {
       console.error("Save error:", err);
@@ -328,7 +326,6 @@ function AddAddressCourrier() {
 </button>
 
             
-            <p>{error2}</p>
         </div>
       </main>
     </div>

@@ -108,6 +108,21 @@ tr{
     padding: 30px;
     overflow-y: hidden;
 }
+
+.addticketpopup2{
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    width: 60%;
+    height: 70%;
+    z-index:2000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    overflow-y: hidden;
+}
+
 .addticketpopupp{
 background-color: rgb(255, 255, 255);
     opacity: 1;

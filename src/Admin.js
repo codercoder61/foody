@@ -913,6 +913,27 @@ try {
     }
     }
 
+
+    const confirmCourrier = async (id)=>{
+try {
+      const res = await fetch("https://soc-net.info/foody/confirmCourrier.php",  {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          id:id
+      }),
+    });
+
+      const result = await res.json();
+      //result);
+      fetchAllUsers()
+    } catch (error) {
+      console.error("Upload error:", error);
+    }
+    }
+
     const unBlockResto = async (id)=>{
 try {
       const res = await fetch("https://soc-net.info/foody/unBlockResto.php",  {
@@ -1338,7 +1359,7 @@ useEffect(() => {
             <th>Photo</th>
             <th>Address</th>
             <th>Service range</th>
-            <th>Action</th>
+            <th>Confirm</th>
           </tr>
         </thead>
 
@@ -1369,7 +1390,7 @@ useEffect(() => {
                 </td>
 
                 <td style={{ padding: '10px' }}>
-                  {elm.photo ? (
+                  {elm.photo && elm.photo!=="N/A" ? (
                     <img
                       src={`https://soc-net.info/foody/${elm.photo}`}
                       alt="Courier"
@@ -1393,24 +1414,23 @@ useEffect(() => {
                 </td>
 
                 <td style={{ padding: '10px' }}>
-                  {elm.serviceRange ? elm.serviceRange : "-"}
-                </td>
+  {elm.serviceRange ? `${elm.serviceRange} km` : "-"}
+</td>
+
 
                 <td style={{ padding: '10px' }}>
                   <i
                     onClick={() =>
-                      elm.blocked === 1
-                        ? unBlockCourrier(elm.id)
-                        : blockCourrier(elm.id)
+                       confirmCourrier(elm.id)
                     }
                     style={{
                       cursor: 'pointer',
                       borderRadius: '50%',
                       padding: '5px',
-                      border: `1px solid ${elm.blocked === 1 ? 'red' : 'black'}`,
-                      color: elm.blocked === 1 ? 'red' : 'black',
+                      border: `1px solid black`,
+                      color: 'black',
                     }}
-                    className="close fa-solid fa-xmark"
+                    className="fa-solid fa-check"
                   ></i>
                 </td>
               </tr>

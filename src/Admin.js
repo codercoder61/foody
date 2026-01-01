@@ -1037,62 +1037,66 @@ orders_per_month && orders_per_month.forEach(element => {
                 barreaux(ordersPerMonth)
               }, [ordersPerMonth,analytics]); // ← re-run when `analytics` changes
 
-              function barreaux2(data){
-                const monthOrder = {
-  January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
-  July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
-};
-                 let labels = [];
-            let num_orders = [];
-          if (!analytics || !canvasRef2.current) return;
-      
-          const ctx = canvasRef2.current.getContext('2d');
-          if (!ctx) {
-            console.error('Canvas context not available');
-            return;
-          }
-      
-          // Destroy old chart if exists
-          if (chartRef2.current) {
-            chartRef2.current.destroy();
-          }
-          data && data.sort((a, b) => {
-            if (a.year !== b.year) return a.year - b.year;
-            return monthOrder[a.month_name] - monthOrder[b.month_name];
-          })
+             function barreaux2(data) {
+  if (!analytics || !canvasRef2.current || !data) return;
 
-          data && data.forEach(element => {
-          labels.push(element.month_name+ " "+element.year);
-          num_orders.push(element.users_count);
-        });
-      
-          // Create new chart
-          chartRef2.current = new Chart(ctx, {
-            type: 'bar',
-            data: {
-              labels:labels,
-              datasets: [
-                {
-                  label: 'Number of subscriptions per month',
-                  data: num_orders,
-                  backgroundColor: 'orange',
-                },
-              ],
-            },
-            options: {
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: 'top',
-                },
-              },
-            },
-          });
-              }
-               useEffect(() => {
-                  // Only run when analytics is available AND canvas is mounted
-                 barreaux2(userpermonth)
-                }, [userpermonth,analytics]); // ← re-run when `analytics` changes
+  const ctx = canvasRef2.current.getContext('2d');
+  if (!ctx) {
+    console.error('Canvas context not available');
+    return;
+  }
+
+  // Destroy old chart if it exists
+  if (chartRef2.current) chartRef2.current.destroy();
+
+  // Month order for sorting
+  const monthOrder = {
+    January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
+    July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
+  };
+
+  // Sort data by year then month
+  const sortedData = [...data].sort((a, b) => {
+    if (a.year !== b.year) return a.year - b.year;
+    return monthOrder[a.month_name] - monthOrder[b.month_name];
+  });
+
+  // Prepare chart labels and data
+  const labels = sortedData.map(e => `${e.month_name} ${e.year}`);
+  const num_orders = sortedData.map(e => e.users_count);
+
+  // Create the chart
+  chartRef2.current = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Number of subscriptions per month',
+          data: num_orders,
+          backgroundColor: 'orange',
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Month' } },
+        y: { title: { display: true, text: 'Users Count' }, beginAtZero: true }
+      }
+    },
+  });
+}
+
+// Use effect to trigger chart redraw
+useEffect(() => {
+  barreaux2(userpermonth);
+}, [userpermonth, analytics]);
+
               
     const handleClick = ()=>{
       const menuref= menu.current

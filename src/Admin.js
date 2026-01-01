@@ -1188,7 +1188,7 @@ useEffect(() => {
                
                 <p onClick={()=>{setAnalytics(true);setUsers(false);setConfirmation(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{marginTop:'50px',display:'flex',alignItems:'center',width:'100%',backgroundColor:analytics?'#ffecd1':"",color:analytics?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Analytics</p>
 
-          <p onClick={()=>{setAnalytics(false);setConfirmation(true);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:confirmation?'#ffecd1':"",color:confirmation?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Confirmation</p>
+          <p onClick={()=>{setAnalytics(false);setConfirmation(true);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:confirmation?'#ffecd1':"",color:confirmation?"#fb9300":""}}><i className="fa-solid fa-check"></i> Confirmation</p>
 
 
 <p onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(true);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:users?'#ffecd1':"",color:users?"#fb9300":""}}><i className="fa-solid fa-user"></i> Users</p>
@@ -1392,9 +1392,9 @@ useEffect(() => {
   )}
 </td>
 
-<td style={{ padding: '10px' }}>
+{/* <td style={{ padding: '10px' }}>
   {elm.phone ? elm.phone : "-"}
-</td>
+</td> */}
 
 <td style={{ padding: '10px' }}>
   {elm.address ? elm.address : "-"}
@@ -1403,7 +1403,7 @@ useEffect(() => {
 <td style={{ padding: '10px' }}>
   {elm.serviceRange ? elm.serviceRange : "-"}
 </td>
-
+<td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
                       <td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
                     </tr>
                   ))}

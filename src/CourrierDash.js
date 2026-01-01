@@ -853,6 +853,33 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
       }
     }
 
+function filterCustomersInCourierRange(customers, courier) {
+  return customers.filter(customer => {
+    const distance = getDistanceKm(
+      courier.latitude,
+      courier.longitude,
+      customer.latitude,
+      customer.longitude
+    );
+    return distance <= courier.serviceRange;
+  });
+}
+  function getDistanceKm(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Earth radius in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) *
+    Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c;
+}
+
 
     const fetchOrders= async()=>{
       try {
@@ -867,7 +894,25 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
         //result); // { success: true, message: "..." }
 
         result.orders.map((elm,index)=>{
-            const cookingOrders = result.orders.filter(elm => elm.order.courrier === null && (elm.order.status === "Cooking" || elm.order.status === "Pending"));
+            const cookingOrders = result.orders.filter(elm => {
+            // basic order conditions
+            if (
+              elm.order.courrier !== null ||
+              !["Cooking", "Pending"].includes(elm.order.status)
+            ) {
+              return false;
+            }
+          
+            // distance check
+            const distance = getDistanceKm(
+              position.lat,
+              position.lng,
+              elm.customer.latitude,
+              elm.customer.longitude
+            );
+          
+            return distance <= range;
+          });
             setNewOrders(cookingOrders);
             const deliveredOrders = result.orders.filter(elm => elm.order.courrierId == id && elm.order.status === "Delivered");
             setDelivered(deliveredOrders);

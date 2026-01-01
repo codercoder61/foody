@@ -1064,10 +1064,10 @@ orders_per_month && orders_per_month.forEach(element => {
     (a, b) => a.year !== b.year ? a.year - b.year : a.month - b.month
   );
 
-  const labels = sortedData.map(
+  labels = sortedData.map(
     d => `${monthNames[d.month - 1]} ${d.year}`
   );
-  const values = sortedData.map(d => d.total);
+ values = sortedData.map(d => d.total);
 
   chartRef2.current = new Chart(ctx, {
     type: "bar",

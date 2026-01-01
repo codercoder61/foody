@@ -191,7 +191,6 @@ function AddAddressRes() {
       }, []); // <-- include navigate in dependencies
     const [flag, setFlag] = useState(true);
     const [range, setRange] = useState(10);
-    const [error2, setError2] = useState(true);
     const [address,setAddress] = useState("")
     const [latitude,setLatitude]=useState("")
     const [longitude,setLongitude]=useState("")
@@ -217,13 +216,8 @@ function AddAddressRes() {
                 setAddress(data.results[0].components.suburb+" "+data.results[0].components.road+" "+data.results[0].components.city+" "+data.results[0].components.county+" "+data.results[0].components.region+" "+ data.results[0].components.state_district)        
             );
 
-        },
-        (err) => {
-          setError2("Geolocation permission denied");
         }
       );
-    } else {
-      setError2("Geolocation not supported");
     }
   }, []);
 
@@ -355,7 +349,6 @@ function AddAddressRes() {
 </button>
 
             
-            <p>{error2}</p>
         </div>
       </main>
     </div>

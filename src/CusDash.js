@@ -907,18 +907,50 @@ if(!error2 && !error3 && !error4){
     userPostion
   ) {
     // 1. Filter nearby restaurants
-    const filteredRestaurants = restaurants
-      .map((r) => {
-        const distance = getDistance(
-          userPostion.lat,
-          userPostion.lng,
-          r.latitude,
-          r.longitude
-        );
-        return { ...r, distance };
-      })
-      .filter((r) => r.distance <= r.serviceRange)
-      .sort((a, b) => a.distance - b.distance);
+
+    const isRestaurantOpenNow = (serviceStarts, serviceEnds) => {
+  const now = new Date();
+
+  const currentMinutes =
+    now.getHours() * 60 + now.getMinutes();
+
+  const [startH, startM] = serviceStarts.split(":").map(Number);
+  const [endH, endM] = serviceEnds.split(":").map(Number);
+
+  const startMinutes = startH * 60 + startM;
+  const endMinutes = endH * 60 + endM;
+
+  // Normal same-day schedule (08:00 → 20:00)
+  if (startMinutes <= endMinutes) {
+    return currentMinutes >= startMinutes && currentMinutes <= endMinutes;
+  }
+
+  // Overnight schedule (e.g. 20:00 → 02:00)
+  return (
+    currentMinutes >= startMinutes ||
+    currentMinutes <= endMinutes
+  );
+};
+
+
+    
+    
+const filteredRestaurants = restaurants
+  .map((r) => {
+    const distance = getDistance(
+      userPostion.lat,
+      userPostion.lng,
+      r.latitude,
+      r.longitude
+    );
+    return { ...r, distance };
+  })
+  .filter(
+    (r) =>
+      r.distance <= r.serviceRange &&
+      isRestaurantOpenNow(r.serviceStarts, r.serviceEnds)
+  )
+  .sort((a, b) => a.distance - b.distance);
 
     setNearbyRestaurants(filteredRestaurants);
 

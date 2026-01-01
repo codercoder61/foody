@@ -89,59 +89,46 @@ const handleCheckBoxChange = (event) => {
 
       const result = await response.json();
       //result); // { success: true, message: "..." }
-      if(result.no_approved){
-        alert("You're not approved")
-      }
-          else 
-              if(!result.success && !result.blocked){
-        alert('We didn’t find an account with those login credentials')
-      }else{
-        if(!result.blocked){
-        if(result.type===0){
-          localStorage.setItem('auth', JSON.stringify(true));
-          localStorage.setItem('authId', result.id);
-          if(isChecked)
-            Cookies.set('stayLogged', JSON.stringify([result.type,result.id]), { expires: 7 }); // 
-          else{
-            Cookies.get('stayLogged') && Cookies.remove('stayLogged');
-          }
-          
-          navigate(`/resdash/${result.id}`);
-        }else if(result.type===1){
-          localStorage.setItem('auth', JSON.stringify(true));
-          localStorage.setItem('authId', result.id);
-          if(isChecked)
-          Cookies.set('stayLogged', JSON.stringify([result.type,result.id]), { expires: 7 }); 
-        else{
-            Cookies.get('stayLogged') && Cookies.remove('stayLogged');
-          }
-          navigate(`/cusdash/${result.id}`);
-        }else if(result.type===2){
-          localStorage.setItem('auth', JSON.stringify(true));
-          localStorage.setItem('authId', result.id);
-          if(isChecked)
-          Cookies.set('stayLogged', JSON.stringify([result.type,result.id]), { expires: 7 }); else{
-            Cookies.get('stayLogged') && Cookies.remove('stayLogged');
-          }
-          navigate(`/courrierdash/${result.id}`);
-        }else{
-          if(result.type==3 && result.id=='admin'){
-          localStorage.setItem('auth', JSON.stringify(true));
-          if(isChecked)
-            Cookies.set('stayLogged', 'admin', { expires: 7 }); 
-          else{
-            Cookies.get('stayLogged') && Cookies.remove('stayLogged');
-          }
-          
-              navigate(`/admin`);
-        }else{
-          alert('We didn’t find an account with those login credentials')
-        }
-      }
-      }else{
-        alert('Your account is blocked!')
-      }
+      if (result.no_approved) {
+    alert("You're not approved");
+} else if (result.blocked) {
+    alert('Your account is blocked!');
+} else if (!result.success) {
+    alert('We didn’t find an account with those login credentials');
+} else {
+    // Login successful
+    const { type, id } = result;
+
+    // Set localStorage
+    localStorage.setItem('auth', JSON.stringify(true));
+    localStorage.setItem('authId', id);
+
+    // Set or remove stayLogged cookie
+    if (isChecked) {
+        Cookies.set('stayLogged', JSON.stringify([type, id]), { expires: 7 });
+    } else {
+        Cookies.get('stayLogged') && Cookies.remove('stayLogged');
     }
+
+    // Redirect based on user type
+    switch (type) {
+        case 0: // Restaurant Owner
+            navigate(`/resdash/${id}`);
+            break;
+        case 1: // Customer
+            navigate(`/cusdash/${id}`);
+            break;
+        case 2: // Courrier
+            navigate(`/courrierdash/${id}`);
+            break;
+        case 3: // Admin
+            if (id === 'admin') navigate(`/admin`);
+            else alert('We didn’t find an account with those login credentials');
+            break;
+        default:
+            alert('We didn’t find an account with those login credentials');
+    }
+}
     
       
     } catch (error) {

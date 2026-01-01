@@ -99,7 +99,7 @@ tr{
     background-color: rgb(255, 255, 255);
     opacity: 1;
     width: 60%;
-    height:70%;
+    height: -webkit-fill-available;
     z-index:2000;
     position: fixed;
     top: 50%;

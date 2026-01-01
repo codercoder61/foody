@@ -9,16 +9,7 @@ const navigate = useNavigate();
     const [error1,setError1] = useState(false)
     const [error2,setError2] = useState(false)
     const [error3,setError3] = useState(false)
-useEffect(()=>{
-          if(localStorage.getItem('authId')){
-            navigate('/')
-          }
-        },[])
-         useEffect(()=>{
-      if(!localStorage.getItem('authReset')){
-        navigate('/')
-      }
-    },[])
+
     const [password,setPassowrd] = useState("")
     const [confPassword,setConfPassword] = useState("")
     const handlePasswordChange = (e)=>{

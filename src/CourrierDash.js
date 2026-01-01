@@ -763,6 +763,7 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
     formData.append("file", file);
     formData.append("name", name);
     formData.append("surname", surname);
+    formData.append("phone", phone);
     formData.append("id", id);
 
     try {
@@ -817,6 +818,11 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
     const [surname,setSurName] = useState('')
     const handleSurnameChange = (e)=>{
         setSurName(e.target.value)
+    }
+
+  const [phone,setPhone] = useState('')
+    const handlePhoneChange = (e)=>{
+        setPhone(e.target.value)
     }
   const fetchData= async()=>{
       try {
@@ -1095,6 +1101,8 @@ const fetchOrders = async () => {
                     <input value={name} onChange={handleNameChange} type="text"/>
                     <h5 style={{margin:'10px 0'}}>Surname</h5>
                     <input value={surname} onChange={handleSurnameChange} style={{margin:'0px 0 10px 0px'}} type="text"/>
+                       <h5 style={{margin:'10px 0'}}>Phone</h5>
+                    <input value={phone} onChange={handlePhoneChange} style={{margin:'0px 0 10px 0px'}} type="text"/>
                     <input type="submit" onClick={saveChanges} style={{color:'white',boxShadow:'0 0 5px #fb9300',cursor:'pointer',fontSize:'1.2em',padding:'15px 10px',backgroundColor:'#fb9300',borderRadius:'5px',border:'none',outline:'none'}} value='Save Changes'/>
                 </div>
                 <div id='jjj'>

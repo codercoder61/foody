@@ -219,41 +219,7 @@ function AddAddressCourrier() {
     const handleAddressChange = (e) =>{
         setAddress(e.target.value)
     }
-    const handleSubmit = async (e)=>{
-        e.preventDefault()
-        if(!address){
-            setError(false)
-        }else{
-            setError(true)
-            try {
-                const email = localStorage.getItem('courrierEmail')
-                const res = await fetch('https://soc-net.info/foody/updateCourrierAddress.php', {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(
-                        {
-                            email:email,
-                            address:address,
-                            longitude:longitude,
-                            latitude:latitude,
-                            range:range,
-                            addresse:address
-                        }
-                    )
-                });
-
-                const result = await res.json();
-                if(result.status===1){
-                  localStorage.setItem('auth', JSON.stringify(true));
-                  navigate(`/`)
-                }
-                } catch (error) {
-                console.error("Error sending data:", error);
-                }
-        }
-    }
+    
   return (
     <div id='main'>
       <header>

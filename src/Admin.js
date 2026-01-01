@@ -1355,11 +1355,11 @@ useEffect(() => {
           <tr>
             <th className="hid">Profile</th>
             <th>Driver licence</th>
-            <th>Email</th>
-            <th>Photo</th>
-            <th>Address</th>
-            <th>Service range</th>
-            <th>Phone</th>
+            <th className="hid">Email</th>
+            <th className="hid">Photo</th>
+            <th className="hid">Address</th>
+            <th className="hid">Service range</th>
+            <th className="hid">Phone</th>
             <th>Confirm</th>
           </tr>
         </thead>
@@ -1369,7 +1369,7 @@ useEffect(() => {
             usersInfo.courriers.filter((elm) => elm.approved === 0)
       .map((elm) => (
               <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
-                <td className='fbc'>
+                <td className='fbc hid'>
                   {elm.name && elm.surname ? `${elm.name} ${elm.surname}` : "None"}
                 </td>
 
@@ -1387,11 +1387,11 @@ useEffect(() => {
                   )}
                 </td>
 
-                <td style={{ padding: '10px' }}>
+                <td className="hid" style={{ padding: '10px' }}>
                   {elm.email ? elm.email : "-"}
                 </td>
 
-                <td style={{ padding: '10px' }}>
+                <td className="hid" style={{ padding: '10px' }}>
                   {elm.photo && elm.photo!=="N/A" ? (
                     <img
                       src={`https://soc-net.info/foody/${elm.photo}`}
@@ -1411,15 +1411,15 @@ useEffect(() => {
                   )}
                 </td>
 
-                <td style={{ padding: '10px' }}>
+                <td className="hid" style={{ padding: '10px' }}>
                   {elm.address ? elm.address : "-"}
                 </td>
 
-                <td style={{ padding: '10px' }}>
+                <td className="hid" style={{ padding: '10px' }}>
   {elm.serviceRange ? `${elm.serviceRange} km` : "-"}
 </td>
 
-     <td style={{ padding: '10px' }}>
+     <td className="hid" style={{ padding: '10px' }}>
   {elm.phone ? `${elm.phone}` : "-"}
 </td>
 

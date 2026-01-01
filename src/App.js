@@ -35,7 +35,7 @@ function App() {
         <Route path="/restoinfo/:id" element={<RestoInfo />} />
         <Route path="/cusdash/:id/:f" element={<CusDash />} />
         <Route path="/cusdash/:id" element={<CusDash />} />
-        <Route path="/reset/:token/" element={<Reset />} />
+        <Route path="/reset/:token" element={<Reset />} />
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/customersignup" element={<CustomerSignUp />} />

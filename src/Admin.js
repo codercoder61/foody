@@ -1038,80 +1038,77 @@ orders_per_month && orders_per_month.forEach(element => {
               }, [ordersPerMonth,analytics]); // ← re-run when `analytics` changes
 
              function barreaux2(data) {
-  if (!analytics || !canvasRef2.current || !data) return;
+  if (!analytics || !canvasRef2.current || !data?.length) return;
 
-  const ctx = canvasRef2.current.getContext('2d');
+  const ctx = canvasRef2.current.getContext("2d");
   if (!ctx) return;
 
   // Destroy old chart
   if (chartRef2.current) chartRef2.current.destroy();
 
-  // Month order
-  const monthOrder = {
-    January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
-    July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
-  };
+  // 1️⃣ Aggregate users per (year + month), ignore user_type
+  const monthlyTotals = {};
 
-  // Remove duplicates based on year, month, user_type
-  const uniqueData = [];
-  const seen = new Set();
   data.forEach(d => {
-    const key = `${d.year}-${d.month}-${d.user_type}`;
-    if (!seen.has(key)) {
-      seen.add(key);
-      uniqueData.push(d);
+    const key = `${d.year}-${d.month}`;
+    if (!monthlyTotals[key]) {
+      monthlyTotals[key] = {
+        year: d.year,
+        month: d.month,
+        month_name: d.month_name,
+        total: 0
+      };
     }
+    monthlyTotals[key].total += Number(d.users_count);
   });
 
-  // Sort data
-  uniqueData.sort((a, b) => {
+  // 2️⃣ Convert object → array & sort
+  const sortedData = Object.values(monthlyTotals).sort((a, b) => {
     if (a.year !== b.year) return a.year - b.year;
     return a.month - b.month;
   });
 
-  // Get all months present
-  const labels = [...new Set(uniqueData.map(d => `${d.month_name} ${d.year}`))];
+  // 3️⃣ Prepare chart data
+  const labels = sortedData.map(
+    d => `${d.month_name} ${d.year}`
+  );
+  const values = sortedData.map(d => d.total);
 
-  // Get all user types
-  const userTypes = [...new Set(uniqueData.map(d => d.user_type))];
-
-  // Prepare datasets
-  const colors = {
-    customer: 'orange',
-    courrier: 'blue',
-    restaurantowner: 'green'
-  };
-
-  const datasets = userTypes.map(type => {
-    return {
-      label: type,
-      data: labels.map(label => {
-        const match = uniqueData.find(d => `${d.month_name} ${d.year}` === label && d.user_type === type);
-        return match ? match.users_count : 0;
-      }),
-      backgroundColor: colors[type] || 'gray'
-    };
-  });
-
-  // Create chart
+  // 4️⃣ Create chart
   chartRef2.current = new Chart(ctx, {
-    type: 'bar',
-    data: { labels, datasets },
+    type: "bar",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Users per month",
+          data: values,
+          backgroundColor: "orange"
+        }
+      ]
+    },
     options: {
       responsive: true,
-      plugins: { legend: { position: 'top' } },
+      plugins: {
+        legend: { position: "top" }
+      },
       scales: {
-        x: { title: { display: true, text: 'Month' } },
-        y: { title: { display: true, text: 'Users Count' }, beginAtZero: true }
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: "Users count" }
+        },
+        x: {
+          title: { display: true, text: "Month" }
+        }
       }
     }
   });
 }
 
-// React effect
 useEffect(() => {
   barreaux2(userpermonth);
 }, [userpermonth, analytics]);
+
 
               
     const handleClick = ()=>{

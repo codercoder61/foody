@@ -24,17 +24,7 @@ const navigate = useNavigate();
             setError2(false)
         }
     }
-    const handleEmailChange = (e)=>{
-        setEmail(e.target.value)
-        if (!validateEmail(e.target.value)) {
-            setError(false);
-        } else {
-            setError(true);
-        }
-        if(e.target.value!==""){
-            setError3(false)
-        }
-    }
+    
     //
     const handleClick = async ()=>{
       
@@ -130,7 +120,7 @@ const navigate = useNavigate();
   type='password'
   placeholder='Re-type password'
 />
-        <input onClick={handleClick} style={{cursor:'pointer',border:'none',color:'#fff',width:'100%',borderRadius:'5px',padding:'15px 0',backgroundColor:confPassword && password && email && error?'#fb9300':'rgba(251, 147, 0,0.2)',marginBottom:'20px'}} type="submit" value="CONFIRM"/><br/>
+        <input onClick={handleClick} style={{cursor:'pointer',border:'none',color:'#fff',width:'100%',borderRadius:'5px',padding:'15px 0',backgroundColor:confPassword && password?'#fb9300':'rgba(251, 147, 0,0.2)',marginBottom:'20px'}} type="submit" value="CONFIRM"/><br/>
       </div>
     </div>
   )

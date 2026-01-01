@@ -57,8 +57,7 @@ function Forgot() {
               email:email,
             }
           ),
-        });
-        const result = await response.json();
+        })
         alert("if an email exists, a message is sent to it")
         
         

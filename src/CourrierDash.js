@@ -913,12 +913,14 @@ function isOrderInCourierRange(orderObj, position, range) {
         const result = await response.json();
         //result); // { success: true, message: "..." }
 
-        result.orders.map((elm,index)=>{
-           const cookingOrders = result.orders.filter(elm =>
-            elm.order.courrier === null &&
-            ["Cooking", "Pending"].includes(elm.order.status) &&
-            isOrderInCourierRange(elm, position,range)
-          );
+       const cookingOrders = position
+  ? result.orders.filter(elm =>
+      elm.order.courrier === null &&
+      ["Cooking", "Pending"].includes(elm.order.status) &&
+      isOrderInCourierRange(elm, position, range)
+    )
+  : [];
+
 
             setNewOrders(cookingOrders);
             const deliveredOrders = result.orders.filter(elm => elm.order.courrierId == id && elm.order.status === "Delivered");

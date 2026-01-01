@@ -1359,6 +1359,7 @@ useEffect(() => {
             <th>Photo</th>
             <th>Address</th>
             <th>Service range</th>
+            <th>Phone</th>
             <th>Confirm</th>
           </tr>
         </thead>
@@ -1416,6 +1417,10 @@ useEffect(() => {
 
                 <td style={{ padding: '10px' }}>
   {elm.serviceRange ? `${elm.serviceRange} km` : "-"}
+</td>
+
+     <td style={{ padding: '10px' }}>
+  {elm.phone ? `${elm.phone}` : "-"}
 </td>
 
 

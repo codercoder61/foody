@@ -1353,7 +1353,7 @@ useEffect(() => {
       <table>
         <thead>
           <tr>
-            <th className="hid">Profile</th>
+            <th>Profile</th>
             <th>Driver licence</th>
             <th className="hid">Email</th>
             <th className="hid">Photo</th>
@@ -1369,7 +1369,7 @@ useEffect(() => {
             usersInfo.courriers.filter((elm) => elm.approved === 0)
       .map((elm) => (
               <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
-                <td className='fbc hid'>
+                <td className='fbc'>
                   {elm.name && elm.surname ? `${elm.name} ${elm.surname}` : "None"}
                 </td>
 

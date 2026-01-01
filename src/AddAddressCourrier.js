@@ -247,7 +247,7 @@ function AddAddressCourrier() {
                 const result = await res.json();
                 if(result.status===1){
                   localStorage.setItem('auth', JSON.stringify(true));
-                  navigate(`/courrierdash/${localStorage.getItem('id')}`)
+                  navigate(`/`)
                 }
                 } catch (error) {
                 console.error("Error sending data:", error);

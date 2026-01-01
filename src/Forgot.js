@@ -59,34 +59,9 @@ function Forgot() {
           ),
         });
         const result = await response.json();
-        //result)
+        alert("if an email exists, a message is sent to it")
         
-        if(result.success){
-          setType(result.type)
-          setId(result.id)
-          const sixNumbers = generateSixNumbers(1000,9999);
-          setcode2(sixNumbers)
-          //sixNumbers)
-           const response2 = await fetch("https://soc-net.info/foody/sendVerificationCode.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(
-            {
-              email:email,
-              code:sixNumbers
-            }
-          ),
-        });
-        const result2 = await response2.json();
-        //result2)
-        if(result2.success){
-          setcode(true)
-        }
-        }else{
-          alert('Unknown email address!')
-        }
+        
       } catch (error) {
         console.error("Error:", error);
       }

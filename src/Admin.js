@@ -1350,53 +1350,60 @@ useEffect(() => {
 
                   {usersInfo.courriers.length>0 && usersInfo.courriers.map((elm,index) => (
                     <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
-                      <td className='fb'>{elm.name} {elm.surname}</td>
-                     <td className='fb'>
-  {isImage(elm.driverLicence) && (
-    <img
-      src={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
-      alt="Driver Licence"
-      style={{ width: '80px', cursor: 'pointer' }}
-      onClick={() =>
-        window.open(
-          `https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`,
-          '_blank'
-        )
-      }
-    />
-  )}
+                      <td className='fb'>
+                      {elm.name && elm.surname ? `${elm.name} ${elm.surname}` : "None"}
+                    </td>
 
-  {isPDF(elm.driverLicence) && (
+                     <td className='fb'>
+  {elm.driverLicence && (
     <a
       href={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
       target="_blank"
       rel="noopener noreferrer"
     >
-      View PDF
+      View
     </a>
+  )}
+  {!elm.driverLicence && "none"}
+</td>
+
+
+                      <td style={{ padding: '10px' }}>
+  {elm.email ? elm.email : "-"}
+</td>
+
+<td style={{ padding: '10px' }}>
+  {elm.photo ? (
+    <img
+      src={`https://soc-net.info/foody/${elm.photo}`}
+      alt="Courier"
+      style={{
+        width: '60px',
+        height: '60px',
+        objectFit: 'cover',
+        borderRadius: '50%',
+      }}
+      onClick={() =>
+        window.open(`https://soc-net.info/foody/${elm.photo}`, '_blank')
+      }
+    />
+  ) : (
+    "-"
   )}
 </td>
 
-                      <td style={{padding: '10px'}}>{elm.email}</td>
-                     <td style={{ padding: '10px' }}>
-  <img
-    src={`https://soc-net.info/foody/${elm.photo}`}
-    alt="Courier"
-    style={{
-      width: '60px',
-      height: '60px',
-      objectFit: 'cover',
-      borderRadius: '50%'
-    }}
-    onClick={() =>
-      window.open(`https://soc-net.info/foody/${elm.photo}`, '_blank')
-    }
-  />
+<td style={{ padding: '10px' }}>
+  {elm.phone ? elm.phone : "-"}
 </td>
 
-{/* {elm.phone ? <td className='hidd' >{elm.phone}</td> : <td className='hidd'>-</td>*/}
-      <td style={{padding: '10px'}}>{elm.address}</td>
-      <td style={{padding: '10px'}}>{elm.serviceRange}</td>
+<td style={{ padding: '10px' }}>
+  {elm.address ? elm.address : "-"}
+</td>
+
+<td style={{ padding: '10px' }}>
+  {elm.serviceRange ? elm.serviceRange : "-"}
+</td>
+
                       <td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
                     </tr>
                   ))}

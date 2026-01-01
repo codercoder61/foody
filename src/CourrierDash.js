@@ -851,6 +851,7 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
         setRange(result.userData.serviceRange)
         setEmail(result.userData.email)
         setSurName(result.userData.surname)
+        setPhone(result.userData.phone)
         setFileName(result.userData.driverLicence.replace("drivingLicences/", ""))
         if(result.userData.photo!==null)
           setSrc(`https://soc-net.info/foody/${result.userData.photo}`)

@@ -1629,13 +1629,13 @@ useEffect(() => {
                <div id='ok'>
                     <div id='canvas1'>
                         <h3>Order Graph</h3>
-                            <div style={{textAlign:'center'}}>
+                            <div style={{textAlign:'center',height: '600px'}}>
                                 <canvas ref={canvasRef}></canvas>
                             </div>
                     </div>
                     <div id='canvas2'>
                         <h3>Users</h3>
-                            <div style={{textAlign:'center'}}>
+                            <div style={{textAlign:'center',height: '600px'}}>
                                 <canvas ref={canvasRef2}></canvas>
                             </div>
                     </div>

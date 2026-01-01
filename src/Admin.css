@@ -148,6 +148,10 @@ display:flex;
     align-items:center;
     padding: 10px 10px; 
 }
+.fbc{
+    padding: 10px;
+    padding: 10px 10px; 
+}
 
 #ju > #lm >span{
         margin-right: 20px;

@@ -1343,7 +1343,7 @@ useEffect(() => {
         </thead>
 
         <tbody>
-          {usersInfo.courriers.length > 0 &&
+          {usersInfo.courriers && usersInfo.courriers.length > 0 &&
             usersInfo.courriers.map((elm) => (
               <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
                 <td className='fb'>

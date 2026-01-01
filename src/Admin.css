@@ -403,6 +403,6 @@ justify-content:center;
         margin-bottom: 10px;
     }
     #canvas1,#canvas2{
-        margin:unset;
+        margin:20px 0px;
     }
 }

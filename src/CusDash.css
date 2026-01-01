@@ -271,6 +271,7 @@
     position:absolute;
     right:100px;
     top:65px;
+    text-align: center;
     width: 300px;
 }
 @media all and (max-width:400px){

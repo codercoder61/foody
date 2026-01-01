@@ -16,6 +16,9 @@
     width:100%;
     background-color:white;
 }
+#canvas1 > div > canvas{
+    height: -webkit-fill-available;
+}
 #hh5{
     border:1px solid #ddd;
     outline:none;

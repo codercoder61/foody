@@ -179,7 +179,7 @@ useEffect(()=>{
         setSurname(result.userData.surname)
         setEmailForm(result.userData.email)
         setPhone(result.userData.phone)
-        setNameSurname(result.userData.name + " " +result.userData.surname)
+setNameSurname(`${result.userData.name} ${result.userData.surname}`);
         setLocations(result.locations)
         if(result.userData.photo!==null)
           setSrc2(`https://soc-net.info/foody/${result.userData.photo}`)

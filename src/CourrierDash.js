@@ -879,6 +879,9 @@ function filterCustomersInCourierRange(customers, courier) {
 }
 
 function isOrderInCourierRange(orderObj, position, range) {
+  if (!position || position.lat == null || position.lng == null) {
+    return false;
+  }
 
   const distanceToRestaurant = getDistanceKm(
     position.lat,
@@ -899,42 +902,50 @@ function isOrderInCourierRange(orderObj, position, range) {
     distanceToCustomer <= range
   );
 }
-
-
-    const fetchOrders= async()=>{
-      try {
-        const response = await fetch("https://soc-net.info/foody/getOrdersCour.php", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          }
-        });
-
-        const result = await response.json();
-        //result); // { success: true, message: "..." }
-
-       const cookingOrders = position
-  ? result.orders.filter(elm =>
-      elm.order.courrier === null &&
-      ["Cooking", "Pending"].includes(elm.order.status) &&
-      isOrderInCourierRange(elm, position, range)
-    )
-  : [];
-
-
-            setNewOrders(cookingOrders);
-            const deliveredOrders = result.orders.filter(elm => elm.order.courrierId == id && elm.order.status === "Delivered");
-            setDelivered(deliveredOrders);
-            const readyOrders = result.orders.filter(elm => elm.order.status === "Ready");
-            setReady(readyOrders);
-            const activeOrders = result.orders.filter(elm => elm.order.courrierId == id  && elm.order.status === "Active");
-            setActive(activeOrders);
-        })
-      
-      } catch (error) {
-        console.error("Error:", error);
+const fetchOrders = async () => {
+  try {
+    const response = await fetch(
+      "https://soc-net.info/foody/getOrdersCour.php",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-    }
+    );
+
+    const result = await response.json();
+
+    const cookingOrders = position
+      ? result.orders.filter(elm =>
+          elm.order.courrier === null &&
+          ["Cooking", "Pending"].includes(elm.order.status) &&
+          isOrderInCourierRange(elm, position, range)
+        )
+      : [];
+
+    setNewOrders(cookingOrders);
+
+    const deliveredOrders = result.orders.filter(
+      elm => elm.order.courrierId == id && elm.order.status === "Delivered"
+    );
+    setDelivered(deliveredOrders);
+
+    const readyOrders = result.orders.filter(
+      elm => elm.order.status === "Ready"
+    );
+    setReady(readyOrders);
+
+    const activeOrders = result.orders.filter(
+      elm => elm.order.courrierId == id && elm.order.status === "Active"
+    );
+    setActive(activeOrders);
+
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+  }
+};
+
     const [days,setDays] = useState(null)
     const [numOrders,setNumOrders] = useState(null)
     const getStats= async()=>{
@@ -964,9 +975,11 @@ function isOrderInCourierRange(orderObj, position, range) {
 
     useEffect(()=>{
         fetchData()
+      if (position) {
         fetchOrders()
+      }
         getStats()
-    },[])
+    },[position, range])
   const menu = useRef(null)
 
  const handleClick = ()=>{

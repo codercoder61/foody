@@ -4,7 +4,7 @@ function Forgot() {
    
     const [email,setEmail] = useState("")
     const [error,setError] = useState(false)
-    const {token,id} = useParams()
+    const token = useParams()
 const navigate = useNavigate();
     const [error1,setError1] = useState(false)
     const [error2,setError2] = useState(false)
@@ -76,21 +76,21 @@ useEffect(()=>{
         //result)
         if(result.status==1){
           //type,id)
-          switch (Number(type)) {
+          switch (Number(result.type)) {
             case 0:
-                localStorage.setItem('authId',id)
+                localStorage.setItem('authId',result.id)
                 localStorage.setItem('auth',JSON.stringify(true))
-                navigate(`/resdash/${id}`);
+                navigate(`/resdash/${result.id}`);
                 break;
               case 1:
-                localStorage.setItem('authId',id)
+                localStorage.setItem('authId',result.id)
                 localStorage.setItem('auth',JSON.stringify(true))
-                navigate(`/cusdash/${id}`);
+                navigate(`/cusdash/${result.id}`);
                 break;
               case 2:
-                localStorage.setItem('authId',id)
+                localStorage.setItem('authId',result.id)
                 localStorage.setItem('auth',JSON.stringify(true))
-                navigate(`/courrierdash/${id}`);
+                navigate(`/courrierdash/${result.id}`);
                 break;
               default:
                 //"Just another day");

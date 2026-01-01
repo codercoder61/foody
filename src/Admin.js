@@ -1081,7 +1081,7 @@ orders_per_month && orders_per_month.forEach(element => {
   chartRef2.current = new Chart(ctx, {
     type: "bar",
     data: {
-      labels,
+      labels:labels,,
       datasets: [{
         label: "Users per month",
         data: values,
@@ -1089,12 +1089,13 @@ orders_per_month && orders_per_month.forEach(element => {
       }]
     },
     options: {
-      responsive: true,
-      scales: {
-        y: { beginAtZero: true },
-        x: { ticks: { autoSkip: false } }
-      }
-    }
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: 'top',
+                },
+              },
+            },
   });
 }
 

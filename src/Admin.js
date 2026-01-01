@@ -14,7 +14,7 @@ const isPDF = (file) =>
     const navigate = useNavigate();
   const menu = useRef(null)
   useEffect(()=>{
-          if(localStorage.getItem('authId')){
+          if(!localStorage.getItem('authId')){
             navigate('/')
           }
         },[])

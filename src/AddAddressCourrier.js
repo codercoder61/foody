@@ -310,10 +310,8 @@ function AddAddressCourrier() {
 
       const result = await response.json();
       if (result.status==1) {
-        //"Location saved!");
-        localStorage.setItem('authId',localStorage.getItem('id'))
-        localStorage.setItem('auth', JSON.stringify(true));
-        navigate(`/courrierdash/${localStorage.getItem('id')}`);
+        
+        navigate(`/`);
       } 
       
     } catch (err) {

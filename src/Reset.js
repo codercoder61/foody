@@ -52,6 +52,9 @@ const navigate = useNavigate();
         
         const result = await response.json();
         //result)
+        if(result.error){
+           alert(result.error)
+        }
         if(result.status==1){
           //type,id)
           switch (Number(result.type)) {

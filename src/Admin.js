@@ -453,44 +453,44 @@ const getAdminInfo = async () => {
 };
 
  
-  useEffect(() => {
-    // Only run when analytics is available AND canvas is mounted
-    if (!analytics || !canvasRef.current) return;
+  // useEffect(() => {
+  //   // Only run when analytics is available AND canvas is mounted
+  //   if (!analytics || !canvasRef.current) return;
 
-    const ctx = canvasRef.current.getContext('2d');
-    if (!ctx) {
-      console.error('Canvas context not available');
-      return;
-    }
+  //   const ctx = canvasRef.current.getContext('2d');
+  //   if (!ctx) {
+  //     console.error('Canvas context not available');
+  //     return;
+  //   }
 
-    // Destroy old chart if exists
-    if (chartRef.current) {
-      chartRef.current.destroy();
-    }
+  //   // Destroy old chart if exists
+  //   if (chartRef.current) {
+  //     chartRef.current.destroy();
+  //   }
 
-    // Create new chart
-    chartRef.current = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['2010', '2011', '2012', '2013', '2014'],
-        datasets: [
-          {
-            label: 'Acquisitions by year',
-            data: [10, 20, 15, 25, 22],
-            backgroundColor: 'orange',
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-        },
-      },
-    });
-  }, [analytics]); // ← re-run when `analytics` changes
+  //   // Create new chart
+  //   chartRef.current = new Chart(ctx, {
+  //     type: 'bar',
+  //     data: {
+  //       labels: ['2010', '2011', '2012', '2013', '2014'],
+  //       datasets: [
+  //         {
+  //           label: 'Acquisitions by year',
+  //           data: [10, 20, 15, 25, 22],
+  //           backgroundColor: 'orange',
+  //         },
+  //       ],
+  //     },
+  //     options: {
+  //       responsive: true,
+  //       plugins: {
+  //         legend: {
+  //           position: 'top',
+  //         },
+  //       },
+  //     },
+  //   });
+  // }, [analytics]); // ← re-run when `analytics` changes
 
 
 //  useEffect(() => {

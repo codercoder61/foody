@@ -493,51 +493,51 @@ const getAdminInfo = async () => {
   }, [analytics]); // ← re-run when `analytics` changes
 
 
- useEffect(() => {
-    // Only run when analytics is available AND canvas is mounted
-    if (!analytics || !canvasRef2.current) return;
+//  useEffect(() => {
+//     // Only run when analytics is available AND canvas is mounted
+//     if (!analytics || !canvasRef2.current) return;
 
-    const ctx = canvasRef2.current.getContext('2d');
-    if (!ctx) {
-      console.error('Canvas context not available');
-      return;
-    }
+//     const ctx = canvasRef2.current.getContext('2d');
+//     if (!ctx) {
+//       console.error('Canvas context not available');
+//       return;
+//     }
 
-    // Destroy old chart if exists
-    if (chartRef2.current) {
-      chartRef2.current.destroy();
-    }
+//     // Destroy old chart if exists
+//     if (chartRef2.current) {
+//       chartRef2.current.destroy();
+//     }
 
-    // Create new chart
-    chartRef2.current = new Chart(ctx, {
-      type: 'doughnut',
-      data:{
-  labels: [
-    'Red',
-    'Blue',
-    'Yellow'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-},
-      options: {
-        responsive: false,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-        },
-      },
-    });
-  }, [analytics]); // ← re-run when `analytics` changes
+//     // Create new chart
+//     chartRef2.current = new Chart(ctx, {
+//       type: 'doughnut',
+//       data:{
+//   labels: [
+//     'Red',
+//     'Blue',
+//     'Yellow'
+//   ],
+//   datasets: [{
+//     label: 'My First Dataset',
+//     data: [300, 50, 100],
+//     backgroundColor: [
+//       'rgb(255, 99, 132)',
+//       'rgb(54, 162, 235)',
+//       'rgb(255, 205, 86)'
+//     ],
+//     hoverOffset: 4
+//   }]
+// },
+//       options: {
+//         responsive: false,
+//         plugins: {
+//           legend: {
+//             position: 'top',
+//           },
+//         },
+//       },
+//     });
+//   }, [analytics]); // ← re-run when `analytics` changes
 
  
 

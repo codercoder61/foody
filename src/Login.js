@@ -89,7 +89,11 @@ const handleCheckBoxChange = (event) => {
 
       const result = await response.json();
       //result); // { success: true, message: "..." }
-      if(!result.success && !result.blocked){
+      if(result.no_approved){
+        alert("You're not approved")
+      }
+          else 
+              if(!result.success && !result.blocked){
         alert('We didn’t find an account with those login credentials')
       }else{
         if(!result.blocked){

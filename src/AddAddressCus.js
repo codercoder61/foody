@@ -206,13 +206,8 @@ useEffect(() => {
                 setAddress(data.results[0].components.suburb+" "+data.results[0].components.road+" "+data.results[0].components.city+" "+data.results[0].components.county+" "+data.results[0].components.region+" "+ data.results[0].components.state_district)        
             );
 
-        },
-        (err) => {
-          setError2("Geolocation permission denied");
         }
       );
-    } else {
-      setError2("Geolocation not supported");
     }
   }, []);
 
@@ -221,40 +216,7 @@ useEffect(() => {
     const handleAddressChange = (e) =>{
         setAddress(e.target.value)
     }
-    const handleSubmit = async (e)=>{
-        e.preventDefault()
-        if(!address){
-            setError(false)
-        }else{
-            setError(true)
-            try {
-                const email = localStorage.getItem('customerEmail')
-                const res = await fetch('https://soc-net.info/foody/updateCustomerAddress.php', {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(
-                        {
-                            email:email,
-                            address:address,
-                            longitude:longitude,
-                            latitude:latitude
-                        }
-                    )
-                });
-
-                const result = await res.json();
-                //console.log(result);
-                if(result.status===1){
-                  localStorage.setItem('auth', JSON.stringify(true));
-                  navigate(`/cusdash/${localStorage.getItem('id')}`)
-                }
-                } catch (error) {
-                console.error("Error sending data:", error);
-                }
-        }
-    }
+   
   return (
     <div id='main'>
       <header>
@@ -321,8 +283,6 @@ useEffect(() => {
 >
   Save Location
 </button>
-
-            <p>{error2}</p>
         </div>
       </main>
     </div>

@@ -209,14 +209,9 @@ function AddAddressCourrier() {
                 setAddress(data.results[0].components.suburb+" "+data.results[0].components.road+" "+data.results[0].components.city+" "+data.results[0].components.county+" "+data.results[0].components.region+" "+ data.results[0].components.state_district)        
             );
 
-        },
-        (err) => {
-          setError2("Geolocation permission denied");
         }
       );
-    } else {
-      setError2("Geolocation not supported");
-    }
+    } 
   }, []);
 
   

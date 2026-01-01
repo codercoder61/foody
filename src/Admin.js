@@ -1099,8 +1099,10 @@ orders_per_month && orders_per_month.forEach(element => {
 }
 
 useEffect(() => {
+  if (!userpermonth || userpermonth.length === 0) return;
   barreaux2(userpermonth);
 }, [userpermonth, analytics]);
+
 
 
 

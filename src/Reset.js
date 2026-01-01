@@ -4,7 +4,7 @@ function Forgot() {
    
     const [email,setEmail] = useState("")
     const [error,setError] = useState(false)
-    const {id,type} = useParams()
+    const {token,type,id} = useParams()
 const navigate = useNavigate();
     const [error1,setError1] = useState(false)
     const [error2,setError2] = useState(false)
@@ -68,8 +68,7 @@ useEffect(()=>{
             {
               email:email,
               password:password,
-              id:id,
-              type:type
+              token:token
             }
           ),
         });

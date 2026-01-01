@@ -1037,16 +1037,20 @@ orders_per_month && orders_per_month.forEach(element => {
                 barreaux(ordersPerMonth)
               }, [ordersPerMonth,analytics]); // ← re-run when `analytics` changes
 
-             function barreaux2(data) {
+            function barreaux2(data) {
   if (!analytics || !canvasRef2.current || !data?.length) return;
 
   const ctx = canvasRef2.current.getContext("2d");
   if (!ctx) return;
 
-  // Destroy old chart
   if (chartRef2.current) chartRef2.current.destroy();
 
-  // 1️⃣ Aggregate users per (year + month), ignore user_type
+  const monthNames = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+
+  // 1️⃣ Aggregate per year + month (ignore user_type & month_name)
   const monthlyTotals = {};
 
   data.forEach(d => {
@@ -1055,22 +1059,21 @@ orders_per_month && orders_per_month.forEach(element => {
       monthlyTotals[key] = {
         year: d.year,
         month: d.month,
-        month_name: d.month_name,
         total: 0
       };
     }
     monthlyTotals[key].total += Number(d.users_count);
   });
 
-  // 2️⃣ Convert object → array & sort
+  // 2️⃣ Sort properly
   const sortedData = Object.values(monthlyTotals).sort((a, b) => {
     if (a.year !== b.year) return a.year - b.year;
     return a.month - b.month;
   });
 
-  // 3️⃣ Prepare chart data
+  // 3️⃣ Labels & values
   const labels = sortedData.map(
-    d => `${d.month_name} ${d.year}`
+    d => `${monthNames[d.month - 1]} ${d.year}`
   );
   const values = sortedData.map(d => d.total);
 
@@ -1079,27 +1082,17 @@ orders_per_month && orders_per_month.forEach(element => {
     type: "bar",
     data: {
       labels,
-      datasets: [
-        {
-          label: "Users per month",
-          data: values,
-          backgroundColor: "orange"
-        }
-      ]
+      datasets: [{
+        label: "Users per month",
+        data: values,
+        backgroundColor: "orange"
+      }]
     },
     options: {
       responsive: true,
-      plugins: {
-        legend: { position: "top" }
-      },
       scales: {
-        y: {
-          beginAtZero: true,
-          title: { display: true, text: "Users count" }
-        },
-        x: {
-          title: { display: true, text: "Month" }
-        }
+        y: { beginAtZero: true },
+        x: { ticks: { autoSkip: false } }
       }
     }
   });
@@ -1108,6 +1101,7 @@ orders_per_month && orders_per_month.forEach(element => {
 useEffect(() => {
   barreaux2(userpermonth);
 }, [userpermonth, analytics]);
+
 
 
               

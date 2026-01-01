@@ -1322,14 +1322,15 @@ useEffect(() => {
 
             </div>}
 
-  {confirmation &&  <div id='pod'>
-                <div id="ju">
-                  <h1 style={{fontSize:'1.3em',marginBottom:'10px'}}>Confirm Courriers</h1>
-                 
-                </div>
-               <div id='lk'>
-               <table>
-      <thead>
+  {confirmation && (
+  <div id='pod'>
+    <div id="ju">
+      <h1 style={{ fontSize: '1.3em', marginBottom: '10px' }}>Confirm Courriers</h1>
+    </div>
+
+    <div id='lk'>
+      <table>
+        <thead>
           <tr>
             <th className="hid">Profile</th>
             <th>Driver licence</th>
@@ -1337,84 +1338,89 @@ useEffect(() => {
             <th>Photo</th>
             <th>Address</th>
             <th>Service range</th>
-            <th>Confirm</th>
-            <th>Block</th>
-      {/* <td className='hid' style={{ padding: '10px', borderBottom: '1px solid #ddd' }} >Phone</td>*/}
+            <th>Action</th>
           </tr>
         </thead>
-      
-              
-                <tbody>
-                
-                
 
-                  {usersInfo.courriers.length>0 && usersInfo.courriers.map((elm,index) => (
-                    <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
-                      <td className='fb'>
-                      {elm.name && elm.surname ? `${elm.name} ${elm.surname}` : "None"}
-                    </td>
+        <tbody>
+          {usersInfo.courriers.length > 0 &&
+            usersInfo.courriers.map((elm) => (
+              <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
+                <td className='fb'>
+                  {elm.name && elm.surname ? `${elm.name} ${elm.surname}` : "None"}
+                </td>
 
-                     <td className='fb'>
-  {elm.driverLicence && (
-    <a
-      href={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      View
-    </a>
-  )}
-  {!elm.driverLicence && "none"}
-</td>
+                <td className='fb'>
+                  {elm.driverLicence ? (
+                    <a
+                      href={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View
+                    </a>
+                  ) : (
+                    "none"
+                  )}
+                </td>
 
+                <td style={{ padding: '10px' }}>
+                  {elm.email ? elm.email : "-"}
+                </td>
 
-                      <td style={{ padding: '10px' }}>
-  {elm.email ? elm.email : "-"}
-</td>
+                <td style={{ padding: '10px' }}>
+                  {elm.photo ? (
+                    <img
+                      src={`https://soc-net.info/foody/${elm.photo}`}
+                      alt="Courier"
+                      style={{
+                        width: '60px',
+                        height: '60px',
+                        objectFit: 'cover',
+                        borderRadius: '50%',
+                      }}
+                      onClick={() =>
+                        window.open(`https://soc-net.info/foody/${elm.photo}`, '_blank')
+                      }
+                    />
+                  ) : (
+                    "-"
+                  )}
+                </td>
 
-<td style={{ padding: '10px' }}>
-  {elm.photo ? (
-    <img
-      src={`https://soc-net.info/foody/${elm.photo}`}
-      alt="Courier"
-      style={{
-        width: '60px',
-        height: '60px',
-        objectFit: 'cover',
-        borderRadius: '50%',
-      }}
-      onClick={() =>
-        window.open(`https://soc-net.info/foody/${elm.photo}`, '_blank')
-      }
-    />
-  ) : (
-    "-"
-  )}
-</td>
+                <td style={{ padding: '10px' }}>
+                  {elm.address ? elm.address : "-"}
+                </td>
 
-{/* <td style={{ padding: '10px' }}>
-  {elm.phone ? elm.phone : "-"}
-</td> */}
+                <td style={{ padding: '10px' }}>
+                  {elm.serviceRange ? elm.serviceRange : "-"}
+                </td>
 
-<td style={{ padding: '10px' }}>
-  {elm.address ? elm.address : "-"}
-</td>
+                <td style={{ padding: '10px' }}>
+                  <i
+                    onClick={() =>
+                      elm.blocked === 1
+                        ? unBlockCourrier(elm.id)
+                        : blockCourrier(elm.id)
+                    }
+                    style={{
+                      cursor: 'pointer',
+                      borderRadius: '50%',
+                      padding: '5px',
+                      border: `1px solid ${elm.blocked === 1 ? 'red' : 'black'}`,
+                      color: elm.blocked === 1 ? 'red' : 'black',
+                    }}
+                    className="close fa-solid fa-xmark"
+                  ></i>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}
 
-<td style={{ padding: '10px' }}>
-  {elm.serviceRange ? elm.serviceRange : "-"}
-</td>
-<td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
-                      <td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
-                    </tr>
-                  ))}
-
-                  
-
-                </tbody>
-               </table>
-            </div>
-
-            </div>}
           {reports &&  <div id='cool'>
                 
                   <h1 className='gh'>Review Reports</h1>

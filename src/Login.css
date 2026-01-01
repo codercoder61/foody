@@ -119,6 +119,9 @@ input[type='checkbox']{
     height: 100%;
     margin-bottom: 50px;
 }
+#reset{
+    height:100vh !important;
+}
 @media screen and (max-width:900px) {
     main>div{
         width:70%;
@@ -133,5 +136,9 @@ input[type='checkbox']{
     .forgot{
         margin-top:0;
     }
+
+    #reset>div{
+    width:80% !important;
+}
 }
 

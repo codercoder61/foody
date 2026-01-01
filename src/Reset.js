@@ -3,7 +3,7 @@ import { useNavigate ,useParams} from 'react-router-dom';
 function Forgot() {
    
     const [error,setError] = useState(false)
-    const token = useParams()
+    const {token} = useParams()
 const navigate = useNavigate();
     const [error1,setError1] = useState(false)
     const [error2,setError2] = useState(false)

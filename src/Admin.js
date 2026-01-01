@@ -1319,7 +1319,7 @@ useEffect(() => {
                     </tr>
                   ))}
 
-                  {courriers && usersInfo.courriers.map((elm,index) => (
+                  {courriers && usersInfo.courriers.filter((elm) => elm.approved === 1).map((elm,index) => (
                     <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
                       <td className='fb'>{elm.name} {elm.surname}</td>
                       <td style={{padding: '10px'}}>{elm.email}</td>

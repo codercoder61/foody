@@ -114,7 +114,7 @@ useEffect(()=>{
     };
    
   return (
-    <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',height:'60vh'}}>
+    <div id="reset" style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',height:'60vh'}}>
       <img width='200' style={{marginBottom:'50px'}} src="https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=256,h=79,f=auto,dpr=1,fit=contain/f1646061273072x552344553851359800/Component%202%20%282%29%20%281%29.png" alt="logo"/>
       <div style={{width:'40%',backgroundColor:'white',padding:'20px',border:'1px solid #ddd'}}>
         <p style={{marginBottom:'20px'}}>This page lets you reset your password.</p>

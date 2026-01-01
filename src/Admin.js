@@ -343,7 +343,7 @@ function isValidPhoneNumber(phone) {
   const chartRef2 = useRef(null);
     const [analytics,setAnalytics] = useState(true)
     
-    const [confirmation,setConfirmation] = useState(true)
+    const [confirmation,setConfirmation] = useState(false)
 const handleAddressChange = (e)=>{
     setLocation(e.target.value)
 }

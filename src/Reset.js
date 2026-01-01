@@ -4,7 +4,7 @@ function Forgot() {
    
     const [email,setEmail] = useState("")
     const [error,setError] = useState(false)
-    const {token,type,id} = useParams()
+    const {token,id} = useParams()
 const navigate = useNavigate();
     const [error1,setError1] = useState(false)
     const [error2,setError2] = useState(false)
@@ -66,7 +66,6 @@ useEffect(()=>{
           },
           body: JSON.stringify(
             {
-              email:email,
               password:password,
               token:token
             }
@@ -119,16 +118,7 @@ useEffect(()=>{
       <img width='200' style={{marginBottom:'50px'}} src="https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=256,h=79,f=auto,dpr=1,fit=contain/f1646061273072x552344553851359800/Component%202%20%282%29%20%281%29.png" alt="logo"/>
       <div style={{width:'40%',backgroundColor:'white',padding:'20px',border:'1px solid #ddd'}}>
         <p style={{marginBottom:'20px'}}>This page lets you reset your password.</p>
-        <input
-  value={email}
-  onChange={handleEmailChange}
-  style={{
-    border: error3?'1px solid red':email && error ? '1px solid #fb9300' : '1px solid rgba(251, 147, 0, 0.2)',
-    marginBottom: '20px'
-  }}
-  type='email'
-  placeholder='Your email address'
-/>
+        
 <input
   value={password}
   onChange={handlePasswordChange}

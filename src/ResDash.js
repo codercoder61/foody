@@ -593,7 +593,7 @@ function ResDash() {
 
         const result = await response.json();
         //result); // { success: true, message: "..." }
-        setName(result.userData.name)
+        setName(result.userData.restaurantName)
         setAddressInput(result.userData.restaurantLocation)
         setRange(result.userData.serviceRange)
         setTime(result.userData.serviceStarts)

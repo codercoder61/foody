@@ -1346,14 +1346,14 @@ useEffect(() => {
           {usersInfo && usersInfo.courriers && usersInfo.courriers.length > 0 &&
             usersInfo.courriers.map((elm) => (
               <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
-                <td className='fb'>
+                <td className='fbc'>
                   {elm.name && elm.surname ? `${elm.name} ${elm.surname}` : "None"}
                 </td>
 
-                <td className='fb'>
+                <td className='fbc'>
                   {elm.driverLicence ? (
                     <a
-                      href={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
+                      href={`https://soc-net.info/foody/${elm.driverLicence}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

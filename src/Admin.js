@@ -1038,6 +1038,8 @@ orders_per_month && orders_per_month.forEach(element => {
               }, [ordersPerMonth,analytics]); // ← re-run when `analytics` changes
 
             function barreaux2(data) {
+                let labels = [];
+            let values = [];
   if (!analytics || !canvasRef2.current || !data?.length) return;
 
   const ctx = canvasRef2.current.getContext("2d");
@@ -1050,38 +1052,27 @@ orders_per_month && orders_per_month.forEach(element => {
     "July","August","September","October","November","December"
   ];
 
-  // 1️⃣ Aggregate per year + month (ignore user_type & month_name)
   const monthlyTotals = {};
 
   data.forEach(d => {
     const key = `${d.year}-${d.month}`;
-    if (!monthlyTotals[key]) {
-      monthlyTotals[key] = {
-        year: d.year,
-        month: d.month,
-        total: 0
-      };
-    }
+    monthlyTotals[key] ??= { year: d.year, month: d.month, total: 0 };
     monthlyTotals[key].total += Number(d.users_count);
   });
 
-  // 2️⃣ Sort properly
-  const sortedData = Object.values(monthlyTotals).sort((a, b) => {
-    if (a.year !== b.year) return a.year - b.year;
-    return a.month - b.month;
-  });
+  const sortedData = Object.values(monthlyTotals).sort(
+    (a, b) => a.year !== b.year ? a.year - b.year : a.month - b.month
+  );
 
-  // 3️⃣ Labels & values
   const labels = sortedData.map(
     d => `${monthNames[d.month - 1]} ${d.year}`
   );
   const values = sortedData.map(d => d.total);
 
-  // 4️⃣ Create chart
   chartRef2.current = new Chart(ctx, {
     type: "bar",
     data: {
-      labels:labels,,
+      labels:labels,
       datasets: [{
         label: "Users per month",
         data: values,
@@ -1089,15 +1080,18 @@ orders_per_month && orders_per_month.forEach(element => {
       }]
     },
     options: {
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: 'top',
-                },
-              },
-            },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: "top" }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
   });
 }
+
 
 useEffect(() => {
   if (!userpermonth || userpermonth.length === 0) return;

@@ -5,6 +5,12 @@ import Chart from 'chart.js/auto'
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 function Admin() {
+    const isImage = (file) =>
+  /\.(jpg|jpeg|png|webp)$/i.test(file);
+
+const isPDF = (file) =>
+  /\.pdf$/i.test(file);
+
     const navigate = useNavigate();
   const menu = useRef(null)
   useEffect(()=>{
@@ -337,7 +343,7 @@ function isValidPhoneNumber(phone) {
   const chartRef2 = useRef(null);
     const [analytics,setAnalytics] = useState(true)
     
-    
+    const [confirmation,setConfirmation] = useState(true)
 const handleAddressChange = (e)=>{
     setLocation(e.target.value)
 }
@@ -1180,24 +1186,26 @@ useEffect(() => {
 
               <i onClick={handleClick2} className="closed fa-solid fa-xmark"></i>
                
-                <p onClick={()=>{setAnalytics(true);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{marginTop:'50px',display:'flex',alignItems:'center',width:'100%',backgroundColor:analytics?'#ffecd1':"",color:analytics?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Analytics</p>
+                <p onClick={()=>{setAnalytics(true);setUsers(false);setConfirmation(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{marginTop:'50px',display:'flex',alignItems:'center',width:'100%',backgroundColor:analytics?'#ffecd1':"",color:analytics?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Analytics</p>
+
+          <p onClick={()=>{setAnalytics(false);setConfirmation(true);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{marginTop:'50px',display:'flex',alignItems:'center',width:'100%',backgroundColor:confirmation?'#ffecd1':"",color:confirmation?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Confirmation</p>
 
 
-<p onClick={()=>{setAnalytics(false);setUsers(true);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:users?'#ffecd1':"",color:users?"#fb9300":""}}><i className="fa-solid fa-user"></i> Users</p>
+<p onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(true);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:users?'#ffecd1':"",color:users?"#fb9300":""}}><i className="fa-solid fa-user"></i> Users</p>
 
 
 
-<p onClick={()=>{setAnalytics(false);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(true);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:order1?'#ffecd1':"",color:order1?"#fb9300":""}}><i className="fa-brands fa-jedi-order"></i> Order</p>
+<p onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(true);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:order1?'#ffecd1':"",color:order1?"#fb9300":""}}><i className="fa-brands fa-jedi-order"></i> Order</p>
 
-<p onClick={()=>{setAnalytics(false);setUsers(false);setCredentials(false);setTickets(false);setReports(true);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:reports?'#ffecd1':"",color:reports?"#fb9300":""}}><i className="fa-solid fa-flag"></i> Reports</p>
+<p onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(false);setCredentials(false);setTickets(false);setReports(true);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:reports?'#ffecd1':"",color:reports?"#fb9300":""}}><i className="fa-solid fa-flag"></i> Reports</p>
 
-                <p style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:tickets?'#ffecd1':"",color:tickets?"#fb9300":""}} onClick={()=>{setAnalytics(false);setUsers(false);setCredentials(false);setTickets(true);setReports(false);setOrder1(false);setSettings(false);}}><i className="fa-solid fa-ticket"></i>Tickets</p>
+                <p style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:tickets?'#ffecd1':"",color:tickets?"#fb9300":""}} onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(false);setCredentials(false);setTickets(true);setReports(false);setOrder1(false);setSettings(false);}}><i className="fa-solid fa-ticket"></i>Tickets</p>
                 
 
-                 <p style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:settings?'#ffecd1':"",color:settings?"#fb9300":""}} onClick={()=>{setAnalytics(false);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(true)}}><i className="fa-solid fa-gear"></i> Settings</p>
+                 <p style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:settings?'#ffecd1':"",color:settings?"#fb9300":""}} onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(true)}}><i className="fa-solid fa-gear"></i> Settings</p>
                 
                 
-                <p style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:credentials?'#ffecd1':"",color:credentials?"#fb9300":""}} onClick={()=>{setAnalytics(false);setUsers(false);setCredentials(true);setTickets(false);setReports(false);setOrder1(false);setSettings(false)}}><i className="fa-solid fa-key"></i>  Credentials</p>
+                <p style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:credentials?'#ffecd1':"",color:credentials?"#fb9300":""}} onClick={()=>{setAnalytics(false);setConfirmation(false);setUsers(false);setCredentials(true);setTickets(false);setReports(false);setOrder1(false);setSettings(false)}}><i className="fa-solid fa-key"></i>  Credentials</p>
                
                 <Link to="/"><p onClick={()=>{
                                   if(Cookies.get('stayLogged')){
@@ -1314,7 +1322,92 @@ useEffect(() => {
 
             </div>}
 
+  {confirmation &&  <div id='pod'>
+                <div id="ju">
+                  <h1 style={{fontSize:'1.3em',marginBottom:'10px'}}>Confirm Courriers</h1>
+                 
+                </div>
+               <div id='lk'>
+               <table>
+      <thead>
+          <tr>
+            <th className="hid">Profile</th>
+            <th>Driver licence</th>
+            <th>Email</th>
+            <th>Photo</th>
+            <th>Address</th>
+            <th>Service range</th>
+            <th>Confirm</th>
+            <th>Block</th>
+      {/* <td className='hid' style={{ padding: '10px', borderBottom: '1px solid #ddd' }} >Phone</td>*/}
+          </tr>
+        </thead>
+      
+              
+                <tbody>
+                
+                
 
+                  {courriers && usersInfo.courriers.map((elm,index) => (
+                    <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
+                      <td className='fb'>{elm.name} {elm.surname}</td>
+                     <td className='fb'>
+  {isImage(elm.driverLicence) && (
+    <img
+      src={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
+      alt="Driver Licence"
+      style={{ width: '80px', cursor: 'pointer' }}
+      onClick={() =>
+        window.open(
+          `https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`,
+          '_blank'
+        )
+      }
+    />
+  )}
+
+  {isPDF(elm.driverLicence) && (
+    <a
+      href={`https://soc-net.info/foody/drivingLicences/${elm.driverLicence}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View PDF
+    </a>
+  )}
+</td>
+
+                      <td style={{padding: '10px'}}>{elm.email}</td>
+                     <td style={{ padding: '10px' }}>
+  <img
+    src={`https://soc-net.info/foody/${elm.photo}`}
+    alt="Courier"
+    style={{
+      width: '60px',
+      height: '60px',
+      objectFit: 'cover',
+      borderRadius: '50%'
+    }}
+    onClick={() =>
+      window.open(`https://soc-net.info/foody/${elm.photo}`, '_blank')
+    }
+  />
+</td>
+
+{/* {elm.phone ? <td className='hidd' >{elm.phone}</td> : <td className='hidd'>-</td>*/}
+      <td style={{padding: '10px'}}>{elm.address}</td>
+      <td style={{padding: '10px'}}>{elm.serviceRange}</td>
+                      <td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
+                    </tr>
+                  ))}
+
+                  
+
+                </tbody>
+               </table>
+            </div>
+
+            </div>}
           {reports &&  <div id='cool'>
                 
                   <h1 className='gh'>Review Reports</h1>

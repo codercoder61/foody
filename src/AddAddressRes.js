@@ -180,6 +180,7 @@ const SelectLocationMap = ({ position, setPosition, addressInput, setAddressInpu
 function AddAddressRes() {
     //const [location, setLocation] = useState(null);
     const [position, setPosition] = useState(null);
+    const [error2, setError2] = useState(null);
         const [addressInput, setAddressInput] = useState("");
     const navigate = useNavigate();
     useEffect(() => {

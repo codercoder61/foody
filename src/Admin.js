@@ -1041,58 +1041,74 @@ orders_per_month && orders_per_month.forEach(element => {
   if (!analytics || !canvasRef2.current || !data) return;
 
   const ctx = canvasRef2.current.getContext('2d');
-  if (!ctx) {
-    console.error('Canvas context not available');
-    return;
-  }
+  if (!ctx) return;
 
-  // Destroy old chart if it exists
+  // Destroy old chart
   if (chartRef2.current) chartRef2.current.destroy();
 
-  // Month order for sorting
+  // Month order
   const monthOrder = {
     January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
     July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
   };
 
-  // Sort data by year then month
-  const sortedData = [...data].sort((a, b) => {
-    if (a.year !== b.year) return a.year - b.year;
-    return monthOrder[a.month_name] - monthOrder[b.month_name];
+  // Remove duplicates based on year, month, user_type
+  const uniqueData = [];
+  const seen = new Set();
+  data.forEach(d => {
+    const key = `${d.year}-${d.month}-${d.user_type}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniqueData.push(d);
+    }
   });
 
-  // Prepare chart labels and data
-  const labels = sortedData.map(e => `${e.month_name} ${e.year}`);
-  const num_orders = sortedData.map(e => e.users_count);
+  // Sort data
+  uniqueData.sort((a, b) => {
+    if (a.year !== b.year) return a.year - b.year;
+    return a.month - b.month;
+  });
 
-  // Create the chart
+  // Get all months present
+  const labels = [...new Set(uniqueData.map(d => `${d.month_name} ${d.year}`))];
+
+  // Get all user types
+  const userTypes = [...new Set(uniqueData.map(d => d.user_type))];
+
+  // Prepare datasets
+  const colors = {
+    customer: 'orange',
+    courrier: 'blue',
+    restaurantowner: 'green'
+  };
+
+  const datasets = userTypes.map(type => {
+    return {
+      label: type,
+      data: labels.map(label => {
+        const match = uniqueData.find(d => `${d.month_name} ${d.year}` === label && d.user_type === type);
+        return match ? match.users_count : 0;
+      }),
+      backgroundColor: colors[type] || 'gray'
+    };
+  });
+
+  // Create chart
   chartRef2.current = new Chart(ctx, {
     type: 'bar',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Number of subscriptions per month',
-          data: num_orders,
-          backgroundColor: 'orange',
-        },
-      ],
-    },
+    data: { labels, datasets },
     options: {
       responsive: true,
-      plugins: {
-        legend: { position: 'top' },
-        tooltip: { mode: 'index', intersect: false }
-      },
+      plugins: { legend: { position: 'top' } },
       scales: {
         x: { title: { display: true, text: 'Month' } },
         y: { title: { display: true, text: 'Users Count' }, beginAtZero: true }
       }
-    },
+    }
   });
 }
 
-// Use effect to trigger chart redraw
+// React effect
 useEffect(() => {
   barreaux2(userpermonth);
 }, [userpermonth, analytics]);

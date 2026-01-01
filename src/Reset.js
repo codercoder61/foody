@@ -2,7 +2,6 @@ import React, {useState,useEffect} from 'react'
 import { useNavigate ,useParams} from 'react-router-dom';
 function Forgot() {
    
-    const [email,setEmail] = useState("")
     const [error,setError] = useState(false)
     const token = useParams()
 const navigate = useNavigate();
@@ -34,10 +33,8 @@ const navigate = useNavigate();
         if(confPassword===""){
             setError2(true)
         }
-        if(email===""){
-            setError3(true)
-        }
-        if(password!="" && confPassword!="" && email!=""){
+        
+        if(password!="" && confPassword!=""){
           if(password==confPassword){
             try {
         const response = await fetch("https://soc-net.info/foody/resetpassword.php", {
@@ -89,10 +86,7 @@ const navigate = useNavigate();
         }
     }
     
-    const validateEmail = (email) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    };
+    
    
   return (
     <div id="reset" style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',height:'60vh'}}>

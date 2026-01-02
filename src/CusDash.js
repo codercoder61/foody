@@ -1120,6 +1120,7 @@ const filteredRestaurants = restaurants
                   x
                 </span>
                               <input
+style={{ border: 'none', outline: 'none', height: '20px', width: '60px', }}
                 type="number"
                 min="0"
                 onChange={(e) => handleQuantityChange(e, elm.mealIndex)}

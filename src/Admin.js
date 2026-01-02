@@ -1296,7 +1296,7 @@ useEffect(() => {
                 <thead>
                 <tr style={{padding:'10px'}}>
                     <td className='hid' >Profile</td>
-                    {courriers && <th style={{padding: '0 10px'}}>Driver licence</th>}
+                    {courriers && <td style={{padding: '0 10px'}}>Driver licence</td>}
                     <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>Email</td>
                     <td className='hid' style={{ padding: '10px', borderBottom: '1px solid #ddd' }} >Phone</td>
                     <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }} >Block</td>

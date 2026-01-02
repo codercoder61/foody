@@ -82,7 +82,7 @@ function CustomerSignUp() {
                     navigate("/addaddresscus")
                 }
                 if(result.status==="error"){
-                    alert(status.message)
+                    alert(result.message)
                 }
                 } catch (error) {
                 console.error("Error sending data:", error);

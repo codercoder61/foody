@@ -365,7 +365,7 @@ const addMessage =async ()=>{
               {
                 setToggle2(!toggle2);
                 if(toggle2)
-                  notifications.length>0 && flag(id);
+                  flag(id);
                 setToggle(false);
                 setToggle3(false);
               }} style={{position:'relative'}}>

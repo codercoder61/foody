@@ -83,7 +83,7 @@ function CustomerSignUp() {
                     localStorage.setItem('auth', JSON.stringify(true));
                     navigate("/addaddresscourrier");
                 } else if (result.status === "error") {
-                    alert(result.message);
+                    window.alert(result.message);
                 }
 
                 } catch (error) {

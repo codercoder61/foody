@@ -1280,7 +1280,7 @@ style={{ border: 'none', outline: 'none', height: '20px', width: '60px', }}
             </div>
 
             <div style={{marginTop:'20px'}}>
-                <h1 style={{fontSize:'1.3em'}}>Most Ordered Meals 🤩</h1>
+{filteredMeals && <h1 style={{fontSize:'1.3em'}}>Most Ordered Meals 🤩</h1>}
                  <div id="meals">
               {filteredMeals && filteredMeals.map((elm) => (
   <div key={elm.meal.id} className="meal">

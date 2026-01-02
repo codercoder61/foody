@@ -307,6 +307,14 @@ td{
     .updateOrderpopup{
     width: 90%;
 }
+
+    #mn > div:nth-child(3){
+        justify-content: end !important;
+    }
+
+    #mn > div:nth-child(3) > img{
+        margin-right: 15px !important;
+    }
     .updateOrderpopup{
         height: fit-content;
     }

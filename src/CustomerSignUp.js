@@ -81,7 +81,7 @@ function CustomerSignUp() {
     localStorage.setItem('auth', JSON.stringify(true));
     navigate("/addaddresscus");
 } else if (result.status === "error") {
-    alert(result.message);
+    window.alert(result.message);
 }
 
                 } catch (error) {

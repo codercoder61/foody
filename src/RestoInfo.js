@@ -30,6 +30,8 @@ function Restoinfo() {
         const [success34,setSuccess34] = useState(false)
             const message34 = useRef(null)
     const { id } = useParams();
+    const idss = localStorage.getItem('authId');
+
     useEffect(()=>{
           if(!localStorage.getItem('authId')){
             navigate('/')
@@ -544,7 +546,7 @@ const [contact,setContact] = useState(false)
               {
                 setToggle2(!toggle2);
                 if(toggle2)
-                  flag(localStorage.getItem('userId'));
+                  flag(idss);
                 setToggle(false);
                 setToggle3(false);
               }} style={{position:'relative'}}>

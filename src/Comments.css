@@ -55,7 +55,9 @@
     .pala{
         margin:15px 50px 15px;
     }
-
+    #pop > img{
+        margin-right: unset;
+    }
     #pop {
         flex-direction: column;
     }

@@ -1207,7 +1207,7 @@ useEffect(() => {
 
               <i onClick={handleClick2} className="closed fa-solid fa-xmark"></i>
                
-                <p onClick={()=>{setAnalytics(true);setUsers(false);setConfirmation(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{marginTop:'50px',display:'flex',alignItems:'center',width:'100%',backgroundColor:analytics?'#ffecd1':"",color:analytics?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Analytics</p>
+                <p onClick={()=>{setAnalytics(true);setUsers(false);setConfirmation(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{marginTop:'20px',display:'flex',alignItems:'center',width:'100%',backgroundColor:analytics?'#ffecd1':"",color:analytics?"#fb9300":""}}><i className="fa-solid fa-chart-simple"></i> Analytics</p>
 
           <p onClick={()=>{setAnalytics(false);setConfirmation(true);setUsers(false);setCredentials(false);setTickets(false);setReports(false);setOrder1(false);setSettings(false);}} style={{display:'flex',alignItems:'center',width:'100%',backgroundColor:confirmation?'#ffecd1':"",color:confirmation?"#fb9300":""}}><i className="fa-solid fa-check"></i> Confirmation</p>
 
@@ -1296,7 +1296,7 @@ useEffect(() => {
                 <thead>
                 <tr style={{padding:'10px'}}>
                     <td className='hid' >Profile</td>
-
+                    {courriers && <th style={{padding: '0 10px'}}>Driver licence</th>}
                     <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>Email</td>
                     <td className='hid' style={{ padding: '10px', borderBottom: '1px solid #ddd' }} >Phone</td>
                     <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }} >Block</td>
@@ -1322,6 +1322,19 @@ useEffect(() => {
                   {courriers && usersInfo.courriers.filter((elm) => elm.approved === 1).map((elm,index) => (
                     <tr key={elm.id} style={{ backgroundColor: '#fff' }}>
                       <td className='fb'>{elm.name} {elm.surname}</td>
+                       <td className='fbc'>
+                  {elm.driverLicence ? (
+                    <a
+                      href={`https://soc-net.info/foody/${elm.driverLicence}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View
+                    </a>
+                  ) : (
+                    "none"
+                  )}
+                </td>
                       <td style={{padding: '10px'}}>{elm.email}</td>
                       {elm.phone ? <td className='hidd' >{elm.phone}</td> : <td className='hidd'>-</td>}
                       <td style={{padding: '10px'}}>{elm.blocked===1?<i onClick={()=>{unBlockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid red',color:'red'}} className="close fa-solid fa-xmark"></i>:<i onClick={()=>{blockCourrier(elm.id)}} style={{cursor:'pointer',borderRadius:'50%',padding:'5px',border:'1px solid black',color:'black'}} className="close fa-solid fa-xmark"></i>}</td>
@@ -1449,7 +1462,7 @@ useEffect(() => {
 
           {reports &&  <div id='cool'>
                 
-                  <h1 className='gh'>Review Reports</h1>
+                  <h1 style={{fontSize: '1.3em'}} className='gh'>Review Reports</h1>
                  
                <div id='pal'>
                <table>
@@ -1603,7 +1616,7 @@ useEffect(() => {
             <div id='kop'>
                <div id='lop'>
                     <div>
-                        <i style={{borderRadius:'10px',fontSize:'2.2em',padding:'20px',backgroundColor:'#ffecd1'}}
+                        <i style={{borderRadius:'10px',fontSize:'1.2em',padding:'20px',backgroundColor:'#ffecd1'}}
                         className="fa-solid fa-dollar-sign"></i>
                         <div style={{marginLeft:'10px',display:'flex',flexDirection:'column'}}>
                             <span style={{color:'#bbb'}}>Total Customers</span>

@@ -50,7 +50,7 @@ const [flagNotification,setFlagNotification] = useState(false)
     const handleMessageChangeForm = (e)=>{
         setMessageForm(e.target.value)
       }
-      const { id } = useParams();
+      const id = localStorage.getItem('authId');
     const profile = useRef(null)
     const notif = useRef(null)
     const cart = useRef(null)

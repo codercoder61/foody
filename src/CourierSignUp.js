@@ -81,7 +81,7 @@ function CustomerSignUp() {
                 localStorage.setItem('id',result.id)
                 if (result.status == 1) { // use == to handle numeric/string conversion
                     localStorage.setItem('auth', JSON.stringify(true));
-                    navigate("/addaddressres");
+                    navigate("/addaddresscourrier");
                 } else if (result.status === "error") {
                     alert(result.message);
                 }

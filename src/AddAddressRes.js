@@ -205,7 +205,7 @@ function AddAddressRes() {
     
 
   
-    const [error,setError] = useState(true)
+    const [error,setError] = useState(false)
     const handleAddressChange = (e) =>{
       if(e.target.value===""){
         setFlag(false)

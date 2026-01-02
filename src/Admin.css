@@ -16,7 +16,13 @@
     width:100%;
     background-color:white;
 }
-
+canvas{
+    height:300px;
+}
+.ti{
+    max-width:300px;
+    min-width:300px;
+}
 #hh5{
     border:1px solid #ddd;
     outline:none;

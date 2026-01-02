@@ -82,7 +82,7 @@ function CustomerSignUp() {
                     localStorage.setItem('auth', JSON.stringify(true));
                     navigate("/addaddressres");
                 } else if (result.status === "error") {
-                    alert(result.message);
+                    window.alert(result.message);
                 }
 
                 } catch (error) {

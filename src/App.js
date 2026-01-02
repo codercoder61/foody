@@ -20,9 +20,12 @@ import Order from './Order'
 import CourrierDash from './CourrierDash';
 import Comments from './Comments';
 import Admin from './Admin';
+import ScrollToTop from "./ScrollToTop";
+
 function App() {
   return (
     <Router>
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/order" element={<Order />} />

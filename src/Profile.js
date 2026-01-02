@@ -174,6 +174,8 @@ const SelectLocationMap = ({ position, setPosition, addressInput, setAddressInpu
   );
 };
 function Profile() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const [flagNotification,setFlagNotification] = useState(false)
     const [notifications, setNotifications] = useState([]);
     const [toggle,setToggle] = useState(false)
@@ -791,7 +793,7 @@ if(!error2 && !error3 && !error4){
         <header id="header">
             <Link to={`/cusdash/${localStorage.getItem('userId')}`}><img width='120' onClick={()=>{setFirst(true);setFirstProfile(false);}} src="https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=,h=,f=auto,dpr=1,fit=contain/f1646061273072x552344553851359800/Component%202%20%282%29%20%281%29.png" alt="logo"/></Link>
             <div className='pl'>
-                <div ref={cartOpener} onClick={()=>{setToggle3(!toggle3);setToggle(false);setToggle2(false)}} style={{position:'relative'}}>
+                <div ref={cartOpener} onClick={()=>{setIsMenuOpen(!isMenuOpen),setToggle3(!toggle3);setToggle(false);setToggle2(false)}} style={{position:'relative'}}>
                 <i className="fa-solid fa-cart-shopping"></i>
                 {numberOfItems>0 && <span style={{cursor:'pointer',left:'20px',backgroundColor:'#fb9300',color:'white',boxShadow:'none',textAlign:'center',fontSize:'0.7em',position:'absolute',top:'10px',padding:'5px',borderRadius:'50%',height:'20px',width:'20px'}}>{numberOfItems}</span>}
             </div>
@@ -839,9 +841,9 @@ if(!error2 && !error3 && !error4){
   cartBuy?.length > 0 ? (
     <>
     <h2>Order Menu</h2>
-      {cartBuy.map((elm, index) => (
+      {isMenuOpen && cartBuy.map((elm, index) => (
         <div
-          key={index}
+          key={elm.mealIndex}
           style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
         >
           <div style={{ display: 'flex', margin: '20px 0', alignItems: 'center' }}>

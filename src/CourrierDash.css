@@ -146,6 +146,12 @@ margin-right: 20px;
     align-items:center;
 }
 @media screen and (max-width:400px){
+    #slam > div:nth-child(3){
+        justify-content: end;
+    }
+    #slam > div:nth-child(3) > img{
+        margin-right: 10px;
+    }
     .deli22{
         font-size:0.8em;
     }
@@ -203,9 +209,15 @@ margin-right: 20px;
     #fla{
         flex-direction: column;
     }
+    #yui{
+        margin-left: unset;
+    }
     .abc{
-        width: 100%;
-        margin: 10px 0;
+        margin: 10px auto;
+        width: 90%;
+    }
+    #fran{
+        margin:30px auto !important;
     }
     #slam{
         width:300px;

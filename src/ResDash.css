@@ -280,7 +280,7 @@ td{
     cursor:pointer;position:absolute;bottom:50px;right:50px;color:white;background-color:#fb9300;padding:10px 20px;
 }
 .gj{
-    word-wrap:break-word;margin:10px;position:relative;width:30%;box-shadow:0 0 12 rgb(156, 255, 204);padding:15px;border-radius:15px;height:200px;
+    word-wrap:break-word;margin:10px;position:relative;width: 280px !important;box-shadow:0 0 12 rgb(156, 255, 204);padding:15px;border-radius:15px;height:200px;
 }
 #ooo{
     display:flex;flex-wrap:wrap;margin-top:40px;width:100%;padding-right:30px;

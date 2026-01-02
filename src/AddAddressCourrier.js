@@ -194,25 +194,7 @@ function AddAddressCourrier() {
           navigate('/');
         }
       }, []); // <-- include navigate in dependencies
-    useEffect(() => {
-    // Get user's coordinates
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setLatitude(latitude)
-          setLongitude(longitude)
-          // Reverse geocoding using Nominatim (OpenStreetMap)
-          fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=79f59e686d9c4881b2478ba24e3b1416`)
-            .then(res => res.json())
-            .then(data => 
-                setAddress(data.results[0].components.suburb+" "+data.results[0].components.road+" "+data.results[0].components.city+" "+data.results[0].components.county+" "+data.results[0].components.region+" "+ data.results[0].components.state_district)        
-            );
-
-        }
-      );
-    } 
-  }, []);
+    
 
   
     const [error,setError] = useState(true)

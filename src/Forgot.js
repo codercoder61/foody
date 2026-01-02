@@ -79,7 +79,7 @@ function Forgot() {
     }
    
   return (
-    <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',height:'60vh'}}>
+    <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',height:'100vh'}}>
       <img width='200' style={{marginBottom:'50px'}} src="https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=256,h=79,f=auto,dpr=1,fit=contain/f1646061273072x552344553851359800/Component%202%20%282%29%20%281%29.png" alt="logo"/>
       <div style={{backgroundColor:'white',padding:'20px',border:'1px solid #ddd'}}>
         {!code && <><p style={{marginBottom:'20px'}}>We will send a link to you via mail</p>

@@ -35,7 +35,8 @@ function Comments() {
     const [res,setRes] = useState(false)
     const [cus,setCus] = useState(false)
     const [categories,setCategories] = useState([])
-    const id = localStorage.getItem('authId');
+    const {id} = useParams();
+    const idss = localStorage.getItem('authId');
     const profile = useRef(null)
     const notif = useRef(null)
     const cart = useRef(null)
@@ -576,7 +577,7 @@ useEffect(()=>{
               {
                 setToggle2(!toggle2);
                 if(toggle2)
-                  flag(id);
+                  flag(idss);
                 setToggle(false);
                 setToggle3(false);
               }} style={{position:'relative'}}>

@@ -147,7 +147,7 @@ margin-right: 20px;
 }
 @media screen and (max-width:400px){
     #slam > div:nth-child(3){
-        justify-content: end;
+        justify-content: end !important;
     }
     #slam > div:nth-child(3) > img{
         margin-right: 10px;
@@ -227,7 +227,7 @@ margin-right: 20px;
         padding-right: 0;
     }
     #yui{
-        margin-left: 20px;
+        margin-left: unset !important;
         padding-left: 0;
     }
     .gh{

@@ -1229,7 +1229,7 @@ const fetchOrders = async () => {
 
 
           {delivery && <div>
-            <h2 className='gh'>New Orders</h2>
+            <h2 className='gh'>Orders</h2>
             <div id='hfg'>
               <div className='orde'>
                 <span onClick={()=>{setActiveFlag(false);setNewOrdersFlag(true);setDeliveredFlag(false);setReadyFlag(false);}} className='span'>New ({newOrders.length})</span>

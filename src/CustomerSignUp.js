@@ -81,6 +81,9 @@ function CustomerSignUp() {
                     localStorage.setItem('auth', JSON.stringify(true));
                     navigate("/addaddresscus")
                 }
+                if(result.status==="error"){
+                    alert(status.message)
+                }
                 } catch (error) {
                 console.error("Error sending data:", error);
                 }

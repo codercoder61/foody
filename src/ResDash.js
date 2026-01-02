@@ -558,6 +558,10 @@ function ResDash() {
     const handleNameChange = (e)=>{
       setName(e.target.value)
     }
+    const [phone,setPhone] = useState("")
+    const handlePhoneChange = (e)=>{
+      setPhone(e.target.value)
+    }
     const handleLocationChange = (e)=>{
       setLocation(e.target.value)
     }
@@ -594,6 +598,7 @@ function ResDash() {
         const result = await response.json();
         //result); // { success: true, message: "..." }
         setName(result.userData.restaurantName)
+        setPhone(result.userData.phone)
         setAddressInput(result.userData.restaurantLocation)
         setRange(result.userData.serviceRange)
         setTime(result.userData.serviceStarts)
@@ -860,6 +865,7 @@ function donut(data){
       const formData = new FormData();
     formData.append("file", file);
     formData.append("name", name);
+    formData.append("phone", phone);
     formData.append("location", addressInput);
     formData.append("id", id)
     formData.append("lat", position.lat)
@@ -1533,6 +1539,8 @@ function barreaux(data){
                     {previewUrl && <img onClick={handleImageClick} src={previewUrl} alt="Preview" width="120" style={{padding:'2px', cursor: 'pointer',border: '2px dashed #ccc', borderRadius: '10px'}} />}
                     <h5 style={{margin:'10px 0'}}>Name</h5>
                     <input value={name} onChange={handleNameChange} type="text"/>
+                      <h5 style={{margin:'10px 0'}}>Phone</h5>
+                    <input value={phone} onChange={handlePhoneChange} type="text"/>
                     <h5 style={{margin:'10px 0'}}>Location</h5>
                     <SelectLocationMap
                 position={position}

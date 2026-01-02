@@ -35,7 +35,7 @@ function Comments() {
     const [res,setRes] = useState(false)
     const [cus,setCus] = useState(false)
     const [categories,setCategories] = useState([])
-    const { id } = useParams();
+    const id = localStorage.getItem('authId');
     const profile = useRef(null)
     const notif = useRef(null)
     const cart = useRef(null)

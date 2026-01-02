@@ -77,13 +77,13 @@ function CustomerSignUp() {
                 const result = await res.json();
                 localStorage.removeItem('id');
                 localStorage.setItem('id',result.id)
-                if(result.status===1){
-                    localStorage.setItem('auth', JSON.stringify(true));
-                    navigate("/addaddresscus")
-                }
-                if(result.status==="error"){
-                    alert(result.message)
-                }
+                if (result.status == 1) { // use == to handle numeric/string conversion
+    localStorage.setItem('auth', JSON.stringify(true));
+    navigate("/addaddresscus");
+} else if (result.status === "error") {
+    alert(result.message);
+}
+
                 } catch (error) {
                 console.error("Error sending data:", error);
                 }

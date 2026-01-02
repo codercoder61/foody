@@ -89,28 +89,45 @@ function Order() {
         setNumberOfItems(number)
 };
    const handleQuantityChange = (e, index) => {
-  const value = parseInt(e.target.value);
-  const newQuantity = isNaN(value) || value < 1 ? 1 : value;
+  const rawValue = e.target.value;
 
+  // allow empty input while typing
+  if (rawValue === "") {
+    updateQuantity(index, "");
+    return;
+  }
+
+  const value = parseInt(rawValue, 10);
+
+  if (isNaN(value) || value < 0) return;
+
+  updateQuantity(index, value);
+};
+
+const updateQuantity = (index, quantity) => {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  const existingItemIndex = cart.findIndex(meal => meal.mealIndex === index);
-
-  if (existingItemIndex !== -1) {
-    cart[existingItemIndex].quantity = newQuantity; // ⬅️ directly set it
+  const itemIndex = cart.findIndex(meal => meal.mealIndex === index);
+  if (itemIndex !== -1) {
+    cart[itemIndex].quantity = quantity;
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
   setCartBuy(cart);
 
-  const totala = cart.reduce((acc, item) => acc + item.mealPrice * item.quantity, 0);
-        setTotal(totala)
-  let number = 0
-        cart.map((elm)=>{
-          number+=elm.quantity
-        })
-        setNumberOfItems(number)
+  const total = cart.reduce(
+    (acc, item) => acc + item.mealPrice * (item.quantity || 0),
+    0
+  );
+  setTotal(total);
+
+  const number = cart.reduce(
+    (acc, item) => acc + (item.quantity || 0),
+    0
+  );
+  setNumberOfItems(number);
 };
+
 
    
    
@@ -509,16 +526,12 @@ const handleMessageChangeForm = (e)=>{
                   x
                 </span>
                 <input
-                  onChange={(e) => handleQuantityChange(e, elm.mealIndex)}
-                  style={{
-                    border: 'none',
-                    outline: 'none',
-                    height: '20px',
-                    width: '60px',
-                  }}
-                  type="number"
-                  value={elm.quantity}
-                />
+style={{ border: 'none', outline: 'none', height: '20px', width: '60px', }}
+                type="number"
+                min="0"
+                onChange={(e) => handleQuantityChange(e, elm.mealIndex)}
+                value={elm.quantity ?? ""}
+              />
               </div>
             </div>
           </div>

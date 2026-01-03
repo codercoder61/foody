@@ -55,7 +55,7 @@ function LocationMarker({ position, setPosition, setAddressInput }) {
 
   return position ? (
     <Marker
-      position={[position.lat, position.lng]}
+      position={[position?.lat, position?.lng]}
       draggable
       eventHandlers={{
         dragend: (e) => {
@@ -72,9 +72,16 @@ function LocationMarker({ position, setPosition, setAddressInput }) {
 
 function FlyToLocation({ position }) {
   const map = useMap();
-  if (position) {
-    map.flyTo([position.lat, position.lng], 14);
-  }
+   if (
+      position?.lat != null &&
+      position?.lng != null
+    ) {
+      map.flyTo(
+        [Number(position.lat), Number(position.lng)],
+        14,
+        { animate: true }
+      );
+    }
   return null;
 }
 
@@ -169,7 +176,10 @@ const SelectLocationMap = ({ position, setPosition, addressInput, setAddressInpu
 
       {position && (
         <p style={{ marginTop: "1rem" }}>
-          <strong>Latitude:</strong> {position.lat}, <strong>Longitude:</strong> {position.lng}
+<strong>Latitude:</strong>{" "}
+{position?.lat != null ? Number(position.lat).toFixed(6) : "—"},{" "}
+<strong>Longitude:</strong>{" "}
+{position?.lng != null ? Number(position.lng).toFixed(6) : "—"}
         </p>
       )}
     </>
@@ -794,8 +804,14 @@ const markAsDelivered = async (orderId,customerId,restoName) => {
   formData.append("range", range);
   formData.append("location", addressInput);
   formData.append("id", id)
-  formData.append("lat", position.lat)
-  formData.append("lng", position.lng)
+  if (position?.lat == null || position?.lng == null) {
+  alert("Please select a location on the map");
+  return;
+}
+
+formData.append("lat", String(position.lat));
+formData.append("lng", String(position.lng));
+
 
   try {
     const res = await fetch("https://soc-net.info/foody/updateCourrierInfo2.php", {
@@ -886,22 +902,51 @@ function filterCustomersInCourierRange(customers, courier) {
 }
 
 function isOrderInCourierRange(orderObj, position, range) {
-  if (!position || position.lat == null || position.lng == null) {
+  // Validate courier position
+  if (
+    position?.lat == null ||
+    position?.lng == null
+  ) {
     return false;
   }
 
+  // Validate restaurant coords
+  if (
+    orderObj?.restaurant?.latitude == null ||
+    orderObj?.restaurant?.longitude == null
+  ) {
+    return false;
+  }
+
+  // Validate customer coords
+  if (
+    orderObj?.customer?.latitude == null ||
+    orderObj?.customer?.longitude == null
+  ) {
+    return false;
+  }
+
+  const courierLat = Number(position.lat);
+  const courierLng = Number(position.lng);
+
+  const restaurantLat = Number(orderObj.restaurant.latitude);
+  const restaurantLng = Number(orderObj.restaurant.longitude);
+
+  const customerLat = Number(orderObj.customer.latitude);
+  const customerLng = Number(orderObj.customer.longitude);
+
   const distanceToRestaurant = getDistanceKm(
-    position.lat,
-    position.lng,
-    orderObj.restaurant.latitude,
-    orderObj.restaurant.longitude
+    courierLat,
+    courierLng,
+    restaurantLat,
+    restaurantLng
   );
 
   const distanceToCustomer = getDistanceKm(
-    position.lat,
-    position.lng,
-    orderObj.customer.latitude,
-    orderObj.customer.longitude
+    courierLat,
+    courierLng,
+    customerLat,
+    customerLng
   );
 
   return (
@@ -909,6 +954,7 @@ function isOrderInCourierRange(orderObj, position, range) {
     distanceToCustomer <= range
   );
 }
+
 const fetchOrders = async () => {
   try {
     const response = await fetch(

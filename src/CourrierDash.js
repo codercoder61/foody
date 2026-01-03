@@ -1250,7 +1250,7 @@ const fetchOrders = async () => {
           <span>{elm.restaurant.restaurantLocation}</span>
         </div>
         <div style={{textAlign:'center', marginRight: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <span>Distance : {getDistanceFromLatLonInKm(elm.customer.latitude, elm.customer.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
+          <span>Distance : {getDistanceFromLatLonInKm(elm.customer?.latitude, elm.customer?.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
           <span>Delivery Fee : $10</span>
           <hr style={{backgroundColor:'#00aec8',margin:'15px 0',height:'5px',width:'100%'}}/>
           <span>Created: {formatDateDifference(elm.order.dateOrder)} ago</span>
@@ -1258,8 +1258,8 @@ const fetchOrders = async () => {
         </div>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <i style={{ color: 'red', fontSize: '3em' }} className="fa-solid fa-location-dot"></i>
-          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer.name}</span>
-          <span>{elm.customer.addresse}</span>
+          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer?.name}</span>
+          <span>{elm.customer?.addresse}</span>
         </div>
       </div>
     );
@@ -1285,7 +1285,7 @@ const fetchOrders = async () => {
           <span>{elm.restaurant.restaurantLocation}</span>
         </div>
         <div style={{textAlign:'center', marginRight: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <span>Distance : {getDistanceFromLatLonInKm(elm.customer.latitude, elm.customer.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
+          <span>Distance : {getDistanceFromLatLonInKm(elm.customer?.latitude, elm.customer?.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
           <span>Delivery Fee : $10</span>
           <hr style={{backgroundColor:'#00aec8',margin:'15px 0',height:'5px',width:'100%'}}/>
           <span>Created: {formatDateDifference(elm.order.dateOrder)} ago</span>
@@ -1293,8 +1293,8 @@ const fetchOrders = async () => {
         </div>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <i style={{ color: 'red', fontSize: '3em' }} className="fa-solid fa-location-dot"></i>
-          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer.name}</span>
-          <span>{elm.customer.addresse}</span>
+          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer?.name}</span>
+          <span>{elm.customer?.addresse}</span>
         </div>
       </div>
       
@@ -1304,7 +1304,7 @@ const fetchOrders = async () => {
               setOpenMapIndex(openMapIndex === index ? null : index)
             } style={{cursor:'pointer',color:'#00aec8',cursor:'pointer'}}>
                {openMapIndex === index ? "Hide the restaurant on the map" : "Show the restaurant on the map"}</span>
-        <span onClick={()=>{pickUp(elm.order.order_id,elm.customer.id,elm.restaurant.restaurantName)}} className='pickUp'>I picked up</span>
+        <span onClick={()=>{pickUp(elm.order.order_id,elm.customer?.id,elm.restaurant.restaurantName)}} className='pickUp'>I picked up</span>
       </div>
        {openMapIndex === index && (
             <SimpleMap
@@ -1336,7 +1336,7 @@ const fetchOrders = async () => {
           <span>{elm.restaurant.restaurantLocation}</span>
         </div>
         <div style={{textAlign:'center', marginRight: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <span>Distance : {getDistanceFromLatLonInKm(elm.customer.latitude, elm.customer.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
+          <span>Distance : {getDistanceFromLatLonInKm(elm.customer?.latitude, elm.customer?.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
           <span>Delivery Fee : $10</span>
           <hr style={{backgroundColor:'#00aec8',margin:'15px 0',height:'5px',width:'100%'}}/>
           <span>Created: {formatDateDifference(elm.order.dateOrder)} ago</span>
@@ -1344,8 +1344,8 @@ const fetchOrders = async () => {
         </div>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <i style={{ color: 'red', fontSize: '3em' }} className="fa-solid fa-location-dot"></i>
-          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer.name}</span>
-          <span>{elm.customer.addresse}</span>
+          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer?.name}</span>
+          <span>{elm.customer?.addresse}</span>
         </div>
       </div>
       
@@ -1354,13 +1354,13 @@ const fetchOrders = async () => {
         <span  onClick={() =>
               setOpenMapIndex2(openMapIndex2 === index ? null : index)
             } style={{color:'#00aec8',cursor:'pointer'}}> {openMapIndex2 === index ? "Hide the customer on the map" : "Show the customer on the map"}</span>
-        <span onClick={()=>markAsDelivered(elm.order.order_id,elm.customer.id,elm.restaurant.restaurantName)} className='pickUpp'>Mark as delivered</span>
+        <span onClick={()=>markAsDelivered(elm.order.order_id,elm.customer?.id,elm.restaurant.restaurantName)} className='pickUpp'>Mark as delivered</span>
       </div>
       
        {openMapIndex2 === index && (
             <SimpleMap
-              latitude={parseFloat(elm.customer.latitude)}
-              longitude={parseFloat(elm.customer.longitude)}
+              latitude={parseFloat(elm.customer?.latitude)}
+              longitude={parseFloat(elm.customer?.longitude)}
             />
           )}
             
@@ -1385,7 +1385,7 @@ const fetchOrders = async () => {
           <span>{elm.restaurant.restaurantLocation}</span>
         </div>
         <div style={{textAlign:'center', marginRight: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          <span>Distance : {getDistanceFromLatLonInKm(elm.customer.latitude, elm.customer.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
+          <span>Distance : {getDistanceFromLatLonInKm(elm.customer?.latitude, elm.customer?.longitude, elm.restaurant.latitude,elm.restaurant.longitude).toFixed(2)}km</span>
           <span>Delivery Fee : $10</span>
           <hr style={{backgroundColor:'#00aec8',margin:'15px 0',height:'5px',width:'100%'}}/>
           <span>Created: {formatDateDifference(elm.order.dateOrder)} ago</span>
@@ -1393,8 +1393,8 @@ const fetchOrders = async () => {
         </div>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <i style={{ color: 'red', fontSize: '3em' }} className="fa-solid fa-location-dot"></i>
-          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer.name}</span>
-          <span>{elm.customer.addresse}</span>
+          <span style={{color:'#bbb',fontSize:'1.3em'}}>{elm.customer?.name}</span>
+          <span>{elm.customer?.addresse}</span>
         </div>
       </div>
     );

@@ -926,8 +926,12 @@ function isOrderInCourierRange(orderObj, position, range) {
     return false;
   }
 
-  const courierLat = Number(position.lat);
-  const courierLng = Number(position.lng);
+  const courierLat =
+  position?.lat != null ? Number(position.lat) : null;
+
+const courierLng =
+  position?.lng != null ? Number(position.lng) : null;
+
 
   const restaurantLat = Number(orderObj.restaurant.latitude);
   const restaurantLng = Number(orderObj.restaurant.longitude);

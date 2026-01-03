@@ -268,21 +268,27 @@ function CheckOut() {
 
     useEffect(()=>{
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const validCart = cart.filter(
+          item => Number(item.quantity) > 0
+        );
         let arrayFrom = []
         let arrayMeals = []
-        cart.map(elm=>{
-          if(arrayFrom.indexOf(elm.restaurantName)===-1){
-            arrayFrom.push(elm.restaurantName)
+        validCart.forEach(elm => {
+          if (!arrayFrom.includes(elm.restaurantName)) {
+            arrayFrom.push(elm.restaurantName);
           }
-        })
-        cart.map(elm=>{
-          if(arrayMeals.indexOf(elm.mealName)===-1){
-            arrayMeals.push(elm.mealName)
+        });
+        validCart.forEach(elm => {
+          if (!arrayMeals.includes(elm.mealName)) {
+            arrayMeals.push(elm.mealName);
           }
-        })
-        setMeals(arrayMeals.join(","))
-        setFrom(arrayFrom.join(","))
-        const totala = cart.reduce((acc, item) => acc + item.mealPrice * item.quantity, 0);
+        });
+        setMeals(arrayMeals.join(", "))
+        setFrom(arrayFrom.join(", "))
+        const totala =validCart.reduce(
+          (acc, item) => acc + item.mealPrice * item.quantity,
+          0
+        );
         setTotal(totala)
         
     },[])

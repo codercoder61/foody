@@ -1686,7 +1686,7 @@ useEffect(() => {
                      {mostUsers && mostUsers.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
                       <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo?.photo!=null?`https://soc-net.info/foody/${elm.userInfo?.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>
-  {(elm.userInfo?.name).trim()}
+  {elm.userInfo?.name?.trim()}
 </span>
 </div>
                       <span style={{color:'#888',fontSize:'0.8'}}>{elm.mostUsersInfo.number_orders}</span>

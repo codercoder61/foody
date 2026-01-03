@@ -714,7 +714,7 @@ style={{ border: 'none', outline: 'none', height: '20px', width: '60px', }}
                 <div key={index}>
                   <img style={{borderTopLeftRadius:'20px',borderTopRightRadius:'20px',objectFit:'cover'}} height='200' width='300' src={`https://soc-net.info/foody/${elm.photo}`} alt={`meal ${index}`}/>
                   <span style={{margin:'10px 20px 0px 10px ',fontSize:'1.3em',fontWeight:'500'}}>{elm.name}</span>
-                  <span style={{margin:'0px 20px 5px 10px ',fontSize:'0.8em',fontWeight:'500',color:'#999'}}>{elm.ingredients.split(' ').join(',')}</span>
+                  <span style={{margin:'0px 20px 5px 10px ',fontSize:'0.8em',fontWeight:'500',color:'#999'}}>{elm.ingredients.split(' ').join(', ')}</span>
                   <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                     <span style={{margin:'10px 20px 0px 10px ',fontSize:'1.9em',fontWeight:'500'}}>${elm.price}</span>
                     <i onClick={()=>addToCart(elm.id,elm.id_restaurantOwner)} className="buy fa-solid fa-plus"></i>

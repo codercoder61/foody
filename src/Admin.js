@@ -1178,9 +1178,9 @@ useEffect(() => {
         <div id='lala' style={{height:'50%',overflowY:'scroll'}}>
         {messages && messages.map((elm,index)=>(
           <div key={index}  style={{wordBreak:'break-word',display:'flex',fontSize:'0.8em'}}>
-          <img width='70' height='70' style={{borderRadius:'50%',objectFit:'cover',margin:'0px 20px 20px 0'}} src={elm.info.isAdmin==0?elm.userInfo.photo ?`https://soc-net.info/foody/${elm.userInfo.photo}`:elm.userInfo.logo ?`https://soc-net.info/foody/${elm.userInfo.logo}`:'https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png':"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=1,fit=contain/f1646061270754x888289544466858600/Component%203%20%282%29%20%281%29.png"} alt={`${index}`} />
+          <img width='70' height='70' style={{borderRadius:'50%',objectFit:'cover',margin:'0px 20px 20px 0'}} src={elm.info.isAdmin==0?elm.userInfo?.photo ?`https://soc-net.info/foody/${elm.userInfo?.photo}`:elm.userInfo?.logo ?`https://soc-net.info/foody/${elm.userInfo?.logo}`:'https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png':"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=64,h=64,f=auto,dpr=1,fit=contain/f1646061270754x888289544466858600/Component%203%20%282%29%20%281%29.png"} alt={`${index}`} />
             <div>
-              <p style={{fontWeight:'bold',fontSize:'1.3em'}}>{elm.info.isAdmin==0 ? elm.userInfo.name :"Admin"}</p>
+              <p style={{fontWeight:'bold',fontSize:'1.3em'}}>{elm.info.isAdmin==0 ? elm.userInfo?.name :"Admin"}</p>
               <p style={{wwordBreak: 'break-word',color:'gray',fontSize:'0.9em'}}>{elm.info.content}</p>
               <p style={{color:'gray',fontSize:'0.7em'}}><i style={{fontSize:'0.8em'}} className="fa-solid fa-circle-xmark"></i>{' '}
                 {new Date(elm.info.dateMessage).toLocaleDateString('en-US', {
@@ -1482,7 +1482,7 @@ useEffect(() => {
                     <tr key={elm.commentContent.id} style={{ backgroundColor: '#fff' }}>
                       <td className='pis' >{elm.commentInfo.order_id}</td>
                       <td className='pi' style={{ padding: '10px' }}>
-  {elm.userInfo.restaurantName || elm.userInfo.name}
+  {elm.userInfo?.restaurantName || elm.userInfo?.name}
 </td>
 
                       <td style={{padding: '10px'}}>{elm.commentContent.comment}</td>
@@ -1685,8 +1685,8 @@ useEffect(() => {
                     </div>
                      {mostUsers && mostUsers.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
-                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo.photo!=null?`https://soc-net.info/foody/${elm.userInfo.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>
-  {(elm.userInfo.name).trim()}
+                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo?.photo!=null?`https://soc-net.info/foody/${elm.userInfo?.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>
+  {(elm.userInfo?.name).trim()}
 </span>
 </div>
                       <span style={{color:'#888',fontSize:'0.8'}}>{elm.mostUsersInfo.number_orders}</span>
@@ -1700,7 +1700,7 @@ useEffect(() => {
                     </div>
                      {mostCourriers && mostCourriers.map((elm,index)=>(
                       <div key={index} style={{display:'flex',marginTop:'10px',justifyContent:'space-between',alignItems:'center'}}>
-                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo.photo!=null?`https://soc-net.info/foody/${elm.userInfo.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.userInfo.name} {elm.userInfo.surname}</span></div>
+                      <div style={{display:'flex',alignItems:'center'}}><img height='40' width='40' style={{borderRadius:'50%',objectFit:'cover',marginRight:'5px'}} src={elm.userInfo?.photo!=null?`https://soc-net.info/foody/${elm.userInfo?.photo}`:"https://21985162c3f6de69b3a2fa38c4458a89.cdn.bubble.io/cdn-cgi/image/w=48,h=48,f=auto,dpr=1,fit=contain/f1643645120337x435152378012765760/chefauchef-01%2B%281%29.png"}/><span>{elm.userInfo?.name} {elm.userInfo?.surname}</span></div>
                       <span style={{color:'#888',fontSize:'0.8'}}>{elm.mostCourriersInfo.number_orders}</span>
                     </div>
                     ))}</div>

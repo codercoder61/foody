@@ -45,29 +45,40 @@ function LocationMarker({ position, setPosition, setAddressInput }) {
 
 
   useMapEvents({
-    click(e) {
-      const lat = e.latlng.lat.toFixed(6);
-      const lng = e.latlng.lng.toFixed(6);
-      setPosition({ lat, lng });
-      fetchAddress(lat, lng); // update address input on map click
-    },
-  });
+  click(e) {
+    if (!e?.latlng) return; // <-- guard against null
+
+    const lat = Number(e.latlng.lat.toFixed(6));
+    const lng = Number(e.latlng.lng.toFixed(6));
+
+    if (isNaN(lat) || isNaN(lng)) return; // extra safety
+
+    setPosition({ lat, lng });
+    fetchAddress(lat, lng);
+  },
+});
+
 
   return position ? (
-    <Marker
-      position={[position?.lat, position?.lng]}
-      draggable
-      eventHandlers={{
-        dragend: (e) => {
-          const latlng = e.target.getLatLng();
-          const lat = latlng.lat.toFixed(6);
-          const lng = latlng.lng.toFixed(6);
-          setPosition({ lat, lng });
-          fetchAddress(lat, lng); // also update address on drag
-        },
-      }}
-    />
-  ) : null;
+  <Marker
+    position={[Number(position.lat), Number(position.lng)]} // ensure numbers
+    draggable
+    eventHandlers={{
+      dragend: (e) => {
+        const latlng = e?.target?.getLatLng();
+        if (!latlng) return; // guard
+
+        const lat = Number(latlng.lat.toFixed(6));
+        const lng = Number(latlng.lng.toFixed(6));
+
+        if (isNaN(lat) || isNaN(lng)) return; // extra safety
+
+        setPosition({ lat, lng });
+        fetchAddress(lat, lng); // also update address on drag
+      },
+    }}
+  />
+) : null;
 }
 
 function FlyToLocation({ position }) {
@@ -111,13 +122,20 @@ const SelectLocationMap = ({ position, setPosition, addressInput, setAddressInpu
 };
 
 
-  const handleSuggestionClick = (place) => {
-    const lat = parseFloat(place.geometry.lat).toFixed(6);
-    const lng = parseFloat(place.geometry.lng).toFixed(6);
-    setPosition({ lat, lng });
-    setAddressInput(place.formatted);
-    setSuggestions([]);
-  };
+ const handleSuggestionClick = (place) => {
+  const lat = Number(parseFloat(place.geometry.lat).toFixed(6));
+  const lng = Number(parseFloat(place.geometry.lng).toFixed(6));
+
+  if (isNaN(lat) || isNaN(lng)) {
+    console.warn("Invalid coordinates from suggestion:", place);
+    return;
+  }
+
+  setPosition({ lat, lng });
+  setAddressInput(place.formatted);
+  setSuggestions([]);
+};
+
 
   return (
     <>

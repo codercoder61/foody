@@ -337,6 +337,8 @@ function CheckOut() {
         const result = await response.json();
         if(result.status==1){
           navigate(`/cusdash/${localStorage.getItem('userId')}/1`)
+        }else if(result.status===0){
+          alert(result.message)
         }
         //result)
       } catch (error) {

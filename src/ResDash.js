@@ -1702,14 +1702,14 @@ function barreaux(data){
                   {orders && orders.map((elm,index) => (
                     <tr key={elm.order.order_id} style={{ backgroundColor: '#fff' }}>
                       <td className='fra'>#{elm.order.order_id}</td>
-                      <td id='ch'>{elm.customer.name}</td>
+                      <td id='ch'>{elm.customer?.name}</td>
                       <td >{elm.order.meal_names}</td>
                       <td className='fra'>${elm.order.total_amount}</td>
                       <td ><span style={{padding:'5px',borderRadius:'15px',color:'white',backgroundColor:(elm.order.status=="Ready" || elm.order.status=='Delivered')?"green":elm.order.status=='Pending'?'#02aec7':elm.order.status=='Rejected'?"red":elm.order.status=='Active'?"green":'#f5b253'}}>{elm.order.status}</span></td>
                       <td className='fra'>
                         {new Date(elm.order.dateOrder.replace(' ', 'T')).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).replace(',', '')}
                       </td>
-                      <td>{(elm.order.status!=='Delivered' && elm.order.status!=='Rejected')  && <i style={{padding: '10px 10px',color:'#02aec7',cursor:'pointer'}} className="fa-solid fa-pen-to-square" onClick={()=>changeOrderStatus(elm.order.order_id,elm.order.status,elm.customer.id)}></i> }</td>
+                      <td>{(elm.order.status!=='Delivered' && elm.order.status!=='Rejected')  && <i style={{padding: '10px 10px',color:'#02aec7',cursor:'pointer'}} className="fa-solid fa-pen-to-square" onClick={()=>changeOrderStatus(elm.order.order_id,elm.order.status,elm.customer?.id)}></i> }</td>
                     </tr>
                   ))}
                 </tbody>

@@ -1262,7 +1262,7 @@ useEffect(() => {
                     <tr key={elm.orders.order_id} style={{ backgroundColor: '#fff' }}>
                       <td style={{padding: '10px', display:'flex',alignItems:'center',padding: '10px 10px' }}>{elm.orders.order_id}</td>
                       <td className='pi'>{elm.orders.restaurantName}</td>
-                      <td className='pi' >{elm.customerInfo.name}</td>
+                      <td className='pi' >{elm.customerInfo?.name}</td>
                       <td className='pi' ><span style={{padding:'5px',borderRadius:'15px',color:'white',backgroundColor:(elm.orders.status=="Ready" || elm.orders.status=='Delivered')?"green":elm.orders.status=='Pending'?'#02aec7':elm.orders.status=='Rejected'?"red":elm.orders.status=='Active'?"green":'#f5b253'}}>{elm.orders.status}</span></td>
                       <td className='pi'> {formatDate(elm.orders.dateOrder)}
                           
